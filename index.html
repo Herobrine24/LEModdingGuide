@@ -46,28 +46,15 @@
 		<script src="https://www.google.com/recaptcha/api.js"></script>
 
 	</head>
-		<style>
-		.logo {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			height: 100vh;
-			background-color: #f0f0f0;
-		}
-		img {
-			max-width: 100%;
-			max-height: 100%;
-		}
-		</style>
 	<body data-vsapp-context="home">
 		<div class="site_wrapper">
 			<header class="main_header">
 				<div class="header_inner_wrapper">
 					<div class="top_nav">
 						<div class="logo">
-								<a href="https://www.valvesoftware.com/en/about">
-									<img src="https://cdn.discordapp.com/attachments/861306848832520222/869652808033521724/LE_Modding-Guide.png" alt="Transparent PNG">
-								</a>
+							<a href="https://www.valvesoftware.com/en/about">
+								<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 436 121.06"><defs><clipPath id="clip-path"><rect class="cls-1" x="1" y="-1" width="436" height="124.06"></rect></clipPath></defs><polygon class="cls-2" points="142.57 36.95 134.84 67.88 151.01 67.88 142.57 36.95"></polygon><g class="cls-3"><path class="cls-2" d="M47.1,24.6l14.1,55.3L75,24.6h15.2L67.9,97.8H54.5L32.7,24.6H47.1z M132.4,24.6h19.7l20.8,73.3h-14.8 l-4.9-18.3h-21.9c0,0-3.8,14.7-4.6,18c-4.4,0.3-15.1,0-15.1,0L132.4,24.6z M208.4,24.6h14.4v60.9h30.7v12.3h-45.1L208.4,24.6z M285.9,24.6L300,79.2l13.7-54.6h14.8l-22.2,73.3h-13l-22.2-73.3L285.9,24.6z M389.5,24.6v9.5h-19.7v10.6h18v9.5h-18v10.9h19.7 v9.5h-30.7v-50H389.5z M0,123.2h436V-1.1H0"></path></g></svg>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -77,13 +64,13 @@
 			<div id="content_outer_wrapper">
 				<div id="content_inner_wrapper">
 					<div id="content" data-content-context="home"><div id="page_background_videos">
-				<video playsinline="" muted="" class="background_video" poster="https://cdn.akamai.steamstatic.com/valvesoftware/images/videos/hero_01_fullsize.jpg" style="opacity: 0;">
+				<video playsinline="" muted="" class="background_video" poster="https://cdn.akamai.steamstatic.com/valvesoftware/images/videos/hero_01_fullsize.jpg" style="opacity: 1;">
 				<source class="fullsize" src="https://cdn.akamai.steamstatic.com/valvesoftware/images/videos/hero_01_fullsize.webm" type="video/webm">
 				<source class="fullsize" src="https://cdn.akamai.steamstatic.com/valvesoftware/images/videos/hero_01_fullsize.mp4" type="video/mp4">
 				<source class="mobile" src="https://cdn.akamai.steamstatic.com/valvesoftware/images/videos/hero_01_small.webm" type="video/webm">
 				<source class="mobile" src="https://cdn.akamai.steamstatic.com/valvesoftware/images/videos/hero_01_small.mp4" type="video/mp4">
 			</video>
-						<video playsinline="" muted="" class="background_video" poster="https://cdn.akamai.steamstatic.com/valvesoftware/images/videos/hero_02_fullsize.jpg" style="opacity: 1;">
+						<video playsinline="" muted="" class="background_video" poster="https://cdn.akamai.steamstatic.com/valvesoftware/images/videos/hero_02_fullsize.jpg" style="opacity: 0;">
 				<source class="fullsize" src="https://cdn.akamai.steamstatic.com/valvesoftware/images/videos/hero_02_fullsize.webm" type="video/webm">
 				<source class="fullsize" src="https://cdn.akamai.steamstatic.com/valvesoftware/images/videos/hero_02_fullsize.mp4" type="video/mp4">
 				<source class="mobile" src="https://cdn.akamai.steamstatic.com/valvesoftware/images/videos/hero_02_small.webm" type="video/webm">
@@ -105,7 +92,7 @@
 					<h3>
 						<a href="about">We make games, Steam, and hardware. Join us.</a>					</h3>
 					<p>
-						We aren't a typical company—which is why you're here, right? As a flat company without hierarchy and job titles, we don't usually hire for specific roles. (Though we sometimes do!) Opportunities at Valve run broad and deep. We're always hiring highly experienced collaborators who are the best at what they do, across the following areas:					</p>
+						This Guide covers the installation of content and texture mods in general and lists mods that I personally recommend or find interesting for the Legendary Edition for both first playthroughs and non-first playthroughs and has spoiler free installation instructions.					</p>
 				</div>
 				<div class="col_5 col_offset_1 search_form filterform" action="#">
 					<form>
@@ -127,14 +114,25 @@
 		<div class="row">
 			<div class="col_12">
 				<ul class="job_tags">
-											<li class="job_tag" data-job_cat="art">
-							<a href="#">Art</a>
-							<div class="job_openings_wrapper">
+											<li class="job_tag selected" data-job_cat="art" style="padding-bottom: 1884px;">
+							<a href="#">1. Introduction and Preperation</a>
+							<div class="job_openings_wrapper" style="height: 1784px;">
 								<div class="job_openings_inner_wrapper row">
 
 									
 	<div class="col_12 job_openings_category_description">
-		<b>We're always hiring.</b><p>We hire people with broad skill sets who also exhibit deep expertise. While nobody at Valve has a job title, we do have certain fields that we're always looking to hire in.</p>	</div>
+		<b>Before beginning, ensure that…</b><ul>
+    <li>The games were launched at least once after they have been installed</li>
+			<li>If on Origin, “Enable Origin In-Game” is set to off in the Origin Application’s Settings</li>
+			<li>Automatic Game Updates for the game is disabled if that options is available on your store platform</li>
+			<li>There's plenty of free space on your PC (up to ~250GB for all game backups and mods listed in the guide)</li>
+			<li>The Graphics settings in all 3 games have been set to your preferences</li>
+			<li>If you previously modded the games, ensure you have fresh installs of the games (Repairs are not clean!)</li>
+			<li>The games and modding tools are whitelisted in your Anti-Virus’ settings (Especially with Avast and AVG)</li>
+			<li>You have a free or premium NexusMods account</li>
+			<li>You're on Windows 8/10/11 (The tools might run on other OS too but you won't receive any official support)</li>
+			<li>The games are preferably set to English (Not all mods fully support all the non-English languages)</li>
+</ul>	</div>
 
 	<div class="col_12">
 	<div class="job_openings">
@@ -183,9 +181,9 @@
 								</div>
 							</div>
 						</li>
-											<li class="job_tag" data-job_cat="audio">
+											<li class="job_tag" data-job_cat="audio" style="padding-bottom: 0px;">
 							<a href="#">Audio</a>
-							<div class="job_openings_wrapper">
+							<div class="job_openings_wrapper" style="height: 0px;">
 								<div class="job_openings_inner_wrapper row">
 
 									
@@ -216,9 +214,9 @@
 								</div>
 							</div>
 						</li>
-											<li class="job_tag" data-job_cat="business-development">
+											<li class="job_tag" data-job_cat="business-development" style="padding-bottom: 0px;">
 							<a href="#">Business Development</a>
-							<div class="job_openings_wrapper">
+							<div class="job_openings_wrapper" style="height: 0px;">
 								<div class="job_openings_inner_wrapper row">
 
 									
@@ -256,9 +254,9 @@
 								</div>
 							</div>
 						</li>
-											<li class="job_tag" data-job_cat="data-science">
+											<li class="job_tag" data-job_cat="data-science" style="padding-bottom: 0px;">
 							<a href="#">Data Science</a>
-							<div class="job_openings_wrapper">
+							<div class="job_openings_wrapper" style="height: 0px;">
 								<div class="job_openings_inner_wrapper row">
 
 									
@@ -305,9 +303,9 @@
 								</div>
 							</div>
 						</li>
-											<li class="job_tag" data-job_cat="finance">
+											<li class="job_tag" data-job_cat="finance" style="padding-bottom: 0px;">
 							<a href="#">Finance</a>
-							<div class="job_openings_wrapper">
+							<div class="job_openings_wrapper" style="height: 0px;">
 								<div class="job_openings_inner_wrapper row">
 
 									
@@ -331,9 +329,9 @@
 								</div>
 							</div>
 						</li>
-											<li class="job_tag" data-job_cat="game-design">
+											<li class="job_tag" data-job_cat="game-design" style="padding-bottom: 0px;">
 							<a href="#">Game Design</a>
-							<div class="job_openings_wrapper">
+							<div class="job_openings_wrapper" style="height: 0px;">
 								<div class="job_openings_inner_wrapper row">
 
 									
@@ -380,9 +378,9 @@
 								</div>
 							</div>
 						</li>
-											<li class="job_tag" data-job_cat="hardware">
+											<li class="job_tag" data-job_cat="hardware" style="padding-bottom: 0px;">
 							<a href="#">Hardware</a>
-							<div class="job_openings_wrapper">
+							<div class="job_openings_wrapper" style="height: 0px;">
 								<div class="job_openings_inner_wrapper row">
 
 									
@@ -436,9 +434,9 @@
 								</div>
 							</div>
 						</li>
-											<li class="job_tag" data-job_cat="product-design">
+											<li class="job_tag" data-job_cat="product-design" style="padding-bottom: 0px;">
 							<a href="#">Product Design</a>
-							<div class="job_openings_wrapper">
+							<div class="job_openings_wrapper" style="height: 0px;">
 								<div class="job_openings_inner_wrapper row">
 
 									
@@ -476,9 +474,9 @@
 								</div>
 							</div>
 						</li>
-											<li class="job_tag" data-job_cat="software-engineering">
+											<li class="job_tag" data-job_cat="software-engineering" style="padding-bottom: 0px;">
 							<a href="#">Software Engineering</a>
-							<div class="job_openings_wrapper">
+							<div class="job_openings_wrapper" style="height: 0px;">
 								<div class="job_openings_inner_wrapper row">
 
 									
@@ -546,7 +544,7 @@
 								</div>
 							</div>
 						</li>
-										<li class="job_tag empty_answer"><a href="https://www.valvesoftware.com/en/jobs?job_id=27">Did we miss something?</a></li>
+										<li class="job_tag empty_answer" style="padding-bottom: 0px;"><a href="https://www.valvesoftware.com/en/jobs?job_id=27">Did we miss something?</a></li>
 				</ul>
 			</div>
 		</div>
