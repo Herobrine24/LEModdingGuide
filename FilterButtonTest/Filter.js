@@ -21,6 +21,27 @@ function createListItem(item) {
   const descriptionText = document.createTextNode(item.description);
   description.appendChild(descriptionText);
   listItem.appendChild(description);
+  const gameFilterButtons = document.querySelectorAll('.game-filter button');
+
+gameFilterButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const filter = button.dataset.filter;
+    filterItems(filter);
+    setActiveButton(button);
+  });
+});
+  
+function filterItems(filter) {
+  const items = document.querySelectorAll('.item');
+  items.forEach((item) => {
+    if (filter === 'all' || item.classList.contains(filter)) {
+      item.classList.add('show');
+    } else {
+      item.classList.remove('show');
+    }
+  });
+}
+  
   return listItem;
 }
 
@@ -99,3 +120,4 @@ fetch('Filter.json')
       });
     });
   });
+
