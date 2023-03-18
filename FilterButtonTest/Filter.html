@@ -1,20 +1,16 @@
 <head><script src="https://unpkg.com/@ungap/global-this@0.3.0"></script></head>
 
-<div id="list-container">
-  <ul id="list">
-  <li data-category="category1"><a href="https://example.com/job1">Software Engineer</a> - San Francisco, CA</li>
-  <li data-category="category2"><a href="https://example.com/job2">Web Developer</a> - New York, NY</li>
-  <li data-category="category1"><a href="https://example.com/job3">UX Designer</a> - Seattle, WA</li>
-  <li data-category="category2"><a href="https://example.com/job4">Sales Representative</a> - Chicago, IL</li>
-  <li data-category="category1"><a href="https://example.com/job5">Marketing Manager</a> - Boston, MA</li>
-  <li data-category="category2"><a href="https://example.com/job6">Full Stack Developer</a> - Austin, TX</li>
-  <li data-category="category1"><a href="https://example.com/job7">Graphic Designer</a> - Los Angeles, CA</li>
-  <li data-category="category2"><a href="https://example.com/job8">Account Executive</a> - Miami, FL</li>
-  </ul>
+<div class="filter">
+  <button class="filter-button" data-filter="all">All</button>
+  <button class="filter-button" data-filter="filter1">Filter 1</button>
+  <button class="filter-button" data-filter="filter2">Filter 2</button>
+  <button class="filter-button" data-filter="filter3">Filter 3</button>
 </div>
 
-<div id="filter-buttons">
-  <button data-filter="all">All</button>
-  <button data-filter="category1">Category 1</button>
-  <button data-filter="category2">Category 2</button>
-</div>
+<ul class="item-list">
+  <li class="item filter1">Item 1</li>
+  <li class="item filter2">Item 2</li>
+  <li class="item filter1 filter3">Item 3</li>
+  <li class="item filter2">Item 4</li>
+  <li class="item filter3">Item 5</li>
+</ul>
