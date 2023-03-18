@@ -44,21 +44,24 @@ function filterItems(filter) {
   console.log("Filter selected:", filter);
   const items = document.querySelectorAll('.item');
   items.forEach((item) => {
-    const itemFilters = item.getAttribute('data-filter').split(',');
-    let show = false;
-    if (filter === 'All Games') {
-      show = true;
-    } else {
-      itemFilters.forEach((itemFilter) => {
-        if (itemFilter === filter) {
-          show = true;
-        }
-      });
-    }
-    if (show) {
-      item.classList.add('show');
-    } else {
-      item.classList.remove('show');
+    const itemFilters = item.getAttribute('data-filter');
+    if (itemFilters) { // Check if the attribute exists
+      itemFilters = itemFilters.split(',');
+      let show = false;
+      if (filter === 'All Games') {
+        show = true;
+      } else {
+        itemFilters.forEach((itemFilter) => {
+          if (itemFilter === filter) {
+            show = true;
+          }
+        });
+      }
+      if (show) {
+        item.classList.add('show');
+      } else {
+        item.classList.remove('show');
+      }
     }
   });
 }
