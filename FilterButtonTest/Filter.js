@@ -61,23 +61,14 @@ fetch('Filter.json')
         // Show or hide items based on filter
         items.forEach((item) => {
           const listItem = itemList.querySelector(`.item.${item.filter}`);
-          if (filter === "all" || item.filter === filter) {
+          if (filter === "all") {
+            listItem.classList.add("show");
+          } else if (item.filter === filter) {
             listItem.classList.add("show");
           } else {
             listItem.classList.remove("show");
           }
         });
       });
-    });
-
-    // Add a fix to show the correct items on load
-    const activeFilter = document.querySelector('.filter-button.active').dataset.filter;
-    items.forEach((item) => {
-      const listItem = itemList.querySelector(`.item.${item.filter}`);
-      if (activeFilter === "all" || item.filter === activeFilter) {
-        listItem.classList.add("show");
-      } else {
-        listItem.classList.remove("show");
-      }
     });
   });
