@@ -1,25 +1,26 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <script src="https://unpkg.com/@ungap/global-this@0.3.0"></script>
-  <script src="Filter.js"></script>
-      <meta charset="UTF-8">
-    <title>My Page</title>
-    <link rel="stylesheet" type="text/css" href="Filter.css">
+  <meta charset="UTF-8">
+  <title>Filter Test</title>
+  <link rel="stylesheet" type="text/css" href="Filter.css">
 </head>
 <body>
-<div class="filter">
-  <button class="filter-button" data-filter="all">All</button>
-  <button class="filter-button" data-filter="filter1">Filter 1</button>
-  <button class="filter-button" data-filter="filter2">Filter 2</button>
-  <button class="filter-button" data-filter="filter3">Filter 3</button>
-</div>
+  <div class="filter">
+    <button class="filter-button" data-filter="all">All</button>
+    <button class="filter-button" data-filter="filter1">Filter 1</button>
+    <button class="filter-button" data-filter="filter2">Filter 2</button>
+    <button class="filter-button" data-filter="filter3">Filter 3</button>
+  </div>
 
-<ul class="item-list">
-  <li class="item filter1">Item 1</li>
-  <li class="item filter2">Item 2</li>
-  <li class="item filter1 filter3">Item 3</li>
-  <li class="item filter2">Item 4</li>
-  <li class="item filter3">Item 5</li>
-</ul>
+  <ul class="item-list">
+    <li class="item filter1">Item 1</li>
+    <li class="item filter2">Item 2</li>
+    <li class="item filter1 filter3">Item 3</li>
+    <li class="item filter2">Item 4</li>
+    <li class="item filter3">Item 5</li>
+  </ul>
+
+  <script src="Filter.js"></script>
 </body>
 </html>
