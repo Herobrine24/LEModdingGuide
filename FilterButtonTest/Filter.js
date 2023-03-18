@@ -24,7 +24,6 @@ function createListItem(item) {
   return listItem;
 }
 
-
 // Load data from Filter.json
 fetch('Filter.json')
   .then(response => response.json())
@@ -63,8 +62,7 @@ fetch('Filter.json')
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
         const filter = button.dataset.filter;
-        const filter = button.dataset.filter;
-        
+
         // Remove active class from all filter buttons
         filterButtons.forEach((button) => {
           button.classList.remove("active");
@@ -76,13 +74,14 @@ fetch('Filter.json')
         // Show or hide items based on filter
         items.forEach((item) => {
           const listItem = itemList.querySelector(`.item.${item.filter}`);
-          if (filter === "all" || item.game === game) {
+          if (filter === "all") {
+            listItem.classList.add("show");
+          } else if (item.filter === filter) {
             listItem.classList.add("show");
           } else {
             listItem.classList.remove("show");
           }
         });
-
 
         // Hide items not matching the filter
         const hiddenItems = document.querySelectorAll(`.item:not(.${filter})`);
@@ -100,27 +99,3 @@ fetch('Filter.json')
       });
     });
   });
-
-// Add game filter buttons
-const games = ["LE1", "LE2", "LE3", "all"];
-games.forEach((game) => {
-  const button = document.createElement('button');
-  button.className = 'filter-button game-button';
-  button.dataset.filter = game;
-  button.textContent = game === 'all' ? 'All' : game;
-  filterContainer.appendChild(button);
-});
-
-// Set All button active by default
-const allButton = document.querySelector('.filter-button[data-filter="all"]');
-allButton.classList.add('active');
-
-// Show all items on page load
-items.forEach((item) => {
-  const listItem = createListItem(item);
-  itemList.appendChild(listItem);
-  // Add game class to the list item
-  item.game.split(',').forEach((game) => {
-    listItem.classList.add(`game-${game}`);
-  });
-});
