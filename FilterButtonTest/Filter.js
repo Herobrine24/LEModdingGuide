@@ -1,5 +1,5 @@
 const filterButtons = document.querySelectorAll(".filter-button");
-const itemList = document.querySelectorAll(".item");
+const itemList = document.querySelectorAll('.item.show');
 
 // Add click event listener to each filter button
 filterButtons.forEach((button) => {
