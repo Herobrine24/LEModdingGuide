@@ -32,14 +32,12 @@ gameFilterButtons.forEach((button) => {
 });
   
 function filterItems(filter) {
+  console.log("Filter selected:", filter);
   const items = document.querySelectorAll('.item');
   items.forEach((item) => {
-    if (filter === 'All Games') {
-      if (item.classList.contains('LE1') || item.classList.contains('LE2') || item.classList.contains('LE3')) {
-        item.classList.add('show');
-      } else {
-        item.classList.remove('show');
-      }
+    console.log("Item classList:", item.classList);
+    if (filter === 'All Games' && (item.classList.contains('LE1') || item.classList.contains('LE2') || item.classList.contains('LE3'))) {
+      item.classList.add('show');
     } else if (filter === 'all' || item.classList.contains(filter)) {
       item.classList.add('show');
     } else {
@@ -47,6 +45,7 @@ function filterItems(filter) {
     }
   });
 }
+
   
   return listItem;
 }
