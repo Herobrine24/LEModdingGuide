@@ -99,3 +99,9 @@ fetch('index.json')
       });
     });
   });
+
+  const jobOpeningsWrapper = document.getElementById('job_openings_wrapper');
+  const jobOpeningsInnerWrapper = jobOpeningsWrapper.querySelector('.job_openings_inner_wrapper');
+  
+  jobOpeningsWrapper.style.height = `${jobOpeningsInnerWrapper.offsetHeight}px`;
+
