@@ -1,6 +1,13 @@
 const filterButtons = document.querySelectorAll(".filter-button");
 const itemList = document.querySelectorAll('.item');
 
+	// Set "All" filter button as active by default
+filterButtons.forEach((button) => {
+  if (button.dataset.filter === "all") {
+    button.classList.add("active");
+  }
+});
+
 // Add click event listener to each filter button
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
