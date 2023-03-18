@@ -61,11 +61,14 @@ fetch('Filter.json')
         // Show or hide items based on filter
         items.forEach((item) => {
           const listItem = itemList.querySelector(`.item.${item.filter}`);
-          if (filter === "all" || item.filter === filter) {
-            listItem.classList.add("show");
-          } else {
-            listItem.classList.remove("show");
-          }
+            if (filter === "all" || item.filter === filter) {
+              listItem.classList.add("show");
+            } else {
+              listItem.classList.remove("show");
+            }
+            if (filter !== item.filter) {
+              listItem.classList.remove("show");
+            }
         });
       });
     });
