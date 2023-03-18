@@ -3,7 +3,9 @@ const itemList = document.querySelector('.item-list');
 
 function setActiveButton(button) {
   const activeButton = document.querySelector('.game-filter .active');
-  activeButton.classList.remove('active');
+  if (activeButton) {
+    activeButton.classList.remove('active');
+  }
   button.classList.add('active');
 }
 
