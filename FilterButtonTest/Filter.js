@@ -75,6 +75,14 @@ fetch('Filter.json')
         hiddenItems.forEach((item) => {
           item.classList.remove("show");
         });
+
+        // Show all items on clicking the "All" filter
+        if (filter === "all") {
+          const allItems = document.querySelectorAll(".item");
+          allItems.forEach((item) => {
+            item.classList.add("show");
+          });
+        }
       });
     });
   });
