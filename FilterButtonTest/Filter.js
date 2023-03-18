@@ -1,34 +1,26 @@
-.filter {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
+const filterButtons = document.querySelectorAll(".filter-button");
+const itemList = document.querySelectorAll(".item");
 
-.filter-button {
-  background-color: #ddd;
-  border: none;
-  border-radius: 4px;
-  color: #333;
-  cursor: pointer;
-  margin: 0 10px;
-  padding: 5px 10px;
-}
+// Add click event listener to each filter button
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const filter = button.dataset.filter;
 
-.filter-button.active {
-  background-color: #333;
-  color: #fff;
-}
+    // Remove active class from all filter buttons
+    filterButtons.forEach((button) => {
+      button.classList.remove("active");
+    });
 
-.item-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+    // Add active class to clicked filter button
+    button.classList.add("active");
 
-.item {
-  display: none;
-}
-
-.item.show {
-  display: block;
-}
+    // Show or hide items based on filter
+    itemList.forEach((item) => {
+      if (filter === "all" || item.classList.contains(filter)) {
+        item.classList.add("show");
+      } else {
+        item.classList.remove("show");
+      }
+    });
+  });
+});
