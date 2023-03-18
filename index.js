@@ -24,8 +24,8 @@ function createListItem(item) {
   return listItem;
 }
 
-// Load data from Filter.json
-fetch('Filter.json')
+// Load data from index.json
+fetch('index.json')
   .then(response => response.json())
   .then(data => {
     // Store the data in variables
