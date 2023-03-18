@@ -8,6 +8,7 @@ function createListItem(item) {
   link.href = item.link;
   link.style.color = 'blue';
   link.style.display = 'inline';
+  link.setAttribute('target', '_blank'); // Add this line to set the target attribute
   const linkText = document.createTextNode(item.name);
   link.appendChild(linkText);
   listItem.appendChild(link);
@@ -22,6 +23,7 @@ function createListItem(item) {
   listItem.appendChild(description);
   return listItem;
 }
+
 
 // Load data from Filter.json
 fetch('Filter.json')
