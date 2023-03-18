@@ -15,6 +15,10 @@
     {
       "name": "Interface",
       "filter": "filter3"
+    },
+    {
+      "name": "TestFilter",
+      "filter": "filter4"
     }
   ],
   "items": [
@@ -40,7 +44,7 @@
       "name": "Item 4",
       "link": "#",
       "description": "",
-      "filter": "filter2"
+      "filter": "filter4"
     },
     {
       "name": "Item 5",
