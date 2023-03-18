@@ -1,14 +1,6 @@
 const filterButtons = document.querySelectorAll(".filter-button");
 const itemList = document.querySelectorAll('.item');
 
-// Add 'active' class to 'All' filter button by default
-document.querySelector("[data-filter='all']").classList.add("active");
-
-// Display all items on page load
-itemList.forEach((item) => {
-  item.classList.add("show");
-});
-
 // Add click event listener to each filter button
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -31,4 +23,13 @@ filterButtons.forEach((button) => {
       }
     });
   });
+});
+
+// Set All filter button to active by default
+const allFilterButton = document.querySelector(".filter-button[data-filter='all']");
+allFilterButton.classList.add("active");
+
+// Show all items by default
+itemList.forEach((item) => {
+  item.classList.add("show");
 });
