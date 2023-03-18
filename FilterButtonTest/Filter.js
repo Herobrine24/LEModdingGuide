@@ -9,9 +9,17 @@ function setActiveButton(button) {
   button.classList.add('active');
 }
 
-function createListItem(item) {
+function createListItem(item, activeFilters) {
   const listItem = document.createElement('li');
-  listItem.className = `item ${item.filter} show`;
+  const filters = item.filter.split(",");
+  const shouldShow = filters.some(filter => activeFilters.includes(filter.trim()));
+
+  if (shouldShow) {
+    listItem.classList.add('show');
+  } else {
+    listItem.classList.add('hide');
+  }
+
   const link = document.createElement('a');
   link.href = item.link;
   link.style.color = 'blue';
