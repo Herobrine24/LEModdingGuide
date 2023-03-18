@@ -53,31 +53,13 @@ fetch('Filter.json')
         // Add active class to clicked filter button
         button.classList.add("active");
 
-        // Remove all items from the item list
-        itemList.innerHTML = '';
-
         // Show or hide items based on filter
         items.forEach((item) => {
+          const listItem = itemList.querySelector(`.item.${item.filter}`);
           if (filter === "all" || item.filter === filter) {
-            const listItem = document.createElement('li');
-            listItem.className = `item ${item.filter}`;
-            const link = document.createElement('a');
-            link.href = item.link;
-            link.style.color = 'blue';
-            link.style.display = 'inline';
-            const linkText = document.createTextNode(item.name);
-            link.appendChild(linkText);
-            listItem.appendChild(link);
-            const separator = document.createElement('strong');
-            separator.appendChild(document.createTextNode(' - '));
-            listItem.appendChild(separator);
-            const description = document.createElement('span');
-            description.style.display = 'inline-flex';
-            description.style.flexDirection = 'column';
-            const descriptionText = document.createTextNode(item.description);
-            description.appendChild(descriptionText);
-            listItem.appendChild(description);
-            itemList.appendChild(listItem);
+            listItem.classList.add("show");
+          } else {
+            listItem.classList.remove("show");
           }
         });
       });
