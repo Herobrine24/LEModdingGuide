@@ -69,4 +69,15 @@ fetch('Filter.json')
         });
       });
     });
+
+    // Add a fix to show the correct items on load
+    const activeFilter = document.querySelector('.filter-button.active').dataset.filter;
+    items.forEach((item) => {
+      const listItem = itemList.querySelector(`.item.${item.filter}`);
+      if (activeFilter === "all" || item.filter === activeFilter) {
+        listItem.classList.add("show");
+      } else {
+        listItem.classList.remove("show");
+      }
+    });
   });
