@@ -1,25 +1,9 @@
 const filterContainer = document.querySelector('.filter');
 const itemList = document.querySelector('.item-list');
 
-function setActiveButton(button) {
-  const activeButton = document.querySelector('.game-filter .active');
-  if (activeButton) {
-    activeButton.classList.remove('active');
-  }
-  button.classList.add('active');
-}
-
-function createListItem(item, activeFilters = []) {
+function createListItem(item) {
   const listItem = document.createElement('li');
-  const filters = item.filter.split(",");
-  const shouldShow = filters.some(filter => activeFilters.includes(filter.trim()));
-
-  if (shouldShow) {
-    listItem.classList.add('show');
-  } else {
-    listItem.classList.add('hide');
-  }
-
+  listItem.className = `item ${item.filter} show`;
   const link = document.createElement('a');
   link.href = item.link;
   link.style.color = 'blue';
@@ -37,7 +21,6 @@ function createListItem(item, activeFilters = []) {
   const descriptionText = document.createTextNode(item.description);
   description.appendChild(descriptionText);
   listItem.appendChild(description);
-
   return listItem;
 }
 
