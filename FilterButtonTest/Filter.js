@@ -17,6 +17,29 @@ fetch('Filter.json')
       }
     });
 
+    // Show all items on page load
+    items.forEach((item) => {
+      const listItem = document.createElement('li');
+      listItem.className = `item ${item.filter}`;
+      const link = document.createElement('a');
+      link.href = item.link;
+      link.style.color = 'blue';
+      link.style.display = 'inline';
+      const linkText = document.createTextNode(item.name);
+      link.appendChild(linkText);
+      listItem.appendChild(link);
+      const separator = document.createElement('strong');
+      separator.appendChild(document.createTextNode(' - '));
+      listItem.appendChild(separator);
+      const description = document.createElement('span');
+      description.style.display = 'inline-flex';
+      description.style.flexDirection = 'column';
+      const descriptionText = document.createTextNode(item.description);
+      description.appendChild(descriptionText);
+      listItem.appendChild(description);
+      itemList.appendChild(listItem);
+    });
+
     // Add click event listener to each filter button
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
