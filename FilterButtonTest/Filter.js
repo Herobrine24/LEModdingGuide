@@ -1,4 +1,4 @@
-const filterButtons = document.querySelectorAll(".filter-button");
+const filterContainer = document.querySelector('.filter');
 const itemList = document.querySelector('.item-list');
 
 function createListItem(item) {
@@ -27,8 +27,20 @@ function createListItem(item) {
 fetch('Filter.json')
   .then(response => response.json())
   .then(data => {
-    // Store the data in an array
+    // Store the data in variables
     const items = data.items;
+    const filters = data.filters;
+
+    // Add filter buttons
+    filters.forEach((filter) => {
+      const button = document.createElement('button');
+      button.className = 'filter-button';
+      button.dataset.filter = filter.filter;
+      button.textContent = filter.name;
+      filterContainer.appendChild(button);
+    });
+
+    const filterButtons = document.querySelectorAll(".filter-button");
 
     // Add active class to All filter button by default
     filterButtons.forEach((button) => {
