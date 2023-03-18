@@ -69,6 +69,12 @@ fetch('Filter.json')
             listItem.classList.remove("show");
           }
         });
+
+        // Hide items not matching the filter
+        const hiddenItems = document.querySelectorAll(`.item:not(.${filter})`);
+        hiddenItems.forEach((item) => {
+          item.classList.remove("show");
+        });
       });
     });
   });
