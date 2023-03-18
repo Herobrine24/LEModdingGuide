@@ -1,6 +1,12 @@
 const filterContainer = document.querySelector('.filter');
 const itemList = document.querySelector('.item-list');
 
+function setActiveButton(button) {
+  const activeButton = document.querySelector('.game-filter .active');
+  activeButton.classList.remove('active');
+  button.classList.add('active');
+}
+
 function createListItem(item) {
   const listItem = document.createElement('li');
   listItem.className = `item ${item.filter} show`;
@@ -30,6 +36,7 @@ gameFilterButtons.forEach((button) => {
     setActiveButton(button);
   });
 });
+
   
 function filterItems(filter) {
   console.log("Filter selected:", filter);
