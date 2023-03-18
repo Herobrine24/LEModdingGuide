@@ -1,10 +1,10 @@
 const filterButtons = document.querySelectorAll(".filter-button");
+const itemList = document.querySelectorAll('.item');
 
 // Add click event listener to each filter button
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const filter = button.dataset.filter;
-    const itemList = document.querySelectorAll('.item');
 
     // Remove active class from all filter buttons
     filterButtons.forEach((button) => {
