@@ -1,4 +1,22 @@
 {
+  "filterButtons": [
+    {
+      "name": "All",
+      "filter": "all"
+    },
+    {
+      "name": "Filter 1",
+      "filter": "filter1"
+    },
+    {
+      "name": "Filter 2",
+      "filter": "filter2"
+    },
+    {
+      "name": "Filter 3",
+      "filter": "filter3"
+    }
+  ],
   "items": [
     {
       "name": "Black Market License",
