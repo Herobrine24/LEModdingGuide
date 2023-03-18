@@ -1,4 +1,22 @@
 {
+  "filters": [
+    {
+      "name": "All",
+      "filter": "all"
+    },
+    {
+      "name": "Gameplay",
+      "filter": "filter1"
+    },
+    {
+      "name": "Apparel",
+      "filter": "filter2"
+    },
+    {
+      "name": "Interface",
+      "filter": "filter3"
+    }
+  ],
   "items": [
     {
       "name": "Black Market License",
