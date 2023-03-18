@@ -9,7 +9,7 @@ function setActiveButton(button) {
   button.classList.add('active');
 }
 
-function createListItem(item, activeFilters) {
+function createListItem(item, activeFilters = []) {
   const listItem = document.createElement('li');
   const filters = item.filter.split(",");
   const shouldShow = filters.some(filter => activeFilters.includes(filter.trim()));
