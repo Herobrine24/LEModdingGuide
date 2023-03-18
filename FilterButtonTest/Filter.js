@@ -20,7 +20,7 @@ fetch('Filter.json')
     // Show all items on page load
     items.forEach((item) => {
       const listItem = document.createElement('li');
-      listItem.className = `item ${item.filter}`;
+      listItem.className = `item ${item.filter} show`;
       const link = document.createElement('a');
       link.href = item.link;
       link.style.color = 'blue';
