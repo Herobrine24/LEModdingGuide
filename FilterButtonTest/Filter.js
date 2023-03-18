@@ -34,7 +34,13 @@ gameFilterButtons.forEach((button) => {
 function filterItems(filter) {
   const items = document.querySelectorAll('.item');
   items.forEach((item) => {
-    if (filter === 'all' || item.classList.contains(filter)) {
+    if (filter === 'All Games') {
+      if (item.classList.contains('LE1') || item.classList.contains('LE2') || item.classList.contains('LE3')) {
+        item.classList.add('show');
+      } else {
+        item.classList.remove('show');
+      }
+    } else if (filter === 'all' || item.classList.contains(filter)) {
       item.classList.add('show');
     } else {
       item.classList.remove('show');
