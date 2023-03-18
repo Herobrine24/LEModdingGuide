@@ -26,36 +26,31 @@
       "name": "Black Market License",
       "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/661",
       "description": "Restores several unused items for purchase via a special license",
-      "filter": "filter1",
-      "game": "LE1"
+      "filter": "filter1"
     },
     {
       "name": "The Illusive Woman",
       "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/671",
       "description": "Adds Illusive Man's suit as a casual outfit for female Shepards",
-      "filter": "filter2",
-      "game": "LE3"
+      "filter": "filter2"
     },
     {
       "name": "Smaller Interface Mod",
       "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/1402/",
       "description": "Reduces ME3’s gameplay UI to original ME3 at 1080p size",
-      "filter": "filter3",
-      "game": "LE3"
+      "filter": "filter3"
     },
     {
       "name": "Item 4",
       "link": "#",
       "description": "",
-      "filter": "filter4",
-      "game": "LE1, LE2, LE3"
+      "filter": "filter4"
     },
     {
       "name": "Item 5",
       "link": "#",
       "description": "",
-      "filter": "filter3",
-      "game": "LE1, LE3"
+      "filter": "filter3"
     }
   ]
 }
