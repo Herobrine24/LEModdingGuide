@@ -1,59 +1,61 @@
-/* Reset styles */
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-/* Filters */
-.filters {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-bottom: 10px;
-}
-.filters .label {
-	font-weight: bold;
-	margin-right: 5px;
-}
-.filters button {
-	margin-right: 5px;
-}
-.filters button.active {
-	background-color: #007FFF;
-	color: #fff;
+header {
+  background-color: #222;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
 }
 
-/* Mod list */
-.mod-list {
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
-}
-.mod-list li {
-	margin-bottom: 10px;
-	border-bottom: 1px solid #ccc;
-	padding-bottom: 10px;
-}
-.mod-list li:last-child {
-	border-bottom: none;
-}
-.mod-list li a {
-	font-weight: bold;
-	color: #007FFF;
-	text-decoration: none;
-}
-.mod-list li a:hover {
-	text-decoration: underline;
+#filters {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
 }
 
-/* Responsive styles */
-@media (max-width: 767px) {
-	.filters {
-		flex-direction: column;
-	}
-	.filters button {
-		margin-bottom: 5px;
-		margin-right: 0;
-	}
+.game-filter,
+.mod-filter {
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.game-filter.active,
+.mod-filter.active {
+  background-color: #333;
+  color: #fff;
+}
+
+#mod-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mod-item {
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+
+.mod-item a {
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.mod-item a:hover {
+  text-decoration: underline;
+}
+
+.mod-description {
+  color: #666;
+  font-size: 0.8rem;
 }
