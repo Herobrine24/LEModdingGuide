@@ -1,29 +1,34 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>DoubleFilter</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="DoubleFilter.css">
-</head>
-<body>
-	<div class="filters">
-		<div class="game-filters">
-			<span class="label">Game Filters: </span>
-			<button class="game-filter" data-filter="all">All Games</button>
-			<button class="game-filter" data-filter="LE1">LE1</button>
-			<button class="game-filter" data-filter="LE2">LE2</button>
-			<button class="game-filter" data-filter="LE3">LE3</button>
-		</div>
-		<div class="mod-filters">
-			<span class="label">Mod Filters: </span>
-			<!-- Mod filters will be added dynamically by JS -->
-		</div>
-	</div>
-	<ul class="mod-list">
-		<!-- Mod list items will be added dynamically by JS -->
-	</ul>
-
-	<script type="text/javascript" src="DoubleFilter.js"></script>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>DoubleFilter - Mass Effect Legendary Edition Mods</title>
+    <link rel="stylesheet" href="DoubleFilter.css">
+  </head>
+  <body>
+    <header>
+      <h1>DoubleFilter - Mass Effect Legendary Edition Mods</h1>
+    </header>
+    
+    <section id="filters">
+      <div id="game-filters">
+        <button class="game-filter active" data-game="all">All Games</button>
+        <button class="game-filter" data-game="le1">LE1</button>
+        <button class="game-filter" data-game="le2">LE2</button>
+        <button class="game-filter" data-game="le3">LE3</button>
+      </div>
+      <div id="mod-filters">
+        <button class="mod-filter active" data-mod="all">All</button>
+        <!-- The mod filters will be generated dynamically by JavaScript -->
+      </div>
+    </section>
+    
+    <section id="mod-list">
+      <ul>
+        <!-- The mod list will be generated dynamically by JavaScript -->
+      </ul>
+    </section>
+    
+    <script src="DoubleFilter.js"></script>
+  </body>
 </html>
