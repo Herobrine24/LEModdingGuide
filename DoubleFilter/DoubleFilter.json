@@ -1,1 +1,61 @@
-
+{
+  "modFilters": [
+    {
+      "name": "All",
+      "type": "all"
+    },
+    {
+      "name": "Outfits",
+      "type": "outfits"
+    },
+    {
+      "name": "Fixes",
+      "type": "fixes"
+    },
+    {
+      "name": "Graphics",
+      "type": "graphics"
+    },
+    {
+      "name": "Gameplay",
+      "type": "gameplay"
+    }
+  ],
+  "mods": [
+    {
+      "name": "MEUITM",
+      "url": "https://www.nexusmods.com/masseffect/mods/1",
+      "description": "Mass Effect Updated/Improved Textures Mod - High resolution textures for Mass Effect"
+      "game": "le1",
+      "type": "graphics"
+    },
+    {
+      "name": "ME2Recalibrated",
+      "url": "https://www.nexusmods.com/masseffect2/mods/163",
+      "description": "Mass Effect 2 Recalibrated - Fixes numerous bugs and inconsistencies in Mass Effect 2"
+      "game": "le2",
+      "type": "fixes"
+    },
+    {
+      "name": "ALOT",
+      "url": "https://www.nexusmods.com/masseffect3/mods/363",
+      "description": "A Lot Of Textures - High resolution textures for Mass Effect 3"
+      "game": "le3",
+      "type": "graphics"
+    },
+    {
+      "name": "ME3Tweaks",
+      "url": "https://www.nexusmods.com/masseffect3/mods/411",
+      "description": "Mass Effect 3 Tweaks - Various gameplay tweaks and improvements for Mass Effect 3"
+      "game": "le3",
+      "type": "gameplay"
+    },
+    {
+      "name": "ME3Explorer",
+      "url": "https://me3explorer.github.io/",
+      "description": "Mass Effect 3 Explorer - A tool for modding Mass Effect 3"
+      "game": "le3",
+      "type": "tools"
+    }
+  ]
+}
