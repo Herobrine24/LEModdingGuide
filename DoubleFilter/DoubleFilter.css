@@ -1,1 +1,64 @@
+/* Game Filters */
+.game-filters {
+  margin-bottom: 20px;
+}
 
+.game-filter {
+  background-color: #ddd;
+  border: none;
+  color: #333;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.game-filter.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Mod Filters */
+.mod-filters {
+  margin-bottom: 20px;
+}
+
+.mod-filter {
+  background-color: #ddd;
+  border: none;
+  color: #333;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.mod-filter.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Mod List */
+.mod-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mod-list .mod {
+  flex-basis: 50%;
+  padding: 10px;
+}
+
+.mod-list .mod a {
+  color: #333;
+  text-decoration: none;
+}
+
+.mod-list .mod p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+@media only screen and (max-width: 767px) {
+  .mod-list .mod {
+    flex-basis: 100%;
+  }
+}
