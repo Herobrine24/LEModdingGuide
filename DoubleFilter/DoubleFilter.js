@@ -7,8 +7,7 @@ const defaultModFilter = 'all';
 fetch('DoubleFilter.json')
   .then(response => response.json())
   .then(modData => {
-    const modArray = Object.values(modData.modList);
-    let filteredMods = modArray.filter(mod => mod.game === defaultGameFilter);
+    let filteredMods = Object.values(modData).filter(mod => mod.game === defaultGameFilter);
 
     renderModList(filteredMods);
 
@@ -16,7 +15,7 @@ fetch('DoubleFilter.json')
       filter.addEventListener('click', () => {
         const selectedFilter = filter.dataset.game;
 
-        filteredMods = modArray.filter(mod => mod.game === selectedFilter);
+        filteredMods = Object.values(modData).filter(mod => mod.game === selectedFilter);
 
         renderModList(filteredMods);
       });
@@ -27,16 +26,16 @@ fetch('DoubleFilter.json')
         const selectedFilter = filter.dataset.mod;
 
         if (selectedFilter === defaultModFilter) {
-          filteredMods = modArray.filter(mod => mod.game === defaultGameFilter);
+          filteredMods = Object.values(modData).filter(mod => mod.game === defaultGameFilter);
         } else {
-          filteredMods = modArray.filter(mod => mod.type === selectedFilter && mod.game === defaultGameFilter);
+          filteredMods = Object.values(modData).filter(mod => mod.type === selectedFilter && mod.game === defaultGameFilter);
         }
 
         renderModList(filteredMods);
       });
     });
   })
-  .catch(error => console.log('Error:', error));
+  .catch(error => console.log('Error loading DoubleFilter.json:', error));
 
 function renderModList(mods) {
   modList.innerHTML = '';
