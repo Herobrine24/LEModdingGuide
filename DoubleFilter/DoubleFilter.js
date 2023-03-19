@@ -81,3 +81,4 @@ fetch("DoubleFilter.json")
     allModFilter.classList.add("active");
     generateModList(modData);
   });
+
