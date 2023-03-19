@@ -1,17 +1,14 @@
 const gameFilter = document.querySelectorAll('.gameFilter');
 const modFilter = document.querySelectorAll('.modFilter');
 const modList = document.querySelector('.modList');
-const defaultGameFilter = 'all';
-const defaultModFilter = 'all';
+const defaultGameFilter = '';
+const defaultModFilter = '';
 
 fetch('DoubleFilter.json')
   .then(response => response.json())
-  .then(modData => {
-    if (!Array.isArray(modData)) {
-      throw new TypeError('modData is not an array');
-    }
-
-    let filteredMods = modData.filter(mod => mod.game === defaultGameFilter);
+  .then(data => {
+    const modData = data.mods;
+    let filteredMods = modData.filter(mod => mod.gameType === defaultGameFilter);
 
     renderModList(filteredMods);
 
@@ -19,7 +16,7 @@ fetch('DoubleFilter.json')
       filter.addEventListener('click', () => {
         const selectedFilter = filter.dataset.game;
 
-        filteredMods = modData.filter(mod => mod.game === selectedFilter);
+        filteredMods = modData.filter(mod => mod.gameType === selectedFilter);
 
         renderModList(filteredMods);
       });
@@ -30,9 +27,9 @@ fetch('DoubleFilter.json')
         const selectedFilter = filter.dataset.mod;
 
         if (selectedFilter === defaultModFilter) {
-          filteredMods = modData.filter(mod => mod.game === defaultGameFilter);
+          filteredMods = modData.filter(mod => mod.gameType === defaultGameFilter);
         } else {
-          filteredMods = modData.filter(mod => mod.type === selectedFilter && mod.game === defaultGameFilter);
+          filteredMods = modData.filter(mod => mod.modType === selectedFilter && mod.gameType === defaultGameFilter);
         }
 
         renderModList(filteredMods);
