@@ -1,77 +1,83 @@
-// load the mod filters and mods from the JSON file
+// Load mod data from JSON file
 fetch("DoubleFilter.json")
   .then(response => response.json())
-  .then(data => {
-    // save the mod filters and mods in variables
-    const modFilters = data.modFilters;
-    const mods = data.mods;
-    
-    // get references to the HTML elements for the filter buttons and mod list
+  .then(modData => {
+    // Select DOM elements
     const gameFilters = document.querySelectorAll(".game-filter");
-    const modFiltersContainer = document.querySelector(".mod-filters");
-    const modList = document.querySelector(".mod-list");
+    const modFilters = document.querySelector("#mod-filters");
+    const modList = document.querySelector("#mod-list ul");
 
-    // initialize the selected game filter and mod filter
-    let selectedGameFilter = "all";
-    let selectedModFilter = "all";
-
-    // add event listeners to the game filters
-    gameFilters.forEach(gameFilter => {
-      gameFilter.addEventListener("click", () => {
-        // update the selected game filter
-        selectedGameFilter = gameFilter.getAttribute("data-game");
-
-        // update the mod list
-        updateModList();
-      });
+    // Generate mod filters based on mod data
+    const modTypes = ["All", ...new Set(modData.map(mod => mod.type))];
+    modTypes.forEach(modType => {
+      const modFilterBtn = document.createElement("button");
+      modFilterBtn.classList.add("mod-filter");
+      modFilterBtn.textContent = modType;
+      modFilterBtn.dataset.mod = modType.toLowerCase();
+      modFilters.appendChild(modFilterBtn);
     });
 
-    // add event listeners to the mod filters
-    modFilters.forEach(modFilter => {
-      // create a button for each mod filter
-      const modFilterButton = document.createElement("button");
-      modFilterButton.classList.add("mod-filter");
-      modFilterButton.innerText = modFilter.name;
-
-      // add an event listener to the mod filter button
-      modFilterButton.addEventListener("click", () => {
-        // update the selected mod filter
-        selectedModFilter = modFilter.type;
-
-        // update the mod filter buttons to show the selected filter
-        modFiltersContainer.querySelectorAll(".mod-filter").forEach(button => {
-          button.classList.toggle("selected", button === modFilterButton);
-        });
-
-        // update the mod list
-        updateModList();
-      });
-
-      // add the mod filter button to the mod filters container
-      modFiltersContainer.appendChild(modFilterButton);
-    });
-
-    // function to update the mod list based on the selected filters
-    function updateModList() {
-      // filter the mods based on the selected game filter and mod filter
-      const filteredMods = mods.filter(mod => {
-        return (selectedGameFilter === "all" || mod.game === selectedGameFilter) &&
-          (selectedModFilter === "all" || mod.type === selectedModFilter);
-      });
-
-      // clear the mod list
+    // Generate mod list based on mod data
+    function generateModList(mods) {
       modList.innerHTML = "";
+      mods.forEach(mod => {
+        const modItem = document.createElement("li");
+        modItem.classList.add("mod-item");
+        modItem.dataset.game = mod.game.toLowerCase();
+        modItem.dataset.mod = mod.type.toLowerCase();
 
-      // create an HTML element for each filtered mod and add it to the mod list
-      filteredMods.forEach(mod => {
-        const modElement = document.createElement("li");
-        modElement.innerHTML = `
-          <a href="${mod.url}" target="_blank">${mod.name}</a> - ${mod.description}
-        `;
-        modList.appendChild(modElement);
+        const modLink = document.createElement("a");
+        modLink.href = mod.url;
+        modLink.target = "_blank";
+        modLink.textContent = mod.name;
+
+        const modDescription = document.createElement("p");
+        modDescription.classList.add("mod-description");
+        modDescription.textContent = `- ${mod.description}`;
+
+        modItem.appendChild(modLink);
+        modItem.appendChild(modDescription);
+        modList.appendChild(modItem);
       });
     }
 
-    // initialize the mod list
-    updateModList();
+    // Filter mods based on game and mod filters
+    function filterMods() {
+      const selectedGameFilter = document.querySelector(".game-filter.active");
+      const selectedModFilter = document.querySelector(".mod-filter.active");
+
+      const filteredMods = modData.filter(mod => {
+        const gameFilterPass = selectedGameFilter.dataset.game === "all" || selectedGameFilter.dataset.game === mod.game.toLowerCase();
+        const modFilterPass = selectedModFilter.dataset.mod === "all" || selectedModFilter.dataset.mod === mod.type.toLowerCase();
+        return gameFilterPass && modFilterPass;
+      });
+
+      generateModList(filteredMods);
+    }
+
+    // Add event listeners to game filters
+    gameFilters.forEach(gameFilter => {
+      gameFilter.addEventListener("click", () => {
+        gameFilters.forEach(filter => filter.classList.remove("active"));
+        gameFilter.classList.add("active");
+        filterMods();
+      });
+    });
+
+    // Add event listeners to mod filters
+    const modFiltersBtns = document.querySelectorAll(".mod-filter");
+    modFiltersBtns.forEach(modFilterBtn => {
+      modFilterBtn.addEventListener("click", () => {
+        modFiltersBtns.forEach(filter => filter.classList.remove("active"));
+        modFilterBtn.classList.add("active");
+        filterMods();
+      });
+    });
+
+    // Initialize mod list with all mods and the "All Games" filter
+    const allGameFilter = document.querySelector(".game-filter[data-game='all']");
+    allGameFilter.classList.add("active");
+    const allModFilter = document.querySelector(".mod-filter[data-mod='all']");
+    allModFilter.classList.add("active");
+    generateModList(modData);
   });
