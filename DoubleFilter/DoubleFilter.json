@@ -1,61 +1,75 @@
 {
+  "gameFilters": [
+    {
+      "name": "All Games",
+      "type": ""
+    },
+    {
+      "name": "LE1",
+      "type": "le1"
+    },
+    {
+      "name": "LE2",
+      "type": "le2"
+    },
+    {
+      "name": "LE3",
+      "type": "le3"
+    }
+  ],
   "modFilters": [
     {
       "name": "All",
-      "type": "all"
+      "type": ""
     },
     {
-      "name": "Outfits",
+      "name": "New Outfits",
       "type": "outfits"
     },
     {
-      "name": "Fixes",
+      "name": "Bug Fixes",
       "type": "fixes"
     },
     {
       "name": "Graphics",
       "type": "graphics"
-    },
-    {
-      "name": "Gameplay",
-      "type": "gameplay"
     }
   ],
-  "mods": [
+  "modList": [
     {
-      "name": "MEUITM",
-      "url": "https://www.nexusmods.com/masseffect/mods/1",
-      "description": "Mass Effect Updated/Improved Textures Mod - High resolution textures for Mass Effect",
+      "name": "ME1 Recalibrated",
       "game": "le1",
-      "type": "graphics"
+      "type": "fixes",
+      "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/223",
+      "description": "A mod that aims to fix bugs and broken content in Mass Effect 1."
     },
     {
-      "name": "ME2Recalibrated",
-      "url": "https://www.nexusmods.com/masseffect2/mods/163",
-      "description": "Mass Effect 2 Recalibrated - Fixes numerous bugs and inconsistencies in Mass Effect 2",
-      "game": "le2",
-      "type": "fixes"
+      "name": "Expanded Galaxy Mod",
+      "game": "all",
+      "type": "graphics",
+      "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/191",
+      "description": "A mod that expands the galaxy and adds new content to the game."
     },
     {
-      "name": "ALOT",
-      "url": "https://www.nexusmods.com/masseffect3/mods/363",
-      "description": "A Lot Of Textures - High resolution textures for Mass Effect 3",
-      "game": "le3",
-      "type": "graphics"
+      "name": "Spectre Expansion Mod",
+      "game": "all",
+      "type": "fixes",
+      "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/181",
+      "description": "A mod that expands the Spectre system and adds new missions."
     },
     {
-      "name": "ME3Tweaks",
-      "url": "https://www.nexusmods.com/masseffect3/mods/411",
-      "description": "Mass Effect 3 Tweaks - Various gameplay tweaks and improvements for Mass Effect 3",
-      "game": "le3",
-      "type": "gameplay"
+      "name": "Miranda Mod",
+      "game": "all",
+      "type": "outfits",
+      "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/99",
+      "description": "A mod that adds new outfits for Miranda."
     },
     {
-      "name": "ME3Explorer",
-      "url": "https://me3explorer.github.io/",
-      "description": "Mass Effect 3 Explorer - A tool for modding Mass Effect 3",
-      "game": "le3",
-      "type": "tools"
+      "name": "Ashley Armor Mod",
+      "game": "le1",
+      "type": "outfits",
+      "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/129",
+      "description": "A mod that adds new armor for Ashley."
     }
   ]
 }
