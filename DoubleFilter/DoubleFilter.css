@@ -1,64 +1,59 @@
-/* Game Filters */
-.game-filters {
-  margin-bottom: 20px;
+/* Reset styles */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
-.game-filter {
-  background-color: #ddd;
-  border: none;
-  color: #333;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
+/* Filters */
+.filters {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 10px;
+}
+.filters .label {
+	font-weight: bold;
+	margin-right: 5px;
+}
+.filters button {
+	margin-right: 5px;
+}
+.filters button.active {
+	background-color: #007FFF;
+	color: #fff;
 }
 
-.game-filter.active {
-  background-color: #007bff;
-  color: #fff;
-}
-
-/* Mod Filters */
-.mod-filters {
-  margin-bottom: 20px;
-}
-
-.mod-filter {
-  background-color: #ddd;
-  border: none;
-  color: #333;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.mod-filter.active {
-  background-color: #007bff;
-  color: #fff;
-}
-
-/* Mod List */
+/* Mod list */
 .mod-list {
-  display: flex;
-  flex-wrap: wrap;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+.mod-list li {
+	margin-bottom: 10px;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 10px;
+}
+.mod-list li:last-child {
+	border-bottom: none;
+}
+.mod-list li a {
+	font-weight: bold;
+	color: #007FFF;
+	text-decoration: none;
+}
+.mod-list li a:hover {
+	text-decoration: underline;
 }
 
-.mod-list .mod {
-  flex-basis: 50%;
-  padding: 10px;
-}
-
-.mod-list .mod a {
-  color: #333;
-  text-decoration: none;
-}
-
-.mod-list .mod p {
-  margin: 5px 0;
-  font-size: 14px;
-}
-
-@media only screen and (max-width: 767px) {
-  .mod-list .mod {
-    flex-basis: 100%;
-  }
+/* Responsive styles */
+@media (max-width: 767px) {
+	.filters {
+		flex-direction: column;
+	}
+	.filters button {
+		margin-bottom: 5px;
+		margin-right: 0;
+	}
 }
