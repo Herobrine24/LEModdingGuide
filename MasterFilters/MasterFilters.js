@@ -128,5 +128,76 @@ function toggleView() {
   list.classList.toggle("list-view");
 }
 
-// call resizeList() with the default size to set up the list
-resizeList("medium");
+function toggleView() {
+  if (listWrapper.classList.contains("grid")) {
+    listWrapper.classList.remove("grid");
+    listWrapper.classList.add("list");
+  } else {
+    listWrapper.classList.remove("list");
+    listWrapper.classList.add("grid");
+  }
+}
+
+// Event listeners for filter buttons
+allFilters.forEach(function (filter) {
+  filter.addEventListener("click", function () {
+    let filterName = this.dataset.filter;
+    let leFilter = leFiltersWrapper.querySelector(".active").dataset.filter;
+
+    // Add active class to clicked filter button
+    allFilters.forEach(function (filter) {
+      filter.classList.remove("active");
+    });
+    this.classList.add("active");
+
+    // Hide/show list items based on selected filters
+    if (filterName === "All") {
+      // Show all items if "All" filter is clicked
+      showAllItems();
+    } else {
+      // Hide all items first
+      hideAllItems();
+
+      // Loop through each list item and show the ones that match the selected filters
+      listItems.forEach(function (item) {
+        let game = item.dataset.game;
+        let tags = item.dataset.tags.split(",");
+        if (tags.includes(filterName) && (leFilter === "All" || leFilter === game)) {
+          item.classList.add("show");
+        }
+      });
+    }
+  });
+});
+
+// Event listeners for LE filters
+leFilters.forEach(function (filter) {
+  filter.addEventListener("click", function () {
+    let filterName = this.dataset.filter;
+    let allFilter = allFiltersWrapper.querySelector(".active").dataset.filter;
+
+    // Add active class to clicked filter button
+    leFilters.forEach(function (filter) {
+      filter.classList.remove("active");
+    });
+    this.classList.add("active");
+
+    // Hide/show list items based on selected filters
+    if (filterName === "All") {
+      // Show all items if "All" filter is clicked
+      showAllItems();
+    } else {
+      // Hide all items first
+      hideAllItems();
+
+      // Loop through each list item and show the ones that match the selected filters
+      listItems.forEach(function (item) {
+        let game = item.dataset.game;
+        let tags = item.dataset.tags.split(",");
+        if (game === filterName && (allFilter === "All" || tags.includes(allFilter))) {
+          item.classList.add("show");
+        }
+      });
+    }
+  });
+});
