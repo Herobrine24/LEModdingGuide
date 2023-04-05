@@ -1,53 +1,136 @@
 /* Mod list container */
 #modList {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+list-style-type: none;
+padding: 0;
+margin: 0;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+}
+
+@media only screen and (max-width: 1200px) {
+#modList {
+grid-template-columns: repeat(2, 1fr);
+}
+}
+
+@media only screen and (max-width: 768px) {
+#modList {
+grid-template-columns: repeat(1, 1fr);
+}
 }
 
 /* Mod list item */
 .mod {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    padding: 10px;
-    height: 300px;
-    overflow: hidden;
-    transition: all 0.3s ease;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+background-color: #f0f0f0;
+border-radius: 5px;
+padding: 10px;
+height: 300px;
+overflow: hidden;
+transition: all 0.3s ease;
 }
 
 .mod:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3);
+transform: scale(1.05);
+box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3);
 }
 
 .mod img {
-    max-width: 100%;
-    max-height: 200px;
-    object-fit: contain;
+max-width: 100%;
+max-height: 200px;
+object-fit: contain;
 }
 
 .mod h3 {
-    margin: 10px 0;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
+margin: 10px 0;
+font-size: 1.5rem;
+font-weight: bold;
+text-align: center;
 }
 
 .mod p {
-    margin: 10px 0;
-    font-size: 1.2rem;
-    text-align: justify;
+margin: 10px 0;
+font-size: 1.2rem;
+text-align: justify;
 }
 
 .mod .buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: auto;
+}
+
+.list-view #modList {
+display: block;
+}
+
+.list-view .mod {
+display: block;
+height: auto;
+}
+
+.list-view .mod img {
+max-height: none;
+max-width: none;
+}
+
+.list-view .mod h3 {
+font-size: 1.2rem;
+}
+
+.list-view .mod p {
+font-size: 1rem;
+}
+
+.list-view .mod .buttons {
+display: block;
+}
+
+.grid-view .mod {
+display: flex;
+height: 300px;
+}
+
+.grid-view .mod img {
+max-height: none;
+max-width: 100%;
+margin-right: 10px;
+}
+
+.grid-view .mod h3 {
+font-size: 1.2rem;
+}
+
+.grid-view .mod p {
+font-size: 1rem;
+}
+
+.grid-view .mod .buttons {
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+margin-left: auto;
+margin-top: auto;
+margin-bottom: 0;
+}
+
+.small-view #modList .mod {
+height: 150px;
+}
+
+.medium-view #modList .mod {
+height: 300px;
+}
+
+.large-view #modList .mod {
+height: 500px;
+}
+
+.selected {
+background-color: #4CAF50;
+color: white;
 }
