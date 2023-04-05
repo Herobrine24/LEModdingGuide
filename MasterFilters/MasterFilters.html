@@ -1,46 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Filter Test</title>
-  <link rel="stylesheet" type="text/css" href="MasterFilters.css">
+	<title>Mass Effect Legendary Edition Modding Guide</title>
+	<link rel="stylesheet" href="MasterFilters.css">
+	<script src="MasterFilters.js"></script>
 </head>
 <body>
-	<header>
-		<h1>Mass Effect Legendary Edition Modding Guide</h1>
-	</header>
-	<main>
-		<div id="filter-wrapper">
-			<div id="game-filters">
-				<button class="filter active" data-filter="all">All</button>
-				<button class="filter" data-filter="le1">LE1</button>
-				<button class="filter" data-filter="le2">LE2</button>
-				<button class="filter" data-filter="le3">LE3</button>
-			</div>
-			<div id="modtype-filters">
-				<button class="filter active" data-filter="all">All</button>
-				<button class="filter" data-filter="modtype1">Modtype1</button>
-				<button class="filter" data-filter="modtype2">Modtype2</button>
-				<button class="filter" data-filter="modtype3">Modtype3</button>
-				<button class="filter" data-filter="modtype4">Modtype4</button>
-				<button class="filter" data-filter="modtype5">Modtype5</button>
-				<button class="filter" data-filter="modtype6">Modtype6</button>
-				<button class="filter" data-filter="modtype7">Modtype7</button>
-				<button class="filter" data-filter="modtype8">Modtype8</button>
-				<button class="filter" data-filter="modtype9">Modtype9</button>
-				<button class="filter" data-filter="modtype10">Modtype10</button>
-			</div>
+	<div>
+		<div>
+			<h1>Mass Effect Legendary Edition Modding Guide</h1>
 		</div>
-		<ul id="mod-list">
-			<!-- Items in the mod list will be dynamically generated from the MasterFilters.json file -->
-		</ul>
-		<div id="list-size-controls">
-			<button id="list-small">S</button>
-			<button id="list-medium" class="active">M</button>
-			<button id="list-large">L</button>
-			<button id="list-grid">Grid</button>
-			<button id="list-list" class="active">List</button>
+		<div>
+			<div>
+				<div>
+					<label>Filter by Game:</label>
+					<button onclick="filterSelection('All')">All</button>
+					<button onclick="filterSelection('LE1')">LE1</button>
+					<button onclick="filterSelection('LE2')">LE2</button>
+					<button onclick="filterSelection('LE3')">LE3</button>
+				</div>
+				<div>
+					<label>Filter by Mod Type:</label>
+					<button onclick="filterSelection('All')">All</button>
+					<button onclick="filterSelection('Modtype1')">Modtype1</button>
+					<button onclick="filterSelection('Modtype2')">Modtype2</button>
+					<button onclick="filterSelection('Modtype3')">Modtype3</button>
+					<button onclick="filterSelection('Modtype4')">Modtype4</button>
+				</div>
+				<div>
+					<button onclick="resizeList('small')">Small</button>
+					<button onclick="resizeList('medium')" class="selected">Medium</button>
+					<button onclick="resizeList('large')">Large</button>
+					<div>
+						<label>Display as:</label>
+						<button onclick="toggleDisplay('list')">List</button>
+						<button onclick="toggleDisplay('grid')">Grid</button>
+					</div>
+				</div>
+			</div>
+			<ul id="modList">
+			</ul>
 		</div>
-	</main>
+	</div>
 </body>
 </html>
