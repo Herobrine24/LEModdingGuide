@@ -54,65 +54,60 @@ function setupFilterButtons(data) {
 
 // Filter mod list based on selected filters
 function filterModList(data) {
-    const selectedFilters = document.querySelectorAll('.selected:not([onclick^="resizeList"]):not([onclick^="toggleDisplay"])');
-    const selectedFilterClasses = Array.from(selectedFilters).map(button => button.getAttribute('onclick').replace('filterSelection(', '').replace(')', ''));
-    const modItems = document.querySelectorAll('.modItem');
-    // Hide all mod items
-    modItems.forEach(modItem => modItem.style.display = 'none');
-    // Show mod items that match selected filters
-    modItems.forEach(modItem => {
-        const modClasses = Array.from(modItem.classList);
-        if (selectedFilterClasses.every(filterClass => modClasses.includes(filterClass))) {
-            modItem.style.display = '';
-        }
-    });
+  const selectedFilters = document.querySelectorAll('.selected:not([onclick^="resizeList"]):not([onclick^="toggleDisplay"])');
+  const selectedFilterClasses = Array.from(selectedFilters).map(button => button.getAttribute('onclick').replace('filterSelection(', '').replace(')', ''));
+  const modItems = document.querySelectorAll('.modItem');
+  modItems.forEach(modItem => modItem.style.display = 'none');
+  modItems.forEach(modItem => {
+    const modClasses = Array.from(modItem.classList);
+    if (selectedFilterClasses.every(filterClass => modClasses.includes(filterClass))) {
+      modItem.style.display = '';
+    }
+  });
 }
 
 function resizeList(size) {
-    // update the size buttons to reflect the selected size
-    let smallBtn = document.getElementById("small-btn");
-    let mediumBtn = document.getElementById("medium-btn");
-    let largeBtn = document.getElementById("large-btn");
-    switch (size) {
-        case "small":
-            smallBtn.classList.add("selected");
-            mediumBtn.classList.remove("selected");
-            largeBtn.classList.remove("selected");
-            break;
-        case "medium":
-            smallBtn.classList.remove("selected");
-            mediumBtn.classList.add("selected");
-            largeBtn.classList.remove("selected");
-            break;
-        case "large":
-            smallBtn.classList.remove("selected");
-            mediumBtn.classList.remove("selected");
-            largeBtn.classList.add("selected");
-            break;
-        default:
-            console.error(`Invalid size: ${size}`);
-            return;
-    }
-
-    // update the list class to reflect the selected size
-    let list = document.getElementById("mod-list");
-    switch (size) {
-        case "small":
-            list.classList.add("small-list");
-            list.classList.remove("medium-list");
-            list.classList.remove("large-list");
-            break;
-        case "medium":
-            list.classList.remove("small-list");
-            list.classList.add("medium-list");
-            list.classList.remove("large-list");
-            break;
-        case "large":
-            list.classList.remove("small-list");
-            list.classList.remove("medium-list");
-            list.classList.add("large-list");
-            break;
-    }
+  let smallBtn = document.getElementById("small-btn");
+  let mediumBtn = document.getElementById("medium-btn");
+  let largeBtn = document.getElementById("large-btn");
+  switch (size) {
+    case "small":
+      smallBtn.classList.add("selected");
+      mediumBtn.classList.remove("selected");
+      largeBtn.classList.remove("selected");
+      break;
+    case "medium":
+      smallBtn.classList.remove("selected");
+      mediumBtn.classList.add("selected");
+      largeBtn.classList.remove("selected");
+      break;
+    case "large":
+      smallBtn.classList.remove("selected");
+      mediumBtn.classList.remove("selected");
+      largeBtn.classList.add("selected");
+      break;
+    default:
+      console.error(`Invalid size: ${size}`);
+      return;
+  }
+  let list = document.getElementById("mod-list");
+  switch (size) {
+    case "small":
+      list.classList.add("small-list");
+      list.classList.remove("medium-list");
+      list.classList.remove("large-list");
+      break;
+    case "medium":
+      list.classList.remove("small-list");
+      list.classList.add("medium-list");
+      list.classList.remove("large-list");
+      break;
+    case "large":
+      list.classList.remove("small-list");
+      list.classList.remove("medium-list");
+      list.classList.add("large-list");
+      break;
+  }
 }
 
 // function to toggle the grid/list view of the mod list
