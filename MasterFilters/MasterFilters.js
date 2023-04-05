@@ -67,3 +67,66 @@ function filterModList(data) {
 		}
 	});
 }
+function resizeList(size) {
+  // update the size buttons to reflect the selected size
+  let smallBtn = document.getElementById("small-btn");
+  let mediumBtn = document.getElementById("medium-btn");
+  let largeBtn = document.getElementById("large-btn");
+  switch (size) {
+    case "small":
+      smallBtn.classList.add("selected");
+      mediumBtn.classList.remove("selected");
+      largeBtn.classList.remove("selected");
+      break;
+    case "medium":
+      smallBtn.classList.remove("selected");
+      mediumBtn.classList.add("selected");
+      largeBtn.classList.remove("selected");
+      break;
+    case "large":
+      smallBtn.classList.remove("selected");
+      mediumBtn.classList.remove("selected");
+      largeBtn.classList.add("selected");
+      break;
+    default:
+      console.error(`Invalid size: ${size}`);
+      return;
+  }
+
+  // update the list class to reflect the selected size
+  let list = document.getElementById("mod-list");
+  switch (size) {
+    case "small":
+      list.classList.add("small-list");
+      list.classList.remove("medium-list");
+      list.classList.remove("large-list");
+      break;
+    case "medium":
+      list.classList.remove("small-list");
+      list.classList.add("medium-list");
+      list.classList.remove("large-list");
+      break;
+    case "large":
+      list.classList.remove("small-list");
+      list.classList.remove("medium-list");
+      list.classList.add("large-list");
+      break;
+  }
+}
+
+// function to toggle the grid/list view of the mod list
+function toggleView() {
+  let list = document.getElementById("mod-list");
+  let viewBtn = document.getElementById("view-btn");
+  let view = list.classList.contains("grid-view") ? "list" : "grid";
+
+  // update the view button to reflect the selected view
+  viewBtn.innerText = view === "list" ? "Grid View" : "List View";
+
+  // update the list class to reflect the selected view
+  list.classList.toggle("grid-view");
+  list.classList.toggle("list-view");
+}
+
+// call resizeList() with the default size to set up the list
+resizeList("medium");
