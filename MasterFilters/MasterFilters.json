@@ -1,30 +1,44 @@
-[  
-  {
-    "ModName": "Improved Graphics Mod",
-    "ModDescription": "This mod enhances the graphics of Mass Effect Legendary Edition",
-    "ModLink": "https://example.com/improved-graphics-mod",
-    "Game": "LE1",
-    "Tags": ["Graphics", "Enhancement"]
-  },
-  {
-    "ModName": "Expanded Galaxy Mod",
-    "ModDescription": "This mod adds new planets and star systems to explore in Mass Effect Legendary Edition",
-    "ModLink": "https://example.com/expanded-galaxy-mod",
-    "Game": "LE2",
-    "Tags": ["Exploration", "Content"]
-  },
-  {
-    "ModName": "Faster Elevators Mod",
-    "ModDescription": "This mod speeds up the elevators in Mass Effect Legendary Edition",
-    "ModLink": "https://example.com/faster-elevators-mod",
-    "Game": "LE3",
-    "Tags": ["Convenience"]
-  },
-  {
-    "ModName": "Better AI Mod",
-    "ModDescription": "This mod improves the artificial intelligence of enemies in Mass Effect Legendary Edition",
-    "ModLink": "https://example.com/better-ai-mod",
-    "Game": "All",
-    "Tags": ["Gameplay", "Improvement"]
-  }
+[   
+    {        
+        "ModName": "Texture Overhaul",
+        "ModDescription": "This mod replaces the low-resolution textures in the game with higher-resolution ones.",
+        "ModLink": "https://www.example.com/mods/texture-overhaul",
+        "Game": "LE1",
+        "Tags": ["graphics", "texture"]
+    },
+    {
+        "ModName": "Expanded Dialogue",
+        "ModDescription": "Adds additional dialogue options and scenes to the game.",
+        "ModLink": "https://www.example.com/mods/expanded-dialogue",
+        "Game": "LE2",
+        "Tags": ["dialogue", "content"]
+    },
+    {
+        "ModName": "Improved Combat",
+        "ModDescription": "Changes the combat system to make it more engaging and challenging.",
+        "ModLink": "https://www.example.com/mods/improved-combat",
+        "Game": "LE3",
+        "Tags": ["combat", "gameplay"]
+    },
+    {
+        "ModName": "New Armors",
+        "ModDescription": "Adds new armor sets to the game, providing more customization options for players.",
+        "ModLink": "https://www.example.com/mods/new-armors",
+        "Game": "LE1",
+        "Tags": ["armor", "equipment"]
+    },
+    {
+        "ModName": "Expanded Universe",
+        "ModDescription": "Adds new planets and missions to the game, expanding the game's universe.",
+        "ModLink": "https://www.example.com/mods/expanded-universe",
+        "Game": "LE2",
+        "Tags": ["missions", "content"]
+    },
+    {
+        "ModName": "Enhanced Graphics",
+        "ModDescription": "Adds various graphical enhancements to the game, such as improved lighting and particle effects.",
+        "ModLink": "https://www.example.com/mods/enhanced-graphics",
+        "Game": "LE3",
+        "Tags": ["graphics", "enhancement"]
+    }
 ]
