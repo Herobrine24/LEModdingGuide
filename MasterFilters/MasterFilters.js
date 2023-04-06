@@ -135,16 +135,6 @@ function toggleView() {
     list.classList.toggle("list-view");
 }
 
-function toggleView() {
-    if (listWrapper.classList.contains("grid")) {
-        listWrapper.classList.remove("grid");
-        listWrapper.classList.add("list");
-    } else {
-        listWrapper.classList.remove("list");
-        listWrapper.classList.add("grid");
-    }
-}
-
 // Event listeners for filter buttons
 allFilters.forEach(function(filter) {
     filter.addEventListener("click", function() {
@@ -159,23 +149,21 @@ allFilters.forEach(function(filter) {
 
         // Hide/show list items based on selected filters
         if (filterName === "All") {
-            // Show all items if "All" filter is clicked
-            showAllItems();
+            modItems.forEach(function(modItem) {
+                modItem.style.display = "";
+            });
         } else {
-            // Hide all items first
-            hideAllItems();
-
-            // Loop through each list item and show the ones that match the selected filters
-            listItems.forEach(function(item) {
-                let game = item.dataset.game;
-                let tags = item.dataset.tags.split(",");
-                if (tags.includes(filterName) && (leFilter === "All" || leFilter === game)) {
-                    item.classList.add("show");
+            modItems.forEach(function(modItem) {
+                if (modItem.classList.contains(filterName) && modItem.classList.contains(leFilter)) {
+                    modItem.style.display = "";
+                } else {
+                    modItem.style.display = "none";
                 }
             });
         }
     });
 });
+
 
 // Event listeners for LE filters
 leFilters.forEach(function(filter) {
