@@ -1,6 +1,8 @@
 // Define all possible filters
 const allFilters = ['All', 'LE1', 'LE2', 'LE3', 'Modtype1', 'Modtype2', 'Modtype3', 'Modtype4'];
 
+let leFiltersWrapper = document.querySelector("#leFilters");
+
 const filter = document.querySelector("#filter");
 
 if (filter && filter instanceof HTMLElement) {
