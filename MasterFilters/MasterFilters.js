@@ -167,6 +167,9 @@ filters.forEach(function(filter) {
   });
 });
 
+console.log(allFilters);
+let filters = Array.from(allFilters);
+
 
 // Event listeners for LE filters
 leFilters.forEach(function(filter) {
