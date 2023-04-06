@@ -1,6 +1,14 @@
 // Define all possible filters
 const allFilters = ['All', 'LE1', 'LE2', 'LE3', 'Modtype1', 'Modtype2', 'Modtype3', 'Modtype4'];
 
+const filter = document.querySelector("#filter");
+
+if (filter && filter instanceof HTMLElement) {
+  filter.addEventListener("click", function () {
+    // code for filtering items
+  });
+}
+
 // Retrieve mod data from JSON file
 const modData = fetch('MasterFilters.json')
     .then(response => response.json())
