@@ -137,6 +137,8 @@ function toggleView() {
     list.classList.toggle("list-view");
 }
 
+// Get all the filter buttons
+let allFilters = document.querySelectorAll("#filters button");
 let filters = Array.from(allFilters);
 
 filters.forEach(function(filter) {
@@ -166,9 +168,6 @@ filters.forEach(function(filter) {
     }
   });
 });
-
-console.log(allFilters);
-let filters = Array.from(allFilters);
 
 
 // Event listeners for LE filters
