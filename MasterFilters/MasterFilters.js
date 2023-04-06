@@ -135,33 +135,34 @@ function toggleView() {
     list.classList.toggle("list-view");
 }
 
-// Event listeners for filter buttons
-allFilters.forEach(function(filter) {
-    filter.addEventListener("click", function() {
-        let filterName = this.dataset.filter;
-        let leFilter = leFiltersWrapper.querySelector(".active").dataset.filter;
+let filters = Array.from(allFilters);
 
-        // Add active class to clicked filter button
-        allFilters.forEach(function(filter) {
-            filter.classList.remove("active");
-        });
-        this.classList.add("active");
+filters.forEach(function(filter) {
+  filter.addEventListener("click", function() {
+    let filterName = this.dataset.filter;
+    let leFilter = leFiltersWrapper.querySelector(".active").dataset.filter;
 
-        // Hide/show list items based on selected filters
-        if (filterName === "All") {
-            modItems.forEach(function(modItem) {
-                modItem.style.display = "";
-            });
-        } else {
-            modItems.forEach(function(modItem) {
-                if (modItem.classList.contains(filterName) && modItem.classList.contains(leFilter)) {
-                    modItem.style.display = "";
-                } else {
-                    modItem.style.display = "none";
-                }
-            });
-        }
+    // Add active class to clicked filter button
+    filters.forEach(function(filter) {
+      filter.classList.remove("active");
     });
+    this.classList.add("active");
+
+    // Hide/show list items based on selected filters
+    if (filterName === "All") {
+      modItems.forEach(function(modItem) {
+        modItem.style.display = "";
+      });
+    } else {
+      modItems.forEach(function(modItem) {
+        if (modItem.classList.contains(filterName) && modItem.classList.contains(leFilter)) {
+          modItem.style.display = "";
+        } else {
+          modItem.style.display = "none";
+        }
+      });
+    }
+  });
 });
 
 
