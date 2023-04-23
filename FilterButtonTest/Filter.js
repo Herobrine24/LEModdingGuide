@@ -72,21 +72,16 @@ fetch('Filter.json')
     });
 
 function updateItemsVisibility() {
+  const activeFilters = Array.from(document.querySelectorAll('.active[data-filter]')).map(button => button.dataset.filter);
+
   items.forEach((item) => {
     const listItem = itemList.querySelector(`.item.${item.typeFilter}.${item.gameFilter}`);
-    const activeTypeButton = document.querySelector('.type-filter-button.active');
-    const activeGameButton = document.querySelector('.game-filter-button.active');
-    const activeTypeFilter = activeTypeButton ? activeTypeButton.dataset.filter : 'all';
-    const activeGameFilter = activeGameButton ? activeGameButton.dataset.filter : 'all';
+    const hasActiveFilters = activeFilters.every(filter => item[`${filter}Filter`]);
 
     if (listItem) {
-      if (activeTypeFilter === 'all' && activeGameFilter === 'all') {
+      if (activeFilters.length === 0) {
         listItem.classList.add("show");
-      } else if (activeTypeFilter === 'all' && item.gameFilter === activeGameFilter) {
-        listItem.classList.add("show");
-      } else if (activeGameFilter === 'all' && item.typeFilter === activeTypeFilter) {
-        listItem.classList.add("show");
-      } else if (item.typeFilter === activeTypeFilter && item.gameFilter === activeGameFilter) {
+      } else if (hasActiveFilters) {
         listItem.classList.add("show");
       } else {
         listItem.classList.remove("show");
