@@ -72,7 +72,7 @@ fetch('Filter.json')
     });
 
   function updateItemsVisibility() {
-    items.forEach((item) => {
+    items.forEach((item)) => {
       const listItem = itemList.querySelector(`.item.${item.typeFilter}.${item.gameFilter}`);
       const activeTypeButton = document.querySelector('.type-filter-button.active');
       const activeGameButton = document.querySelector('.game-filter-button.active');
