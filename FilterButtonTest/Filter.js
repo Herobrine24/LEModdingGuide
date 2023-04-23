@@ -4,7 +4,7 @@ const itemList = document.querySelector('.item-list');
 
 function createListItem(item) {
   const listItem = document.createElement('li');
-  listItem.className = `item ${item.filter} show`;
+  listItem.className = `item ${item.typeFilter} ${item.gameFilter} show`;
   const link = document.createElement('a');
   link.href = item.link;
   link.style.color = 'blue';
@@ -16,13 +16,6 @@ function createListItem(item) {
   const separator = document.createElement('strong');
   separator.appendChild(document.createTextNode(' - '));
   listItem.appendChild(separator);
-  const description = document.createElement('span');
-  description.style.display = 'inline-flex';
-  description.style.flexDirection = 'column';
-  const descriptionText = document.createTextNode(item.description);
-  description.appendChild(descriptionText);
-  listItem.appendChild(description);
-  return listItem;
 }
 
 // Load data from Filter.json
