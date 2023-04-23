@@ -99,28 +99,20 @@ function updateItemsVisibility() {
 }
 
 
-    // Add click event listener to each filter button
-    filterButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const buttonFilterGroup = button.classList.contains('type-filter-button') ? '.type-filter-button' : '.game-filter-button';
-        const filterButtonsInGroup = document.querySelectorAll(buttonFilterGroup);
-        
-        // Remove active class from all filter buttons in the same group
-        filterButtonsInGroup.forEach((btn) => {
-          btn.classList.remove("active");
-        });
-        
-        // Add active class to clicked filter button
-        button.classList.add("active");
-        
-        // Update items visibility
-        updateItemsVisibility();
-      });
-    });
+// Add click event listener to each filter button
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const buttonFilterGroup = button.classList.contains('type-filter-button') ? '.type-filter-button' : '.game-filter-button';
+    const filterButtonsInGroup = document.querySelectorAll(buttonFilterGroup);
 
-    // Initial update of items visibility
+    // Toggle active class for clicked filter button
+    button.classList.toggle("active");
+
+    // Update items visibility
     updateItemsVisibility();
   });
+});
+
 
 // Create no results message element
 const noResultsMessage = document.createElement('div');
