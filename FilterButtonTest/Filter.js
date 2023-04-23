@@ -83,27 +83,26 @@ function updateItemsVisibility() {
   const activeGameButton = document.querySelector('.game-filter-button.active');
   const activeTypeFilter = activeTypeButton ? activeTypeButton.dataset.filter : 'all';
   const activeGameFilter = activeGameButton ? activeGameButton.dataset.filter : 'all';
-  
-  
-// Show items that match the active filters
-items.forEach((item) => {
-  const listItem = itemList.querySelector(`.item.${item.typeFilter}.${item.gameFilter}`);
- 
-  if ((activeTypeFilter === 'all' || item.typeFilter === activeTypeFilter) && 
-      (activeGameFilter === 'all' || item.gameFilter === activeGameFilter)) {
-    listItem.classList.add('show');
-  } else {
-    listItem.classList.remove('show');
-  }
-});
 
-// Show/hide no results message
-const visibleItems = itemList.querySelectorAll('.item.show');
-if (visibleItems.length === 0) {
-  noResultsMessage.style.display = 'block';
-} else {
-  noResultsMessage.style.display = 'none';
-}
+  // Show items that match the active filters
+  items.forEach((item) => {
+    const listItem = itemList.querySelector(`.item.${item.typeFilter}.${item.gameFilter}`);
+ 
+    if ((activeTypeFilter === 'all' || item.typeFilter === activeTypeFilter) && 
+        (activeGameFilter === 'all' || item.gameFilter === activeGameFilter)) {
+      listItem.classList.add('show');
+    } else {
+      listItem.classList.remove('show');
+    }
+  });
+
+  // Show/hide no results message
+  const visibleItems = itemList.querySelectorAll('.item.show');
+  if (visibleItems.length === 0) {
+    noResultsMessage.style.display = 'block';
+  } else {
+    noResultsMessage.style.display = 'none';
+  }
 
   // Automatically select "All" filters if no filters are selected
   if (!document.querySelector('.type-filter-button.active') && !document.querySelector('.game-filter-button.active')) {
