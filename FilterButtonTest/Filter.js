@@ -16,6 +16,8 @@ function createListItem(item) {
   const separator = document.createElement('strong');
   separator.appendChild(document.createTextNode(' - '));
   listItem.appendChild(separator);
+  
+  return listItem; // Add this line to return the created list item
 }
 
 // Load data from Filter.json
