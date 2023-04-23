@@ -88,6 +88,14 @@ function updateItemsVisibility() {
       }
     }
   });
+
+  // Show/hide no results message
+  const visibleItems = itemList.querySelectorAll('.item.show');
+  if (visibleItems.length === 0) {
+    noResultsMessage.style.display = 'block';
+  } else {
+    noResultsMessage.style.display = 'none';
+  }
 }
 
 
@@ -113,3 +121,11 @@ function updateItemsVisibility() {
     // Initial update of items visibility
     updateItemsVisibility();
   });
+
+// Create no results message element
+const noResultsMessage = document.createElement('div');
+noResultsMessage.className = 'no-results-message';
+noResultsMessage.textContent = 'No results found';
+
+// Append no results message to item list container
+itemList.parentNode.appendChild(noResultsMessage);
