@@ -71,24 +71,28 @@ fetch('Filter.json')
       itemList.appendChild(listItem);
     });
 
-  function updateItemsVisibility() {
+function updateItemsVisibility() {
+  items.forEach((item) => {
+    const listItem = itemList.querySelector(`.item.${item.typeFilter}.${item.gameFilter}`);
     const activeTypeButton = document.querySelector('.type-filter-button.active');
     const activeGameButton = document.querySelector('.game-filter-button.active');
     const activeTypeFilter = activeTypeButton.dataset.filter;
     const activeGameFilter = activeGameButton.dataset.filter;
 
-    items.forEach((item) => {
-      const listItem = itemList.querySelector(`.item.${item.typeFilter}.${item.gameFilter}`);
-      if (!listItem) return;
-
-      const shouldShow = (
-        (activeTypeFilter === 'all' || item.typeFilter === activeTypeFilter) &&
-        (activeGameFilter === 'all' || item.gameFilter === activeGameFilter)
-      );
-
-      shouldShow ? listItem.classList.add("show") : listItem.classList.remove("show");
-    });
-  }
+    if (listItem) {
+      if (activeTypeFilter === 'all' && activeGameFilter === 'all') {
+        listItem.classList.add("show");
+      } else if (activeTypeFilter === 'all' && item.gameFilter === activeGameFilter) {
+        listItem.classList.add("show");
+      } else if (activeGameFilter === 'all' && item.typeFilter === activeTypeFilter) {
+        listItem.classList.add("show");
+      } else if (item.typeFilter === activeTypeFilter && item.gameFilter === activeGameFilter) {
+        listItem.classList.add("show");
+      } else {
+        listItem.classList.remove("show");
+      }
+    }
+  });
 }
 
 
