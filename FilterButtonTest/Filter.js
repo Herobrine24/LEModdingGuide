@@ -71,14 +71,15 @@ fetch('Filter.json')
       itemList.appendChild(listItem);
     });
 
-    function updateItemsVisibility() {
-      items.forEach((item) => {
-        const listItem = itemList.querySelector(`.item.${item.typeFilter}.${item.gameFilter}`);
-        const activeTypeButton = document.querySelector('.type-filter-button.active');
-        const activeGameButton = document.querySelector('.game-filter-button.active');
-        const activeTypeFilter = activeTypeButton.dataset.filter;
-        const activeGameFilter = activeGameButton.dataset.filter;
+  function updateItemsVisibility() {
+    items.forEach((item) => {
+      const listItem = itemList.querySelector(`.item.${item.typeFilter}.${item.gameFilter}`);
+      const activeTypeButton = document.querySelector('.type-filter-button.active');
+      const activeGameButton = document.querySelector('.game-filter-button.active');
+      const activeTypeFilter = activeTypeButton.dataset.filter;
+      const activeGameFilter = activeGameButton.dataset.filter;
 
+      if (listItem) {
         if (activeTypeFilter === 'all' && activeGameFilter === 'all') {
           listItem.classList.add("show");
         } else if (activeTypeFilter === 'all' && item.gameFilter === activeGameFilter) {
@@ -90,8 +91,11 @@ fetch('Filter.json')
         } else {
           listItem.classList.remove("show");
         }
-      });
-    }
+      }
+    });
+  }
+}
+
 
     // Add click event listener to each filter button
     filterButtons.forEach((button) => {
