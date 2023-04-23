@@ -1,6 +1,12 @@
+
+// Create no results message element
+const noResultsMessage = document.createElement('div');
+noResultsMessage.className = 'no-results-message';
+noResultsMessage.textContent = 'No results found';
 const typeFilterContainer = document.querySelector('.type-filter');
 const gameFilterContainer = document.querySelector('.game-filter');
 const itemList = document.querySelector('.item-list');
+itemList.parentNode.appendChild(noResultsMessage);
 
 	function createListItem(item) {	
   const listItem = document.createElement('li');	
@@ -22,7 +28,8 @@ const itemList = document.querySelector('.item-list');
   const descriptionText = document.createTextNode(item.description);	
   description.appendChild(descriptionText);	
   listItem.appendChild(description);	
-  return listItem;	
+  return listItem;
+
 }
 
 // Load data from Filter.json
@@ -77,29 +84,26 @@ function updateItemsVisibility() {
   const activeTypeFilter = activeTypeButton ? activeTypeButton.dataset.filter : 'all';
   const activeGameFilter = activeGameButton ? activeGameButton.dataset.filter : 'all';
   
-  // Hide all items
-  items.forEach((item) => {
-    const listItem = itemList.querySelector(`.item.${item.typeFilter}.${item.gameFilter}`);
-    listItem.classList.remove("show");
-  });
   
-  // Show items that match the active filters
-  items.forEach((item) => {
-    const listItem = itemList.querySelector(`.item.${item.typeFilter}.${item.gameFilter}`);
-    
-    if ((activeTypeFilter === 'all' || item.typeFilter === activeTypeFilter) && 
-        (activeGameFilter === 'all' || item.gameFilter === activeGameFilter)) {
-      listItem.classList.add("show");
-    }
-  });
-  
-  // Show/hide no results message
-  const visibleItems = itemList.querySelectorAll('.item.show');
-  if (visibleItems.length === 0) {
-    noResultsMessage.style.display = 'block';
+// Show items that match the active filters
+items.forEach((item) => {
+  const listItem = itemList.querySelector(`.item.${item.typeFilter}.${item.gameFilter}`);
+ 
+  if ((activeTypeFilter === 'all' || item.typeFilter === activeTypeFilter) && 
+      (activeGameFilter === 'all' || item.gameFilter === activeGameFilter)) {
+    listItem.classList.add('show');
   } else {
-    noResultsMessage.style.display = 'none';
+    listItem.classList.remove('show');
   }
+});
+
+// Show/hide no results message
+const visibleItems = itemList.querySelectorAll('.item.show');
+if (visibleItems.length === 0) {
+  noResultsMessage.style.display = 'block';
+} else {
+  noResultsMessage.style.display = 'none';
+}
 
   // Automatically select "All" filters if no filters are selected
   if (!document.querySelector('.type-filter-button.active') && !document.querySelector('.game-filter-button.active')) {
@@ -130,12 +134,6 @@ filterButtons.forEach((button) => {
   });
 });
 });
-
-
-// Create no results message element
-const noResultsMessage = document.createElement('div');
-noResultsMessage.className = 'no-results-message';
-noResultsMessage.textContent = 'No results found';
 
 // Append no results message to item list container
 itemList.parentNode.appendChild(noResultsMessage);
