@@ -123,7 +123,7 @@
           "description": "Restores the first game’s dynamic lighting and presentation as it was in the original game",
           "gameFilter": "le1",
           "typeFilter": "qol"
-        }
+        },
         {
           "name": "Unofficial LE2 Patch",
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/8",
