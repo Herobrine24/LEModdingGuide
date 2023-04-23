@@ -157,7 +157,6 @@ filterButtons.forEach((button) => {
     updateItemsVisibility();
   });
 });
-});
 
 // Append no results message to item list container
 itemList.parentNode.appendChild(noResultsMessage);
