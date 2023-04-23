@@ -53,7 +53,7 @@ fetch('Filter.json')
       button.textContent = filter.name;
       typeFilterContainer.appendChild(button);
     });
-});
+
 
 // Add game filter buttons
 gameFilters.forEach((button) => {
