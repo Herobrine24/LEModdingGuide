@@ -8,9 +8,9 @@ const gameFilterContainer = document.querySelector('.game-filter');
 const itemList = document.querySelector('.item-list');
 itemList.parentNode.appendChild(noResultsMessage);
 
-	function createListItem(item) {	
+function createListItem(item) {	
   const listItem = document.createElement('li');	
-  listItem.className = `item ${item.typeFilter} ${item.gameFilter} show`;	
+  listItem.className = `item ${item.typeFilter}-item ${item.gameFilter}-item show`;	
   const link = document.createElement('a');	
   link.href = item.link;	
   link.style.color = 'blue';	
@@ -28,8 +28,12 @@ itemList.parentNode.appendChild(noResultsMessage);
   const descriptionText = document.createTextNode(item.description);	
   description.appendChild(descriptionText);	
   listItem.appendChild(description);	
-  return listItem;
+  
+  // Add separate classes for typeFilter and gameFilter
+  listItem.classList.add(`${item.typeFilter}-item`);
+  listItem.classList.add(`${item.gameFilter}-item`);
 
+  return listItem;
 }
 
 // Load data from Filter.json
@@ -83,27 +87,26 @@ function updateItemsVisibility() {
   const activeGameButton = document.querySelector('.game-filter-button.active');
   const activeTypeFilter = activeTypeButton ? activeTypeButton.dataset.filter : 'all';
   const activeGameFilter = activeGameButton ? activeGameButton.dataset.filter : 'all';
-
+  
+  // Hide all items by default
+  const allItems = itemList.querySelectorAll('.item');
+  allItems.forEach((item) => {
+    item.classList.remove('show');
+  });
+  
   // Show items that match the active filters
-  items.forEach((item) => {
-    const listItem = itemList.querySelector(`.item.${item.typeFilter}.${item.gameFilter}`);
- 
-    if ((activeTypeFilter === 'all' || item.typeFilter === activeTypeFilter) && 
-        (activeGameFilter === 'all' || item.gameFilter === activeGameFilter)) {
-      listItem.classList.add('show');
-    } else {
-      listItem.classList.remove('show');
-    }
+  const visibleItems = itemList.querySelectorAll(`.item.${activeTypeFilter}-item.${activeGameFilter}-item`);
+  visibleItems.forEach((item) => {
+    item.classList.add('show');
   });
 
   // Show/hide no results message
-  const visibleItems = itemList.querySelectorAll('.item.show');
   if (visibleItems.length === 0) {
     noResultsMessage.style.display = 'block';
   } else {
     noResultsMessage.style.display = 'none';
   }
-
+  
   // Automatically select "All" filters if no filters are selected
   if (!document.querySelector('.type-filter-button.active') && !document.querySelector('.game-filter-button.active')) {
     document.querySelector('.type-filter-button[data-filter="all"]').classList.add('active');
