@@ -145,13 +145,17 @@ filterButtons.forEach((button) => {
     // Toggle active class for clicked filter button
     button.classList.toggle("active");
 
-    // Check if no other type filter buttons are active and add "active" class to "All" button
-    const activeTypeFilterButtons = document.querySelectorAll('.type-filter-button.active');
-    if (activeTypeFilterButtons.length === 0) {
-      document.querySelector('.type-filter-button[data-filter="all"]').classList.add("active");
-    } else {
-      document.querySelector('.type-filter-button[data-filter="all"]').classList.remove("active");
-    }
+// Check if no other type filter buttons are active and add "active" class to "All" button
+const activeTypeFilterButtons = document.querySelectorAll('.type-filter-button.active');
+if (activeTypeFilterButtons.length === 0) {
+  document.querySelector('.type-filter-button[data-filter="all"]').classList.add('active');
+}
+
+// Check if no other game filter buttons are active and add "active" class to "All" button
+const activeGameFilterButtons = document.querySelectorAll('.game-filter-button.active');
+if (activeGameFilterButtons.length === 0) {
+  document.querySelector('.game-filter-button[data-filter="all"]').classList.add('active');
+}
 
     // Update items visibility
     updateItemsVisibility();
