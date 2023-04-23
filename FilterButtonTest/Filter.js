@@ -110,9 +110,9 @@ filterButtons.forEach((button) => {
 
     // Update items visibility
     updateItemsVisibility();
+   });
   });
-});
-}
+ });
 
 // Create no results message element
 const noResultsMessage = document.createElement('div');
