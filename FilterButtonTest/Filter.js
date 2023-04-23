@@ -1,5 +1,3 @@
-console.log(`gameFilter: ${gameFilter}, typeFilter: ${typeFilter}`);
-
 const typeFilterContainer = document.querySelector('.type-filter');
 const gameFilterContainer = document.querySelector('.game-filter');
 const itemList = document.querySelector('.item-list');
