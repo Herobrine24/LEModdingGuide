@@ -200,7 +200,7 @@
           "description": "Increases the movement speed of the planet scanning reticle",
           "gameFilter": "le2",
           "typeFilter": "qol"
-        }
+        },
         {
            "name":"Improved Photo Mode",
            "link":"https://www.nexusmods.com/masseffectlegendaryedition/mods/424",
