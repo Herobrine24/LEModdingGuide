@@ -88,6 +88,9 @@ function updateItemsVisibility() {
   const activeTypeFilter = activeTypeButton ? activeTypeButton.dataset.filter : 'all';
   const activeGameFilter = activeGameButton ? activeGameButton.dataset.filter : 'all';
 
+  console.log(`Active Type Filter: ${activeTypeFilter}`);
+  console.log(`Active Game Filter: ${activeGameFilter}`);
+
   // Show all items by default
   const allItems = itemList.querySelectorAll('.item');
   allItems.forEach((item) => {
@@ -96,6 +99,9 @@ function updateItemsVisibility() {
 
   // Hide items that do not match the active filters
   const invisibleItems = itemList.querySelectorAll(`.item:not(.${activeTypeFilter}-item):not(.${activeGameFilter}-item)`);
+
+  console.log(`Number of Invisible Items: ${invisibleItems.length}`);
+
   invisibleItems.forEach((item) => {
     item.classList.remove('show');
   });
