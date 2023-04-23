@@ -72,16 +72,17 @@ fetch('Filter.json')
     });
 
 function updateItemsVisibility() {
-  const activeFilters = Array.from(document.querySelectorAll('.active[data-filter]')).map(button => button.dataset.filter);
-
   items.forEach((item) => {
     const listItem = itemList.querySelector(`.item.${item.typeFilter}.${item.gameFilter}`);
-    const hasActiveFilters = activeFilters.every(filter => item[`${filter}Filter`]);
+    const activeTypeButton = document.querySelector('.type-filter-button.active');
+    const activeGameButton = document.querySelector('.game-filter-button.active');
+    const activeTypeFilter = activeTypeButton ? activeTypeButton.dataset.filter : 'all';
+    const activeGameFilter = activeGameButton ? activeGameButton.dataset.filter : 'all';
 
     if (listItem) {
-      if (activeFilters.length === 0) {
-        listItem.classList.add("show");
-      } else if (hasActiveFilters) {
+      const typeMatch = activeTypeFilter === 'all' || item.typeFilter === activeTypeFilter;
+      const gameMatch = activeGameFilter === 'all' || item.gameFilter === activeGameFilter;
+      if (typeMatch && gameMatch) {
         listItem.classList.add("show");
       } else {
         listItem.classList.remove("show");
@@ -103,6 +104,7 @@ function updateItemsVisibility() {
     document.querySelector('.game-filter-button[data-filter="all"]').classList.add('active');
   }
 }
+
 
   
   
