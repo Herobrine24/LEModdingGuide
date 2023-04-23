@@ -202,67 +202,67 @@
           "typeFilter": "qol"
         },
         {
-           "name":"Improved Photo Mode",
-           "link":"https://www.nexusmods.com/masseffectlegendaryedition/mods/424",
-           "description":"Increases your freedom with Photo Mode",
-           "gameFilter":"le3",
-           "typeFilter":"apparel"
+           "name": "Improved Photo Mode",
+           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/424",
+           "description": "Increases your freedom with Photo Mode",
+           "gameFilter": "le3",
+           "typeFilter": "apparel"
         },
         {
-           "name":"Remove Storm Screen Shake",
-           "link":"https://www.nexusmods.com/masseffectlegendaryedition/mods/310",
-           "description":"Sprint around without a shaking camera",
-           "gameFilter":"le3",
-           "typeFilter":"qol"
+           "name": "Remove Storm Screen Shake",
+           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/310",
+           "description": "Sprint around without a shaking camera",
+           "gameFilter": "le3",
+           "typeFilter": "qol"
         },
         {
-           "name":"No Shotgun Firing Delay",
-           "link":"https://www.nexusmods.com/masseffectlegendaryedition/mods/591",
-           "description":"Removes the delay between pulling the trigger and actually shooting shotguns",
-           "gameFilter":"le3",
-           "typeFilter":"gameplay"
+           "name": "No Shotgun Firing Delay",
+           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/591",
+           "description": "Removes the delay between pulling the trigger and actually shooting shotguns",
+           "gameFilter": "le3",
+           "typeFilter": "gameplay"
         },
         {
-          "name":"Anderson’s Final Conversation Restored",
-          "link":"https://www.nexusmods.com/masseffectlegendaryedition/mods/658",
-          "description":"Restores a cut conversation with Anderson",
-          "gameFilter":"le3",
-          "typeFilter":"gameplay"
+          "name": "Anderson’s Final Conversation Restored",
+          "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/658",
+          "description": "Restores a cut conversation with Anderson",
+          "gameFilter": "le3",
+          "typeFilter": "gameplay"
         },
         {
-           "name":"Omega Interrupt for All Tech Classes",
-           "link":"https://www.nexusmods.com/masseffectlegendaryedition/mods/537",
-           "description":"Widens the accessibility of a class-specific interrupt",
-           "gameFilter":"le3",
-           "typeFilter":"gameplay"
+           "name": "Omega Interrupt for All Tech Classes",
+           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/537",
+           "description": "Widens the accessibility of a class-specific interrupt",
+           "gameFilter": "le3",
+           "typeFilter": "gameplay"
         },
         {
-           "name":"LE3 Community Patch",
-           "link":"https://www.nexusmods.com/masseffectlegendaryedition/mods/13",
-           "description":"Major bugfix mod",
-           "gameFilter":"le3",
-           "typeFilter":"qol"
+           "name": "LE3 Community Patch",
+           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/13",
+           "description": "Major bugfix mod",
+           "gameFilter": "le3",
+           "typeFilter": "qol"
         },
         {
-           "name":"LE3 Storm Improvements",
-           "link":"https://www.nexusmods.com/masseffectlegendaryedition/mods/626",
-           "description":"Improves sprinting with various options to choose from",
-           "gameFilter":"le3",
-           "typeFilter":"qol"
+           "name": "LE3 Storm Improvements",
+           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/626",
+           "description": "Improves sprinting with various options to choose from",
+           "gameFilter": "le3",
+           "typeFilter": "qol"
         },
         {
-           "name":"Planet Scanner Mouse Speed Increase",
-           "link":"https://www.nexusmods.com/masseffectlegendaryedition/mods/747/",
-           "description":"Increases the movement speed of the planet scanning reticle",
-           "gameFilter":"le3",
-           "typeFilter":"qol"
+           "name": "Planet Scanner Mouse Speed Increase",
+           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/747/",
+           "description": "Increases the movement speed of the planet scanning reticle",
+           "gameFilter": "le3",
+           "typeFilter": "qol"
         },
         {
-           "name":"Smaller Interface Mod",
-           "link":"https://www.nexusmods.com/masseffectlegendaryedition/mods/1402/",
-           "description":"Reduces the gameplay/combat UI to something more suitable for a PC experience",
-           "gameFilter":"le3",
-           "typeFilter":"interface"
+           "name": "Smaller Interface Mod",
+           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/1402/",
+           "description": "Reduces the gameplay/combat UI to something more suitable for a PC experience",
+           "gameFilter": "le3",
+           "typeFilter": "interface"
         }
   ]
 }
