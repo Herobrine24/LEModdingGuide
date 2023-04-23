@@ -1,81 +1,84 @@
 // Load data from Filter.json
 fetch('Filter.json')
-    .then(response => response.json())
-    .then(data => {
-        // Store the data in variables
-        const items = data.items;
-        const typeFilters = data.typeFilters;
-        const gameFilters = data.gameFilters;
+  .then(response => response.json())
+  .then(data => {
+    // Store the data in variables
+    const items = data.items;
+    const typeFilters = data.typeFilters;
+    const gameFilters = data.gameFilters;
 
-        // Add type filter buttons
-        typeFilters.forEach((filter) => {
-            const button = document.createElement('button');
-            button.className = 'filter-button type-filter-button';
-            button.dataset.filter = filter.filter;
-            button.textContent = filter.name;
-            typeFilterContainer.appendChild(button);
-        });
+    // Define typeFilterContainer variable
+    const typeFilterContainer = document.querySelector('.type-filter-container');
 
-        // Add game filter buttons
-        gameFilters.forEach((filter) => {
-            const button = document.createElement('button');
-            button.className = 'filter-button game-filter-button';
-            button.dataset.filter = filter.filter;
-            button.textContent = filter.name;
-            gameFilterContainer.appendChild(button);
-        });
+    // Add type filter buttons
+    typeFilters.forEach((filter) => {
+      const button = document.createElement('button');
+      button.className = 'filter-button type-filter-button';
+      button.dataset.filter = filter.filter;
+      button.textContent = filter.name;
+      typeFilterContainer.appendChild(button);
+    });
 
-        const typeFilterButtons = document.querySelectorAll(".type-filter-button");
-        const gameFilterButtons = document.querySelectorAll(".game-filter-button");
-        const filterButtons = [...typeFilterButtons, ...gameFilterButtons];
+    // Add game filter buttons
+    gameFilters.forEach((filter) => {
+      const button = document.createElement('button');
+      button.className = 'filter-button game-filter-button';
+      button.dataset.filter = filter.filter;
+      button.textContent = filter.name;
+      gameFilterContainer.appendChild(button);
+    });
 
-        // Add active class to All filter buttons by default
-        filterButtons.forEach((button) => {
-            if (button.dataset.filter === "all") {
-                button.classList.add("active");
-            } else {
-                button.classList.remove("active");
-            }
-        });
+    const typeFilterButtons = document.querySelectorAll(".type-filter-button");
+    const gameFilterButtons = document.querySelectorAll(".game-filter-button");
+    const filterButtons = [...typeFilterButtons, ...gameFilterButtons];
 
-        // Show all items on page load
-        items.forEach((item) => {
-            const listItem = createListItem(item);
-            itemList.appendChild(listItem);
-        });
+    // Add active class to All filter buttons by default
+    filterButtons.forEach((button) => {
+      if (button.dataset.filter === "all") {
+        button.classList.add("active");
+      } else {
+        button.classList.remove("active");
+      }
+    });
 
-        function updateItemsVisibility() {
-            const activeTypeButton = document.querySelector('.type-filter-button.active');
-            const activeGameButton = document.querySelector('.game-filter-button.active');
-            const activeTypeFilter = activeTypeButton ? activeTypeButton.dataset.filter : 'all';
-            const activeGameFilter = activeGameButton ? activeGameButton.dataset.filter : 'all';
+    // Show all items on page load
+    items.forEach((item) => {
+      const listItem = createListItem(item);
+      itemList.appendChild(listItem);
+    });
 
-            // Hide all items
-            items.forEach((item) => {
-                const listItem = itemList.querySelector(`.item.${item.typeFilter}.${item.gameFilter}`);
-                if (listItem) {
-                    listItem.classList.remove('show');
-                    listItem.classList.add('hide');
-                }
-            });
+    function updateItemsVisibility() {
+      const activeTypeButton = document.querySelector('.type-filter-button.active');
+      const activeGameButton = document.querySelector('.game-filter-button.active');
+      const activeTypeFilter = activeTypeButton ? activeTypeButton.dataset.filter : 'all';
+      const activeGameFilter = activeGameButton ? activeGameButton.dataset.filter : 'all';
 
-            // Show items that match the active filters
-            items.forEach((item) => {
-                const listItem = itemList.querySelector(`.item.${item.typeFilter}.${item.gameFilter}`);
-                if (listItem && ((activeTypeFilter === 'all' || item.typeFilter === activeTypeFilter) && (activeGameFilter === 'all' || item.gameFilter === activeGameFilter))) {
-                    listItem.classList.remove('hide');
-                    listItem.classList.add('show');
-                }
-            });
-
-            // Show no results message if no items are visible
-            const visibleItems = itemList.querySelectorAll('.item.show');
-            if (visibleItems.length === 0) {
-                noResultsMessage.style.display = 'block';
-            } else {
-                noResultsMessage.style.display = 'none';
-            }
+      // Hide all items
+      items.forEach((item) => {
+        const listItem = itemList.querySelector(`.item.${item.typeFilter}.${item.gameFilter}`);
+        if (listItem) {
+          listItem.classList.remove('show');
+          listItem.classList.add('hide');
         }
+      });
+
+      // Show items that match the active filters
+      items.forEach((item) => {
+        const listItem = itemList.querySelector(`.item.${item.typeFilter}.${item.gameFilter}`);
+        if (listItem && ((activeTypeFilter === 'all' || item.typeFilter === activeTypeFilter) && (activeGameFilter === 'all' || item.gameFilter === activeGameFilter))) {
+          listItem.classList.remove('hide');
+          listItem.classList.add('show');
+        }
+      });
+
+      // Show no results message if no items are visible
+      const visibleItems = itemList.querySelectorAll('.item.show');
+      if (visibleItems.length === 0) {
+        noResultsMessage.style.display = 'block';
+      } else {
+        noResultsMessage.style.display = 'none';
+      }
+    }
 
         function updateFilterButtons(event) {
             const button = event.target;
