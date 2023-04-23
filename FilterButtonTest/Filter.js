@@ -82,13 +82,12 @@ fetch('Filter.json')
     });
 
 function updateItemsVisibility() {
-  const activeTypeButton = document.querySelector('.type-filter-button.active');
   const activeGameButton = document.querySelector('.game-filter-button.active');
-  const activeTypeFilter = activeTypeButton ? activeTypeButton.dataset.filter : 'all';
-  const activeGameFilter = activeGameButton ? activeGameButton.dataset.filter : 'all';
+  const activeTypeButton = document.querySelector('.type-filter-button.active');
 
-  console.log(`Active Type Filter: ${activeTypeFilter}`);
-  console.log(`Active Game Filter: ${activeGameFilter}`);
+  // Get the active game and type filters
+  const activeGameFilter = activeGameButton ? activeGameButton.dataset.filter : 'all';
+  const activeTypeFilter = activeTypeButton ? activeTypeButton.dataset.filter : 'all';
 
   // Show all items by default
   const allItems = itemList.querySelectorAll('.item');
@@ -97,11 +96,11 @@ function updateItemsVisibility() {
   });
 
   // Hide items that do not match the active filters
-  const invisibleItems = itemList.querySelectorAll(`.item:not(.${activeTypeFilter}-item):not(.${activeGameFilter}-item)`);
-
-  console.log(`Number of Invisible Items: ${invisibleItems.length}`);
-
-  invisibleItems.forEach((item) => {
+  const gameFilterSelected = activeGameFilter !== 'all';
+  const filteredItems = gameFilterSelected
+    ? itemList.querySelectorAll(`.item:not(.${activeGameFilter}-item)`)
+    : itemList.querySelectorAll(`.item:not(.${activeTypeFilter}-item)`);
+  filteredItems.forEach((item) => {
     item.classList.remove('show');
   });
 
