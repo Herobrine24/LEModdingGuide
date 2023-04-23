@@ -1,8 +1,8 @@
-
 // Create no results message element
 const noResultsMessage = document.createElement('div');
 noResultsMessage.className = 'no-results-message';
 noResultsMessage.textContent = 'No results found';
+
 const typeFilterContainer = document.querySelector('.type-filter');
 const gameFilterContainer = document.querySelector('.game-filter');
 const itemList = document.querySelector('.item-list');
@@ -84,26 +84,27 @@ function updateItemsVisibility() {
   const activeTypeFilter = activeTypeButton ? activeTypeButton.dataset.filter : 'all';
   const activeGameFilter = activeGameButton ? activeGameButton.dataset.filter : 'all';
   
+  let hasVisibleItems = false; // Add this variable to track if there are visible items
   
-// Show items that match the active filters
-items.forEach((item) => {
-  const listItem = itemList.querySelector(`.item.${item.typeFilter}.${item.gameFilter}`);
+  // Show items that match the active filters
+  items.forEach((item) => {
+    const listItem = itemList.querySelector(`.item.${item.typeFilter}.${item.gameFilter}`);
  
-  if ((activeTypeFilter === 'all' || item.typeFilter === activeTypeFilter) && 
-      (activeGameFilter === 'all' || item.gameFilter === activeGameFilter)) {
-    listItem.classList.add('show');
-  } else {
-    listItem.classList.remove('show');
-  }
-});
+    if ((activeTypeFilter === 'all' || item.typeFilter === activeTypeFilter) && 
+        (activeGameFilter === 'all' || item.gameFilter === activeGameFilter)) {
+      listItem.classList.add('show');
+      hasVisibleItems = true; // Set the variable to true if an item is visible
+    } else {
+      listItem.classList.remove('show');
+    }
+  });
 
-// Show/hide no results message
-const visibleItems = itemList.querySelectorAll('.item.show');
-if (visibleItems.length === 0) {
-  noResultsMessage.style.display = 'block';
-} else {
-  noResultsMessage.style.display = 'none';
-}
+  // Show/hide no results message
+  if (hasVisibleItems) { // Check if there are visible items before hiding the message
+    noResultsMessage.style.display = 'none';
+  } else {
+    noResultsMessage.style.display = 'block';
+  }
 
   // Automatically select "All" filters if no filters are selected
   if (!document.querySelector('.type-filter-button.active') && !document.querySelector('.game-filter-button.active')) {
