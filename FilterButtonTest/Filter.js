@@ -3,7 +3,26 @@ const gameFilterContainer = document.querySelector('.game-filter');
 const itemList = document.querySelector('.item-list');
 
 function createListItem(item) {
-  // ... (no changes in this function)
+  const listItem = document.createElement('li');
+  listItem.className = `item ${item.filter} show`;
+  const link = document.createElement('a');
+  link.href = item.link;
+  link.style.color = 'blue';
+  link.style.display = 'inline';
+  link.setAttribute('target', '_blank'); // Add this line to set the target attribute
+  const linkText = document.createTextNode(item.name);
+  link.appendChild(linkText);
+  listItem.appendChild(link);
+  const separator = document.createElement('strong');
+  separator.appendChild(document.createTextNode(' - '));
+  listItem.appendChild(separator);
+  const description = document.createElement('span');
+  description.style.display = 'inline-flex';
+  description.style.flexDirection = 'column';
+  const descriptionText = document.createTextNode(item.description);
+  description.appendChild(descriptionText);
+  listItem.appendChild(description);
+  return listItem;
 }
 
 // Load data from Filter.json
