@@ -127,6 +127,7 @@ filterButtons.forEach((button) => {
     updateItemsVisibility();
   });
 });
+});
 
 
 // Create no results message element
