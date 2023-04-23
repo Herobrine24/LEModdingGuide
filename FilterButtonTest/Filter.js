@@ -104,8 +104,8 @@ function updateItemsVisibility() {
   }
 }
 
-
-
+  
+  
 // Add click event listener to each filter button
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -115,11 +115,19 @@ filterButtons.forEach((button) => {
     // Toggle active class for clicked filter button
     button.classList.toggle("active");
 
+    // Check if no other type filter buttons are active and add "active" class to "All" button
+    const activeTypeFilterButtons = document.querySelectorAll('.type-filter-button.active');
+    if (activeTypeFilterButtons.length === 0) {
+      document.querySelector('.type-filter-button[data-filter="all"]').classList.add("active");
+    } else {
+      document.querySelector('.type-filter-button[data-filter="all"]').classList.remove("active");
+    }
+
     // Update items visibility
     updateItemsVisibility();
-   });
   });
- });
+});
+
 
 // Create no results message element
 const noResultsMessage = document.createElement('div');
