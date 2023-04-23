@@ -45,7 +45,7 @@
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/661",
           "description": "Restores several unused items for purchase via a special license",
           "gameFilter": "le1",
-          "typeFilter": ""
+          "typeFilter": "qol"
         },
         {
           "name": "Same-Gender Romances",
