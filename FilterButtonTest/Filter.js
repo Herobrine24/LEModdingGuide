@@ -72,24 +72,27 @@ fetch('Filter.json')
     });
 
 function updateItemsVisibility() {
+  const activeTypeButton = document.querySelector('.type-filter-button.active');
+  const activeGameButton = document.querySelector('.game-filter-button.active');
+  const activeTypeFilter = activeTypeButton ? activeTypeButton.dataset.filter : 'all';
+  const activeGameFilter = activeGameButton ? activeGameButton.dataset.filter : 'all';
+  
+  // Hide all items
   items.forEach((item) => {
     const listItem = itemList.querySelector(`.item.${item.typeFilter}.${item.gameFilter}`);
-    const activeTypeButton = document.querySelector('.type-filter-button.active');
-    const activeGameButton = document.querySelector('.game-filter-button.active');
-    const activeTypeFilter = activeTypeButton ? activeTypeButton.dataset.filter : 'all';
-    const activeGameFilter = activeGameButton ? activeGameButton.dataset.filter : 'all';
-
-    if (listItem) {
-      const typeMatch = activeTypeFilter === 'all' || item.typeFilter === activeTypeFilter;
-      const gameMatch = activeGameFilter === 'all' || item.gameFilter === activeGameFilter;
-      if (typeMatch && gameMatch) {
-        listItem.classList.add("show");
-      } else {
-        listItem.classList.remove("show");
-      }
+    listItem.classList.remove("show");
+  });
+  
+  // Show items that match the active filters
+  items.forEach((item) => {
+    const listItem = itemList.querySelector(`.item.${item.typeFilter}.${item.gameFilter}`);
+    
+    if ((activeTypeFilter === 'all' || item.typeFilter === activeTypeFilter) && 
+        (activeGameFilter === 'all' || item.gameFilter === activeGameFilter)) {
+      listItem.classList.add("show");
     }
   });
-
+  
   // Show/hide no results message
   const visibleItems = itemList.querySelectorAll('.item.show');
   if (visibleItems.length === 0) {
@@ -104,9 +107,6 @@ function updateItemsVisibility() {
     document.querySelector('.game-filter-button[data-filter="all"]').classList.add('active');
   }
 }
-
-
-  
   
 // Add click event listener to each filter button
 filterButtons.forEach((button) => {
