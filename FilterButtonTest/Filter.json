@@ -1,4 +1,22 @@
 {
+  "gameFilters": [
+    {
+      "name": "All",
+      "filter": "all"
+    },
+    {
+      "name": "LE1",
+      "filter": "LE11"
+    },
+    {
+      "name": "LE2",
+      "filter": "LE2"
+    },
+    {
+      "name": "LE3",
+      "filter": "LE3"
+    }
+  ],
   "typeFilters": [
     {
       "name": "All",
