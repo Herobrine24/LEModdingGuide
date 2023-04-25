@@ -5,11 +5,11 @@ noResultsMessage.textContent = 'No results found';
 const typeFilterContainer = document.querySelector('.type-filter');
 const gameFilterContainer = document.querySelector('.game-filter');
 const itemList = document.querySelector('.item-list');
-itemList.parentNode.appendChild(noResultsMessage);
+itemList.appendChild(noResultsMessage);
 
 function createListItem(item) {	
   const listItem = document.createElement('li');	
-  listItem.className = `item ${item.typeFilter}-item ${item.gameFilter}-item show`;	
+  listItem.classList.add(`item`, `${item.typeFilter}-item`, `${item.gameFilter}-item`, `show`);
   const link = document.createElement('a');	
   link.href = item.link;	
   link.style.color = 'blue';	
@@ -27,11 +27,6 @@ function createListItem(item) {
   const descriptionText = document.createTextNode(item.description);	
   description.appendChild(descriptionText);	
   listItem.appendChild(description);	
-  
-  // Add separate classes for typeFilter and gameFilter
-  listItem.classList.add(`${item.typeFilter}-item`);
-  listItem.classList.add(`${item.gameFilter}-item`);
-
   return listItem;
 }
 
@@ -99,7 +94,7 @@ function updateItemsVisibility() {
   const gameFilterSelected = activeGameFilter !== 'all';
   const typeFilterSelected = activeTypeFilter !== 'all';
   const filteredItems = gameFilterSelected && typeFilterSelected
-    ? itemList.querySelectorAll(`.item:not(.${activeGameFilter}-item.${activeTypeFilter}-item)`)
+    ? itemList.querySelectorAll(`.item:not(.${activeGameFilter}-item .${activeTypeFilter}-item)`)
     : gameFilterSelected
     ? itemList.querySelectorAll(`.item:not(.${activeGameFilter}-item)`)
     : typeFilterSelected
