@@ -127,6 +127,11 @@ filterButtons.forEach((button) => {
     // Toggle active class for clicked filter button
     button.classList.toggle("active");
 
+    // Remove active class from "All" button if another game filter button is selected
+    if (buttonFilterGroup === '.game-filter-button' && button.dataset.filter !== 'allgame') {
+      document.querySelector('.game-filter-button[data-filter="allgame"]').classList.remove("active");
+    }
+
     // Check if no other type filter buttons are active and add "active" class to "All" button
     const activeTypeFilterButtons = document.querySelectorAll('.type-filter-button.active');
     if (activeTypeFilterButtons.length === 0) {
@@ -138,5 +143,4 @@ filterButtons.forEach((button) => {
     // Update items visibility
     updateItemsVisibility();
   });
-});
 });
