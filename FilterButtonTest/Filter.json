@@ -2,7 +2,7 @@
   "gameFilters": [
     {
       "name": "All",
-      "filter": "all"
+      "filter": "gameall"
     },
     {
       "name": "LE1",
@@ -20,7 +20,7 @@
   "typeFilters": [
     {
       "name": "All",
-      "filter": "all"
+      "filter": "typeall"
     },
     {
       "name": "Gameplay",
