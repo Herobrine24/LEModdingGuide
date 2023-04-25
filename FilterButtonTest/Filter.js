@@ -81,8 +81,8 @@ function updateItemsVisibility() {
   const activeTypeButton = document.querySelector('.type-filter-button.active');
 
   // Get the active game and type filters
-  const activeGameFilter = activeGameButton ? activeGameButton.dataset.filter : 'all';
-  const activeTypeFilter = activeTypeButton ? activeTypeButton.dataset.filter : 'all';
+  const activeGameFilter = activeGameButton ? activeGameButton.dataset.filter : 'allgame';
+  const activeTypeFilter = activeTypeButton ? activeTypeButton.dataset.filter : 'alltype';
 
   // Show all items by default
   const allItems = itemList.querySelectorAll('.item');
@@ -91,8 +91,8 @@ function updateItemsVisibility() {
   });
 
   // Hide items that do not match the active filters
-  const gameFilterSelected = activeGameFilter !== 'all';
-  const typeFilterSelected = activeTypeFilter !== 'all';
+  const gameFilterSelected = activeGameFilter !== 'allgame';
+  const typeFilterSelected = activeTypeFilter !== 'alltype';
   const filteredItems = gameFilterSelected && typeFilterSelected
     ? itemList.querySelectorAll(`.item:not(.${activeGameFilter}-item .${activeTypeFilter}-item)`)
     : gameFilterSelected
@@ -113,15 +113,15 @@ function updateItemsVisibility() {
 
   // Automatically select "All" filters if no filters are selected
   if (!activeTypeButton) {
-    document.querySelector('.type-filter-button[data-filter="all"]').classList.add('active');
+    document.querySelector('.type-filter-button[data-filter="alltype"]').classList.add('active');
   }
-  if (!activeGameButton || (activeGameButton.dataset.filter !== 'all' && activeTypeButton && activeTypeButton.dataset.filter !== 'all')) {
-    document.querySelector('.game-filter-button[data-filter="all"]').classList.add('active');
+  if (!activeGameButton || (activeGameButton.dataset.filter !== 'allgame' && activeTypeButton && activeTypeButton.dataset.filter !== 'alltype')) {
+    document.querySelector('.game-filter-button[data-filter="allgame"]').classList.add('active');
   }
 
   // Unselect "All" filter button if another gameFilter is selected
-  if (activeGameButton && activeGameButton.dataset.filter !== 'all') {
-    document.querySelector('.game-filter-button[data-filter="all"]').classList.remove('active');
+  if (activeGameButton && activeGameButton.dataset.filter !== 'allgame') {
+    document.querySelector('.game-filter-button[data-filter="allgame"]').classList.remove('active');
   }
 }
   
@@ -137,9 +137,9 @@ filterButtons.forEach((button) => {
     // Check if no other type filter buttons are active and add "active" class to "All" button
     const activeTypeFilterButtons = document.querySelectorAll('.type-filter-button.active');
     if (activeTypeFilterButtons.length === 0) {
-      document.querySelector('.type-filter-button[data-filter="all"]').classList.add("active");
+      document.querySelector('.type-filter-button[data-filter="alltype"]').classList.add("active");
     } else {
-      document.querySelector('.type-filter-button[data-filter="all"]').classList.remove("active");
+      document.querySelector('.type-filter-button[data-filter="alltype"]').classList.remove("active");
     }
 
     // Update items visibility
