@@ -117,11 +117,16 @@ function updateItemsVisibility() {
   }
 
   // Automatically select "All" filters if no filters are selected
-  if (!document.querySelector('.type-filter-button.active')) {
+  if (!activeTypeButton) {
     document.querySelector('.type-filter-button[data-filter="all"]').classList.add('active');
   }
-  if (!document.querySelector('.game-filter-button.active')) {
+  if (!activeGameButton || (activeGameButton.dataset.filter !== 'all' && activeTypeButton && activeTypeButton.dataset.filter !== 'all')) {
     document.querySelector('.game-filter-button[data-filter="all"]').classList.add('active');
+  }
+
+  // Unselect "All" filter button if another gameFilter is selected
+  if (activeGameButton && activeGameButton.dataset.filter !== 'all') {
+    document.querySelector('.game-filter-button[data-filter="all"]').classList.remove('active');
   }
 }
   
