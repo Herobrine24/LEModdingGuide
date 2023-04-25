@@ -77,33 +77,24 @@ fetch('Filter.json')
     });
 
 function updateItemsVisibility() {
-  const activeGameButton = document.querySelector('.game-filter-button.active');
-  const activeTypeButton = document.querySelector('.type-filter-button.active');
+  const activeGameButtons = document.querySelectorAll('.game-filter-button.active');
+  const activeTypeButtons = document.querySelectorAll('.type-filter-button.active');
 
   // Get the active game and type filters
-  const activeGameFilter = activeGameButton ? activeGameButton.dataset.filter : 'allgame';
-  const activeTypeFilter = activeTypeButton ? activeTypeButton.dataset.filter : 'alltype';
+  const activeGameFilters = Array.from(activeGameButtons).map(button => button.dataset.filter);
+  const activeTypeFilters = Array.from(activeTypeButtons).map(button => button.dataset.filter);
 
   // Show all items by default
   const allItems = itemList.querySelectorAll('.item');
-  allItems.forEach((item) => {
-    item.classList.add('show');
-  });
+  allItems.forEach(item => item.classList.add('show'));
 
   // Hide items that do not match the active filters
-  const gameFilterSelected = activeGameFilter !== 'allgame';
-  const typeFilterSelected = activeTypeFilter !== 'alltype';
-  const filteredItems = gameFilterSelected && typeFilterSelected
-    ? itemList.querySelectorAll(`.item:not(.${activeGameFilter}-item.${activeTypeFilter}-item)`)
-    : gameFilterSelected
-    ? itemList.querySelectorAll(`.item:not(.${activeGameFilter}-item)`)
-    : typeFilterSelected
-    ? itemList.querySelectorAll(`.item:not(.${activeTypeFilter}-item)`)
-    : [];
-
-  filteredItems.forEach((item) => {
-    item.classList.remove('show');
+  const filteredItems = Array.from(allItems).filter(item => {
+    const matchesGameFilter = activeGameFilters.includes(item.dataset.gameFilter) || activeGameFilters.length === 0;
+    const matchesTypeFilter = activeTypeFilters.includes(item.dataset.typeFilter) || activeTypeFilters.length === 0;
+    return matchesGameFilter && matchesTypeFilter;
   });
+  filteredItems.forEach(item => item.classList.remove('show'));
 
   // Show/hide no results message
   if (itemList.querySelectorAll('.item.show').length === 0) {
@@ -113,18 +104,19 @@ function updateItemsVisibility() {
   }
 
   // Automatically select "All" filters if no filters are selected
-  if (!activeTypeButton) {
+  if (activeTypeButtons.length === 0) {
     document.querySelector('.type-filter-button[data-filter="alltype"]').classList.add('active');
   }
-  if (!activeGameButton || (activeGameButton.dataset.filter !== 'allgame' && activeTypeButton && activeTypeButton.dataset.filter !== 'alltype')) {
+  if (activeGameButtons.length === 0) {
     document.querySelector('.game-filter-button[data-filter="allgame"]').classList.add('active');
   }
 
   // Unselect "All" filter button if another gameFilter is selected
-  if (activeGameButton && activeGameButton.dataset.filter !== 'allgame') {
+  if (activeGameButtons.length > 0 && !activeGameFilters.includes('allgame')) {
     document.querySelector('.game-filter-button[data-filter="allgame"]').classList.remove('active');
   }
 }
+
   
 // Add click event listener to each filter button
 filterButtons.forEach((button) => {
