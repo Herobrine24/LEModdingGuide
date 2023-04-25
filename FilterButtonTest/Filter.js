@@ -100,6 +100,7 @@ function updateItemsVisibility() {
     : typeFilterSelected
     ? itemList.querySelectorAll(`.item:not(.${activeTypeFilter}-item)`)
     : [];
+
   filteredItems.forEach((item) => {
     item.classList.remove('show');
   });
