@@ -116,7 +116,7 @@ function updateItemsVisibility() {
     document.querySelector('.game-filter-button[data-filter="allgame"]').classList.remove('active');
   }
 }
-
+}
   
 // Add click event listener to each filter button
 filterButtons.forEach((button) => {
