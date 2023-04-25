@@ -94,7 +94,7 @@ function updateItemsVisibility() {
   const gameFilterSelected = activeGameFilter !== 'allgame';
   const typeFilterSelected = activeTypeFilter !== 'alltype';
   const filteredItems = gameFilterSelected && typeFilterSelected
-    ? itemList.querySelectorAll(`.item:not(.${activeGameFilter}-item .${activeTypeFilter}-item)`)
+    ? itemList.querySelectorAll(`.item:not(.${activeGameFilter}-item.${activeTypeFilter}-item)`)
     : gameFilterSelected
     ? itemList.querySelectorAll(`.item:not(.${activeGameFilter}-item)`)
     : typeFilterSelected
@@ -147,6 +147,3 @@ filterButtons.forEach((button) => {
   });
 });
 });
-
-// Append no results message to item list container
-itemList.parentNode.appendChild(noResultsMessage);
