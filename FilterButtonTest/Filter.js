@@ -164,4 +164,3 @@ function updateItemsVisibility() {
         updateItemsVisibility();
       });
     });
-  });
