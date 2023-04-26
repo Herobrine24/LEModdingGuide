@@ -72,6 +72,12 @@ filterButtons.forEach((button) => {
     button.classList.remove("active");
   }
 });
+  
+    // Select "allgame" and "alltype" by default
+    const allGameButton = document.querySelector('[data-filter="allgame"]');
+    const allTypeButton = document.querySelector('[data-filter="alltype"]');
+    allGameButton.classList.add("active");
+    allTypeButton.classList.add("active");
 
 // Show all items on page load
 items.forEach((item) => {
