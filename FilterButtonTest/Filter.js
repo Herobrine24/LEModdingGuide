@@ -7,30 +7,32 @@ const gameFilterContainer = document.querySelector('.game-filter');
 const itemList = document.querySelector('.item-list');
 itemList.appendChild(noResultsMessage);
 
-function createListItem(item) {
-const listItem = document.createElement('li');
-listItem.classList.add('item');
-listItem.classList.add(`${item.typeFilter}-item`);
-listItem.classList.add(`${item.gameFilter}-item`);
-listItem.classList.add('show');
-const link = document.createElement('a');
-link.href = item.link;
-link.style.color = 'blue';
-link.style.display = 'inline';
-link.setAttribute('target', '_blank'); // Add this line to set the target attribute
-const linkText = document.createTextNode(item.name);
-link.appendChild(linkText);
-listItem.appendChild(link);
-const separator = document.createElement('strong');
-separator.appendChild(document.createTextNode(' - '));
-listItem.appendChild(separator);
-const description = document.createElement('span');
-description.style.display = 'inline-flex';
-description.style.flexDirection = 'column';
-const descriptionText = document.createTextNode(item.description);
-description.appendChild(descriptionText);
-listItem.appendChild(description);
-return listItem;
+function createListItem(item) {	
+  const listItem = document.createElement('li');
+  listItem.classList.add('item');
+  listItem.classList.add(`${item.typeFilter}-item`);
+  listItem.classList.add(`${item.gameFilter}-item`);
+  listItem.classList.add('show');
+  listItem.typeFilter = item.typeFilter;
+  listItem.gameFilter = item.gameFilter;
+  const link = document.createElement('a');	
+  link.href = item.link;	
+  link.style.color = 'blue';	
+  link.style.display = 'inline';	
+  link.setAttribute('target', '_blank'); // Add this line to set the target attribute	
+  const linkText = document.createTextNode(item.name);	
+  link.appendChild(linkText);	
+  listItem.appendChild(link);	
+  const separator = document.createElement('strong');	
+  separator.appendChild(document.createTextNode(' - '));	
+  listItem.appendChild(separator);	
+  const description = document.createElement('span');	
+  description.style.display = 'inline-flex';	
+  description.style.flexDirection = 'column';	
+  const descriptionText = document.createTextNode(item.description);	
+  description.appendChild(descriptionText);	
+  listItem.appendChild(description);	
+  return listItem;
 }
 
 // Load data from Filter.json
