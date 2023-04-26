@@ -10,8 +10,8 @@ itemList.appendChild(noResultsMessage);
 function createListItem(item) {
 const listItem = document.createElement('li');
 listItem.classList.add('item');
-listItem.classList.add(${item.typeFilter}-item);
-listItem.classList.add(${item.gameFilter}-item);
+listItem.classList.add(`${item.typeFilter}-item`);
+listItem.classList.add(`${item.gameFilter}-item`);
 listItem.classList.add('show');
 const link = document.createElement('a');
 link.href = item.link;
