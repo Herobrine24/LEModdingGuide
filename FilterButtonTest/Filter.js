@@ -90,8 +90,8 @@ function updateItemsVisibility() {
   // Show items based on active filters
   const allItems = itemList.querySelectorAll('.item');
   allItems.forEach(item => {
-    const matchesTypeFilter = activeTypeFilters.includes(item.classList[1]) || activeTypeFilters.includes("alltype");
-    const matchesGameFilter = activeGameFilters.includes(item.classList[2]) || activeGameFilters.includes("allgame");
+    const matchesTypeFilter = activeTypeFilters.includes("alltype") || item.classList.contains(item.typeFilter + "-item");
+    const matchesGameFilter = activeGameFilters.includes("allgame") || item.classList.contains(item.gameFilter + "-item");
     if (matchesTypeFilter && matchesGameFilter) {
       item.classList.add('show');
     } else {
@@ -106,7 +106,6 @@ function updateItemsVisibility() {
     noResultsMessage.style.display = 'none';
   }
 }
-
     // Initial update of item visibility
     updateItemsVisibility();
 
