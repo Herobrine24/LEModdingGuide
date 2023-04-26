@@ -77,31 +77,29 @@ fetch('Filter.json')
     });
 
 function updateItemsVisibility() {
-  const activeGameButtons = document.querySelectorAll('.game-filter-button.active');
-  const activeTypeButtons = document.querySelectorAll('.type-filter-button.active');
-
-  // Get the active game and type filters
-  const activeGameFilters = Array.from(activeGameButtons).map(button => button.dataset.filter);
-  const activeTypeFilters = Array.from(activeTypeButtons).map(button => button.dataset.filter);
-
-  // Show all items by default
-  const allItems = itemList.querySelectorAll('.item');
-  allItems.forEach(item => item.classList.add('show'));
-
-  // Hide items that do not match the active filters
-  const filteredItems = Array.from(allItems).filter(item => {
-    const matchesGameFilter = activeGameFilters.includes(item.dataset.gameFilter) || activeGameFilters.length === 0;
-    const matchesTypeFilter = activeTypeFilters.includes(item.dataset.typeFilter) || activeTypeFilters.length === 0;
-    return matchesGameFilter && matchesTypeFilter;
+  const activeGameFilters = Array.from(gameFilterContainer.querySelectorAll('.active')).map(button => button.dataset.filter);
+  const activeTypeFilters = Array.from(typeFilterContainer.querySelectorAll('.active')).map(button => button.dataset.filter);
+  
+  itemList.querySelectorAll('.item').forEach(item => {
+    const matchesGameFilter = activeGameFilters.includes(item.dataset.gameFilter) || activeGameFilters.includes('allgame');
+    const matchesTypeFilter = activeTypeFilters.includes(item.dataset.typeFilter) || activeTypeFilters.includes('alltype');
+    
+    if (matchesGameFilter && matchesTypeFilter) {
+      item.classList.add('show');
+      item.classList.remove('hide');
+    } else {
+      item.classList.add('hide');
+      item.classList.remove('show');
+    }
   });
-  filteredItems.forEach(item => item.classList.remove('show'));
-
+  
   // Show/hide no results message
   if (itemList.querySelectorAll('.item.show').length === 0) {
     noResultsMessage.style.display = 'block';
   } else {
     noResultsMessage.style.display = 'none';
   }
+}
 
   // Automatically select "All" filters if no filters are selected
   if (activeTypeButtons.length === 0) {
