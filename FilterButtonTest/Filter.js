@@ -13,6 +13,8 @@ function createListItem(item) {
   listItem.classList.add(`${item.typeFilter}-item`);
   listItem.classList.add(`${item.gameFilter}-item`);
   listItem.classList.add('show');
+  listItem.typeFilter = item.typeFilter;
+  listItem.gameFilter = item.gameFilter;
   const link = document.createElement('a');	
   link.href = item.link;	
   link.style.color = 'blue';	
