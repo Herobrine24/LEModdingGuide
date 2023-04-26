@@ -68,18 +68,46 @@ fetch('Filter.json')
 
     // Add active class to All filter buttons by default
     filterButtons.forEach((button) => {
-      if (button.dataset.filter === "all") {
+      if (button.dataset.filter === "alltype" || button.dataset.filter === "allgame") {
         button.classList.add("active");
-      } else {
-        button.classList.remove("active");
       }
     });
 
-    // Show all items on page load
+    // Populate the itemList with the items
     items.forEach((item) => {
-      const listItem = createListItem(item);
-      itemList.appendChild(listItem);
+      const li = document.createElement('li');
+      li.className = 'item';
+      li.dataset.id = item.id;
+      li.dataset.type = item.type;
+      li.dataset.game = item.game;
+      li.typeFilter = item.type;
+      li.gameFilter = item.game;
+      li.innerHTML = `<h3>${item.title}</h3><p>${item.description}</p>`;
+      itemList.appendChild(li);
     });
+
+    // Update items visibility when filter buttons are clicked
+    typeFilterContainer.addEventListener('click', (event) => {
+      if (event.target.classList.contains('type-filter-button')) {
+        toggleActive(event.target);
+        updateItemsVisibility();
+      }
+    });
+
+    gameFilterContainer.addEventListener('click', (event) => {
+      if (event.target.classList.contains('game-filter-button')) {
+        toggleActive(event.target);
+        updateItemsVisibility();
+      }
+    });
+
+    // Simulate click event on All filters to show all items on page load
+    const allTypeButton = document.querySelector('.type-filter-button[data-filter="alltype"]');
+    const allGameButton = document.querySelector('.game-filter-button[data-filter="allgame"]');
+    allTypeButton.click();
+    allGameButton.click();
+  })
+  .catch(error => console.log(error));
 
 function updateItemsVisibility() {
   const activeGameButtons = document.querySelectorAll('.game-filter-button.active');
