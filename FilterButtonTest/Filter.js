@@ -93,7 +93,18 @@ function updateItemsVisibility() {
   // Get the active game and type filters
   const activeGameFilters = Array.from(activeGameButtons).map(button => button.dataset.filter);
   const activeTypeFilters = Array.from(activeTypeButtons).map(button => button.dataset.filter);
-
+  
+  // If no game filter is selected, select "allgame"
+  if (activeGameFilters.length === 0) {
+  allGameButton.classList.add("active");
+  activeGameFilters.push("allgame");
+  }
+  // If no type filter is selected, select "alltype"
+  if (activeTypeFilters.length === 0) {
+  allTypeButton.classList.add("active");
+  activeTypeFilters.push("alltype");
+  }
+  
   // Show items based on active filters
   const allItems = itemList.querySelectorAll('.item');
   allItems.forEach(item => {
