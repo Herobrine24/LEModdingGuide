@@ -36,6 +36,7 @@ function createListItem(item) {
 }
 
 // Load data from Filter.json
+// Load data from Filter.json
 fetch('Filter.json')
   .then(response => response.json())
   .then(data => {
@@ -106,36 +107,36 @@ fetch('Filter.json')
     const allGameButton = document.querySelector('.game-filter-button[data-filter="allgame"]');
     allTypeButton.click();
     allGameButton.click();
-  });
 
-function updateItemsVisibility() {
-  const activeGameButtons = document.querySelectorAll('.game-filter-button.active');
-  const activeTypeButtons = document.querySelectorAll('.type-filter-button.active');
+    function updateItemsVisibility() {
+      const activeGameButtons = document.querySelectorAll('.game-filter-button.active');
+      const activeTypeButtons = document.querySelectorAll('.type-filter-button.active');
 
-  // Get the active game and type filters
-  const activeGameFilters = Array.from(activeGameButtons).map(button => button.dataset.filter);
-  const activeTypeFilters = Array.from(activeTypeButtons).map(button => button.dataset.filter);
+      // Get the active game and type filters
+      const activeGameFilters = Array.from(activeGameButtons).map(button => button.dataset.filter);
+      const activeTypeFilters = Array.from(activeTypeButtons).map(button => button.dataset.filter);
 
-  // Show items based on active filters
-  const allItems = itemList.querySelectorAll('.item');
-  allItems.forEach(item => {
-    const matchesTypeFilter = activeTypeFilters.includes('alltype') || item.typeFilter === item.typeFilter && activeTypeFilters.includes(item.typeFilter);
-    const matchesGameFilter = activeGameFilters.includes('allgame') || item.gameFilter === item.gameFilter && activeGameFilters.includes(item.gameFilter);
+      // Show items based on active filters
+      const allItems = itemList.querySelectorAll('.item');
+      allItems.forEach(item => {
+        const matchesTypeFilter = activeTypeFilters.includes('alltype') || item.typeFilter === item.typeFilter && activeTypeFilters.includes(item.typeFilter);
+        const matchesGameFilter = activeGameFilters.includes('allgame') || item.gameFilter === item.gameFilter && activeGameFilters.includes(item.gameFilter);
 
-    if (matchesTypeFilter && matchesGameFilter) {
-      item.classList.add('show');
-    } else {
-      item.classList.remove('show');
+        if (matchesTypeFilter && matchesGameFilter) {
+          item.classList.add('show');
+        } else {
+          item.classList.remove('show');
+        }
+      });
+
+      // Show/hide no results message
+      if (itemList.querySelectorAll('.item.show').length === 0) {
+        noResultsMessage.style.display = 'block';
+      } else {
+        noResultsMessage.style.display = 'none';
+      }
     }
-  });
 
-  // Show/hide no results message
-  if (itemList.querySelectorAll('.item.show').length === 0) {
-    noResultsMessage.style.display = 'block';
-  } else {
-    noResultsMessage.style.display = 'none';
-  }
-}
     // Initial update of item visibility
     updateItemsVisibility();
 
