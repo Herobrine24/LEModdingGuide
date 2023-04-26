@@ -92,12 +92,9 @@ function updateItemsVisibility() {
   // Show items based on active filters
   const allItems = itemList.querySelectorAll('.item');
   allItems.forEach(item => {
-    console.log('item.typeFilter:', item.typeFilter);
-    console.log('item.gameFilter:', item.gameFilter);
-    const matchesTypeFilter = activeTypeFilters.includes("alltype") || item.classList.contains(item.typeFilter + "-item");
-    const matchesGameFilter = activeGameFilters.includes("allgame") || item.classList.contains(item.gameFilter + "-item");
-    console.log('matchesTypeFilter:', matchesTypeFilter);
-    console.log('matchesGameFilter:', matchesGameFilter);
+    const matchesTypeFilter = activeTypeFilters.includes('alltype') || item.typeFilter === item.typeFilter && activeTypeFilters.includes(item.typeFilter);
+    const matchesGameFilter = activeGameFilters.includes('allgame') || item.gameFilter === item.gameFilter && activeGameFilters.includes(item.gameFilter);
+
     if (matchesTypeFilter && matchesGameFilter) {
       item.classList.add('show');
     } else {
