@@ -66,15 +66,6 @@ const typeFilterButtons = document.querySelectorAll(".type-filter-button");
 const gameFilterButtons = document.querySelectorAll(".game-filter-button");
 const filterButtons = [...typeFilterButtons, ...gameFilterButtons];
 
-// Add active class to All filter buttons by default
-filterButtons.forEach((button) => {
-  if (button.dataset.filter === "all") {
-    button.classList.add("active");
-  } else {
-    button.classList.remove("active");
-  }
-});
-  
     // Select "allgame" and "alltype" by default
     const allGameButton = document.querySelector('[data-filter="allgame"]');
     const allTypeButton = document.querySelector('[data-filter="alltype"]');
