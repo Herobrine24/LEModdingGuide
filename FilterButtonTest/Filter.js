@@ -35,7 +35,41 @@ function createListItem(item) {
   return listItem;
 }
 
-// Load data from Filter.json
+function toggleActive(button) {
+  button.classList.toggle('active');
+}
+
+function updateItemsVisibility() {
+  const activeGameButtons = document.querySelectorAll('.game-filter-button.active');
+  const activeTypeButtons = document.querySelectorAll('.type-filter-button.active');
+
+  const activeGameFilters = Array.from(activeGameButtons).map(button => button.dataset.filter);
+  const activeTypeFilters = Array.from(activeTypeButtons).map(button => button.dataset.filter);
+
+  const items = document.querySelectorAll('.item');
+  items.forEach(item => {
+    const itemGameFilter = item.dataset.game;
+    const itemTypeFilter = item.dataset.type;
+    const shouldShowGame = activeGameFilters.includes(itemGameFilter) || activeGameFilters.includes('allgame');
+    const shouldShowType = activeTypeFilters.includes(itemTypeFilter) || activeTypeFilters.includes('alltype');
+    if (shouldShowGame && shouldShowType) {
+      item.classList.add('show');
+      item.classList.remove('hide');
+    } else {
+      item.classList.remove('show');
+      item.classList.add('hide');
+    }
+  });
+
+  const noResultsMessage = document.querySelector('.no-results-message');
+  const visibleItems = document.querySelectorAll('.item.show');
+  if (visibleItems.length === 0) {
+    noResultsMessage.classList.add('show');
+  } else {
+    noResultsMessage.classList.remove('show');
+  }
+}
+
 // Load data from Filter.json
 fetch('Filter.json')
   .then(response => response.json())
@@ -107,61 +141,4 @@ fetch('Filter.json')
     const allGameButton = document.querySelector('.game-filter-button[data-filter="allgame"]');
     allTypeButton.click();
     allGameButton.click();
-  }); 
-    function updateItemsVisibility() {
-      const activeGameButtons = document.querySelectorAll('.game-filter-button.active');
-      const activeTypeButtons = document.querySelectorAll('.type-filter-button.active');
-
-      // Get the active game and type filters
-      const activeGameFilters = Array.from(activeGameButtons).map(button => button.dataset.filter);
-      const activeTypeFilters = Array.from(activeTypeButtons).map(button => button.dataset.filter);
-
-      // Show items based on active filters
-      const allItems = itemList.querySelectorAll('.item');
-      allItems.forEach(item => {
-        const matchesTypeFilter = activeTypeFilters.includes('alltype') || item.typeFilter === item.typeFilter && activeTypeFilters.includes(item.typeFilter);
-        const matchesGameFilter = activeGameFilters.includes('allgame') || item.gameFilter === item.gameFilter && activeGameFilters.includes(item.gameFilter);
-
-        if (matchesTypeFilter && matchesGameFilter) {
-          item.classList.add('show');
-        } else {
-          item.classList.remove('show');
-        }
-      });
-
-      // Show/hide no results message
-      if (itemList.querySelectorAll('.item.show').length === 0) {
-        noResultsMessage.style.display = 'block';
-      } else {
-        noResultsMessage.style.display = 'none';
-      }
-    }
-
-    // Initial update of item visibility
-    updateItemsVisibility();
-
-    // Add click event listener to each filter button
-    filterButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        // Toggle active class for clicked filter button
-        button.classList.toggle("active");
-
-        // If "All" button is clicked, deactivate other buttons in the same group
-        if (button.dataset.filter === "allgame" || button.dataset.filter === "alltype") {
-          const buttonFilterGroup = button.classList.contains('type-filter-button') ? '.type-filter-button' : '.game-filter-button';
-          const filterButtonsInGroup = document.querySelectorAll(buttonFilterGroup);
-          filterButtonsInGroup.forEach((btn) => {
-            if (btn !== button) {
-              btn.classList.remove("active");
-            }
-          });
-        } else {
-          // If any other button is clicked, deactivate the corresponding "All" button
-          const allFilter = button.classList.contains('type-filter-button') ? 'alltype' : 'allgame';
-          document.querySelector(`[data-filter="${allFilter}"]`).classList.remove("active");
-        }
-
-        // Update items visibility
-        updateItemsVisibility();
-      });
-    });
+  });
