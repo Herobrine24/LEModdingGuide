@@ -107,7 +107,7 @@ fetch('Filter.json')
     const allGameButton = document.querySelector('.game-filter-button[data-filter="allgame"]');
     allTypeButton.click();
     allGameButton.click();
-
+  }); 
     function updateItemsVisibility() {
       const activeGameButtons = document.querySelectorAll('.game-filter-button.active');
       const activeTypeButtons = document.querySelectorAll('.type-filter-button.active');
