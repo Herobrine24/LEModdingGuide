@@ -10,11 +10,8 @@ itemList.appendChild(noResultsMessage);
 function createListItem(item) {	
   const listItem = document.createElement('li');
   listItem.classList.add('item');
-  listItem.classList.add(`${item.typeFilter}-item`);
-  listItem.classList.add(`${item.gameFilter}-item`);
-  listItem.classList.add('show');
-  listItem.typeFilter = item.typeFilter;
-  listItem.gameFilter = item.gameFilter;
+  listItem.typeFilters = item.typeFilters;
+  listItem.gameFilters = item.gameFilters;
   const link = document.createElement('a');	
   link.href = item.link;	
   link.style.color = 'blue';	
@@ -23,15 +20,30 @@ function createListItem(item) {
   const linkText = document.createTextNode(item.name);	
   link.appendChild(linkText);	
   listItem.appendChild(link);	
-  const separator = document.createElement('strong');	
-  separator.appendChild(document.createTextNode(' - '));	
-  listItem.appendChild(separator);	
-  const description = document.createElement('span');	
-  description.style.display = 'inline-flex';	
-  description.style.flexDirection = 'column';	
-  const descriptionText = document.createTextNode(item.description);	
-  description.appendChild(descriptionText);	
-  listItem.appendChild(description);	
+  const separator1 = document.createElement('strong');	
+  separator1.appendChild(document.createTextNode(' - '));	
+  listItem.appendChild(separator1);	
+  const typeFilterContainer = document.createElement('span');
+  typeFilterContainer.style.display = 'inline-flex';	
+  typeFilterContainer.style.flexDirection = 'column';
+  item.typeFilters.forEach((typeFilter) => {
+    const typeFilterElement = document.createElement('span');
+    typeFilterElement.textContent = typeFilter;
+    typeFilterContainer.appendChild(typeFilterElement);
+  });
+  listItem.appendChild(typeFilterContainer);
+  const separator2 = document.createElement('strong');	
+  separator2.appendChild(document.createTextNode(' - '));	
+  listItem.appendChild(separator2);	
+  const gameFilterContainer = document.createElement('span');
+  gameFilterContainer.style.display = 'inline-flex';	
+  gameFilterContainer.style.flexDirection = 'column';
+  item.gameFilters.forEach((gameFilter) => {
+    const gameFilterElement = document.createElement('span');
+    gameFilterElement.textContent = gameFilter;
+    gameFilterContainer.appendChild(gameFilterElement);
+  });
+  listItem.appendChild(gameFilterContainer);	
   return listItem;
 }
 
@@ -77,6 +89,7 @@ items.forEach((item) => {
   const listItem = createListItem(item);
   itemList.appendChild(listItem);
 });
+
 function updateItemsVisibility() {
   const activeGameButtons = document.querySelectorAll('.game-filter-button.active');
   const activeTypeButtons = document.querySelectorAll('.type-filter-button.active');
@@ -87,20 +100,20 @@ function updateItemsVisibility() {
   
   // If no game filter is selected, select "allgame"
   if (activeGameFilters.length === 0) {
-  allGameButton.classList.add("active");
-  activeGameFilters.push("allgame");
+    allGameButton.classList.add("active");
+    activeGameFilters.push("allgame");
   }
   // If no type filter is selected, select "alltype"
   if (activeTypeFilters.length === 0) {
-  allTypeButton.classList.add("active");
-  activeTypeFilters.push("alltype");
+    allTypeButton.classList.add("active");
+    activeTypeFilters.push("alltype");
   }
   
   // Show items based on active filters
   const allItems = itemList.querySelectorAll('.item');
   allItems.forEach(item => {
-    const matchesTypeFilter = activeTypeFilters.includes('alltype') || activeTypeFilters.includes(item.typeFilter);
-    const matchesGameFilter = activeGameFilters.includes('allgame') || activeGameFilters.includes(item.gameFilter);
+    const matchesTypeFilter = activeTypeFilters.includes('alltype') || item.typeFilters.some((typeFilter) => activeTypeFilters.includes(typeFilter));
+    const matchesGameFilter = activeGameFilters.includes('allgame') || item.gameFilters.some((gameFilter) => activeGameFilters.includes(gameFilter));
 
     if (matchesTypeFilter && matchesGameFilter) {
       item.classList.add('show');
