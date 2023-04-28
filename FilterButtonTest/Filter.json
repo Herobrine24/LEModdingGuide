@@ -1,5 +1,5 @@
 {
-  "gameFilters": [
+  "gameFilterss": [
     {
       "name": "All",
       "filter": "allgame"
@@ -17,7 +17,7 @@
       "filter": "le3"
     }
   ],
-  "typeFilters": [
+  "typeFilterss": [
     {
       "name": "All",
       "filter": "alltype"
@@ -68,225 +68,225 @@
           "name": "Black Market License",
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/661",
           "description": "Restores several unused items for purchase via a special license",
-          "gameFilter": ["le1"],
-          "typeFilter": ["gameplay"]
+          "gameFilters": ["le1"],
+          "typeFilters": ["gameplay"]
         },
         {
           "name": "Same-Gender Romances",
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/564",
           "description": "Adds the ability to engage in same-gender romances",
-          "gameFilter": ["le1"],
-          "typeFilter": ["gameplay"]
+          "gameFilters": ["le1"],
+          "typeFilters": ["gameplay"]
         },
         {
           "name": "Galaxy Map Trackers",
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/426",
           "description": "Adds Tracking Markers to side missions Missions on Maps",
-          "gameFilter": ["le1"],
-          "typeFilter": ["interface"]
+          "gameFilters": ["le1"],
+          "typeFilters": ["interface"]
         },
         {
           "name": "Replenish Grenades",
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/532",
           "description": "Allows for replenishing Grenades after acquiring the first Grenade Capacity Upgrade",
-          "gameFilter": ["le1"],
-          "typeFilter": ["gameplay"]
+          "gameFilters": ["le1"],
+          "typeFilters": ["gameplay"]
         },
         {
           "name": "Photo Mode QoL",
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/421",
           "description": "Increases your freedom with Photo Mode",
-          "gameFilter": ["le1"],
-          "typeFilter": ["qol"]
+          "gameFilters": ["le1"],
+          "typeFilters": ["qol"]
         },
         {
           "name": "Remove Screen Shake",
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/110",
           "description": "Removes the screen shake during sprinting and when boosting with the Mako",
-          "gameFilter": ["le1"],
-          "typeFilter": ["qol"]
+          "gameFilters": ["le1"],
+          "typeFilters": ["qol"]
         },
         {
           "name": "Elements of Comparative Weaponry",
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/639",
           "description": "Overhauls the display of weapon statistics",
-          "gameFilter": ["le1"],
-          "typeFilter": ["qol"]
+          "gameFilters": ["le1"],
+          "typeFilters": ["qol"]
         },
         {
           "name": "Mission Timings",
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/754",
           "description": "Improves the timing of certain quests for a more natural flow",
-          "gameFilter": ["le1"],
-          "typeFilter": ["gameplay"]
+          "gameFilters": ["le1"],
+          "typeFilters": ["gameplay"]
         },
         {
           "name": "LE1 Community Patch",
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/23",
           "description": "Major bugfix mod",
-          "gameFilter": ["le1"],
-          "typeFilter": ["qol"]
+          "gameFilters": ["le1"],
+          "typeFilters": ["qol"]
         },
         {
           "name": "Less Intense Vigil",
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/822",
           "description": "Reduces the flashing and visual intensity of a hologram",
-          "gameFilter": ["le1"],
-          "typeFilter": ["qol"]
+          "gameFilters": ["le1"],
+          "typeFilters": ["qol"]
         },
         {
           "name": "Pinnacle Station DLC",
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/832",
           "description": "Ports the lost ME1 DLC to Legendary Edition",
-          "gameFilter": ["le1"],
-          "typeFilter": ["gameplay"]
+          "gameFilters": ["le1"],
+          "typeFilters": ["gameplay"]
         },
         {
           "name": "MELLO",
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/1500",
           "description": "Restores the first game’s dynamic lighting and presentation as it was in the original game",
-          "gameFilter": ["le1"],
-          "typeFilter": ["qol"]
+          "gameFilters": ["le1"],
+          "typeFilters": ["qol"]
         },
         {
           "name": "Unofficial LE2 Patch",
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/8",
           "description": "Community made patch with an extensive amount of fixes",
-          "gameFilter": ["le2"],
-          "typeFilter": ["qol"]
+          "gameFilters": ["le2"],
+          "typeFilters": ["qol"]
         },
         {
           "name": "Easy Armor Stats",
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/25",
           "description": "Moves Armor Stats above their descriptions and adds stats to all weapons",
-          "gameFilter": ["le2"],
-          "typeFilter": ["qol"]
+          "gameFilters": ["le2"],
+          "typeFilters": ["qol"]
         },
         {
           "name": "Sheploo Appearance Consistency Project",
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/484",
           "description": "Fixes Male Shepard to look like he does in the other 2 games",
-          "gameFilter": ["le2"],
-          "typeFilter": ["qol"]
+          "gameFilters": ["le2"],
+          "typeFilters": ["qol"]
         },
         {
           "name": "Improved Photo Mode",
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/332",
           "description": "Increases your freedom with Photo Mode",
-          "gameFilter": ["le2"],
-          "typeFilter": ["qol"]
+          "gameFilters": ["le2"],
+          "typeFilters": ["qol"]
         },
         {
           "name": "Remove Storm Screen Shake",
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/329",
           "description": "Sprint around without a shaking camera",
-          "gameFilter": ["le2"],
-          "typeFilter": ["qol"]
+          "gameFilters": ["le2"],
+          "typeFilters": ["qol"]
         },
         {
           "name": "No Headgear for Squadmates",
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/377",
           "description": "Removes the headgear on several squadmate appearances",
-          "gameFilter": ["le2"],
-          "typeFilter": ["qol"]
+          "gameFilters": ["le2"],
+          "typeFilters": ["qol"]
         },
         {
           "name": "No Saving-Loading Text",
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/785",
           "description": "Removes the text that accompanies the loading/saving symbols",
-          "gameFilter": ["le2"],
-          "typeFilter": ["interface"]
+          "gameFilters": ["le2"],
+          "typeFilters": ["interface"]
         },
         {
           "name": "Flipped Kuwashii Visor",
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/601",
           "description": "Flips a head armor piece to facilitate some hairstyles",
-          "gameFilter": ["le2"],
-          "typeFilter": ["apparel"]
+          "gameFilters": ["le2"],
+          "typeFilters": ["apparel"]
         },
         {
           "name": "Faster Tracers",
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/731",
           "description": "Makes the bullet tracer effect move faster",
-          "gameFilter": ["le2"],
-          "typeFilter": ["qol"]
+          "gameFilters": ["le2"],
+          "typeFilters": ["qol"]
         },
         {
           "name": "LE2 Mission Results Screen Fix",
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/896",
           "description": "Corrects the size of the UI in the Mission Complete screen",
-          "gameFilter": ["le2"],
-          "typeFilter": ["interface"]
+          "gameFilters": ["le2"],
+          "typeFilters": ["interface"]
         },
         {
           "name": "Planet Scanner Mouse Speed Increase",
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/586",
           "description": "Increases the movement speed of the planet scanning reticle",
-          "gameFilter": ["le2"],
-          "typeFilter": ["qol"]
+          "gameFilters": ["le2"],
+          "typeFilters": ["qol"]
         },
         {
            "name": "Improved Photo Mode",
            "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/424",
            "description": "Increases your freedom with Photo Mode",
-           "gameFilter": ["le3"],
-           "typeFilter": ["apparel"]
+           "gameFilters": ["le3"],
+           "typeFilters": ["apparel"]
         },
         {
            "name": "Remove Storm Screen Shake",
            "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/310",
            "description": "Sprint around without a shaking camera",
-           "gameFilter": ["le3"],
-           "typeFilter": ["qol"]
+           "gameFilters": ["le3"],
+           "typeFilters": ["qol"]
         },
         {
            "name": "No Shotgun Firing Delay",
            "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/591",
            "description": "Removes the delay between pulling the trigger and actually shooting shotguns",
-           "gameFilter": ["le3"],
-           "typeFilter": ["gameplay"]
+           "gameFilters": ["le3"],
+           "typeFilters": ["gameplay"]
         },
         {
           "name": "Anderson’s Final Conversation Restored",
           "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/658",
           "description": "Restores a cut conversation with Anderson",
-          "gameFilter": ["le3"],
-          "typeFilter": ["gameplay"]
+          "gameFilters": ["le3"],
+          "typeFilters": ["gameplay"]
         },
         {
            "name": "Omega Interrupt for All Tech Classes",
            "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/537",
            "description": "Widens the accessibility of a class-specific interrupt",
-           "gameFilter": ["le3"],
-           "typeFilter": ["gameplay"]
+           "gameFilters": ["le3"],
+           "typeFilters": ["gameplay"]
         },
         {
            "name": "LE3 Community Patch",
            "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/13",
            "description": "Major bugfix mod",
-           "gameFilter": ["le3"],
-           "typeFilter": ["qol"]
+           "gameFilters": ["le3"],
+           "typeFilters": ["qol"]
         },
         {
            "name": "LE3 Storm Improvements",
            "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/626",
            "description": "Improves sprinting with various options to choose from",
-           "gameFilter": ["le3"],
-           "typeFilter": ["qol"]
+           "gameFilters": ["le3"],
+           "typeFilters": ["qol"]
         },
         {
            "name": "Planet Scanner Mouse Speed Increase",
            "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/747/",
            "description": "Increases the movement speed of the planet scanning reticle",
-           "gameFilter": ["le3"],
-           "typeFilter": ["qol"]
+           "gameFilters": ["le3"],
+           "typeFilters": ["qol"]
         },
         {
            "name": "Smaller Interface Mod",
            "link": "https://www.nexusmods.com/masseffectlegendaryedition/mods/1402/",
            "description": "Reduces the gameplay/combat UI to something more suitable for a PC experience",
-           "gameFilter": ["le3"],
-           "typeFilter": ["interface"]
+           "gameFilters": ["le3"],
+           "typeFilters": ["interface"]
         }
   ]
 }
