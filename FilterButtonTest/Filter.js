@@ -10,11 +10,36 @@ itemList.appendChild(noResultsMessage);
 function createListItem(item) {
   const listItem = document.createElement('li');
   listItem.classList.add('item');
-  listItem.classList.add(...item.typeFilters.map(filter => `${filter}-item`));
-  listItem.classList.add(...item.gameFilters.map(filter => `${filter}-item`));
+  
+  if (item.typeFilter) {
+    listItem.classList.add(`${item.typeFilter}-item`);
+    listItem.typeFilter = item.typeFilter;
+  
+    const typeFilterButton = document.createElement('button');
+    typeFilterButton.className = 'filter-button type-filter-button';
+    typeFilterButton.dataset.filter = item.typeFilter;
+    typeFilterButton.textContent = item.typeFilter;
+    const typeFilterContainer = document.createElement('div');
+    typeFilterContainer.className = 'type-filter-container';
+    typeFilterContainer.appendChild(typeFilterButton);
+    listItem.appendChild(typeFilterContainer);
+  }
+  
+  if (item.gameFilter) {
+    listItem.classList.add(`${item.gameFilter}-item`);
+    listItem.gameFilter = item.gameFilter;
+    
+    const gameFilterButton = document.createElement('button');
+    gameFilterButton.className = 'filter-button game-filter-button';
+    gameFilterButton.dataset.filter = item.gameFilter;
+    gameFilterButton.textContent = item.gameFilter;
+    const gameFilterContainer = document.createElement('div');
+    gameFilterContainer.className = 'game-filter-container';
+    gameFilterContainer.appendChild(gameFilterButton);
+    listItem.appendChild(gameFilterContainer);
+  }
+
   listItem.classList.add('show');
-  listItem.typeFilters = item.typeFilters;
-  listItem.gameFilters = item.gameFilters;
 
   const link = document.createElement('a');
   link.href = item.link;
@@ -35,28 +60,6 @@ function createListItem(item) {
   const descriptionText = document.createTextNode(item.description);
   description.appendChild(descriptionText);
   listItem.appendChild(description);
-
-  const gameFilterContainer = document.createElement('div');
-  gameFilterContainer.className = 'game-filter-container';
-  item.gameFilters.forEach((filter) => {
-    const button = document.createElement('button');
-    button.className = 'filter-button game-filter-button';
-    button.dataset.filter = filter;
-    button.textContent = filter;
-    gameFilterContainer.appendChild(button);
-  });
-  listItem.appendChild(gameFilterContainer);
-
-  const typeFilterContainer = document.createElement('div');
-  typeFilterContainer.className = 'type-filter-container';
-  item.typeFilters.forEach((filter) => {
-    const button = document.createElement('button');
-    button.className = 'filter-button type-filter-button';
-    button.dataset.filter = filter;
-    button.textContent = filter;
-    typeFilterContainer.appendChild(button);
-  });
-  listItem.appendChild(typeFilterContainer);
 
   return listItem;
 }
