@@ -1,67 +1,67 @@
 {
   "gameFilterss": [
-    {
-      "name": "All",
-      "filter": "allgame"
-    },
-    {
-      "name": "LE1",
-      "filter": "le1"
-    },
-    {
-      "name": "LE2",
-      "filter": "le2"
-    },
-    {
-      "name": "LE3",
-      "filter": "le3"
-    }
+        {
+          "name": "All",
+          "filter": "allgame"
+        },
+        {
+          "name": "LE1",
+          "filter": "le1"
+        },
+        {
+          "name": "LE2",
+          "filter": "le2"
+        },
+        {
+          "name": "LE3",
+          "filter": "le3"
+        }
   ],
   "typeFilterss": [
-    {
-      "name": "All",
-      "filter": "alltype"
-    },
-    {
-      "name": "Apparel",
-      "filter": "apparel"
-    },
-    {
-      "name": "Audio",
-      "filter": "audio"
-    },
-    {
-      "name": "Characters",
-      "filter": "Characters"
-    },
-    {
-      "name": "Gameplay",
-      "filter": "gameplay"
-    },
-    {
-      "name": "Miscellaneous",
-      "filter": "misc"
-    },
-    {
-      "name": "Quality of Life",
-      "filter": "qol"
-    },
-    {
-      "name": "Story",
-      "filter": "story"
-    },
-    {
-      "name": "Interface",
-      "filter": "interface"
-    },
-    {
-      "name": "Visual",
-      "filter": "visual"
-    },
-    {
-      "name": "Weapons",
-      "filter": "weapons"
-    }
+        {
+          "name": "All",
+          "filter": "alltype"
+        },
+        {
+          "name": "Apparel",
+          "filter": "apparel"
+        },
+        {
+          "name": "Audio",
+          "filter": "audio"
+        },
+        {
+          "name": "Characters",
+          "filter": "Characters"
+        },
+        {
+          "name": "Gameplay",
+          "filter": "gameplay"
+        },
+        {
+          "name": "Miscellaneous",
+          "filter": "misc"
+        },
+        {
+          "name": "Quality of Life",
+          "filter": "qol"
+        },
+        {
+          "name": "Story",
+          "filter": "story"
+        },
+        {
+          "name": "Interface",
+          "filter": "interface"
+        },
+        {
+          "name": "Visual",
+          "filter": "visual"
+        },
+        {
+          "name": "Weapons",
+          "filter": "weapons"
+        }
   ],
   "items": [
         {
