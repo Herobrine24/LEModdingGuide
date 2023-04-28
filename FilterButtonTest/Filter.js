@@ -7,43 +7,57 @@ const gameFilterContainer = document.querySelector('.game-filter');
 const itemList = document.querySelector('.item-list');
 itemList.appendChild(noResultsMessage);
 
-function createListItem(item) {	
+function createListItem(item) {
   const listItem = document.createElement('li');
   listItem.classList.add('item');
+  listItem.classList.add(...item.typeFilters.map(filter => `${filter}-item`));
+  listItem.classList.add(...item.gameFilters.map(filter => `${filter}-item`));
+  listItem.classList.add('show');
   listItem.typeFilters = item.typeFilters;
   listItem.gameFilters = item.gameFilters;
-  const link = document.createElement('a');	
-  link.href = item.link;	
-  link.style.color = 'blue';	
-  link.style.display = 'inline';	
-  link.setAttribute('target', '_blank'); // Add this line to set the target attribute	
-  const linkText = document.createTextNode(item.name);	
-  link.appendChild(linkText);	
-  listItem.appendChild(link);	
-  const separator1 = document.createElement('strong');	
-  separator1.appendChild(document.createTextNode(' - '));	
-  listItem.appendChild(separator1);	
-  const typeFilterContainer = document.createElement('span');
-  typeFilterContainer.style.display = 'inline-flex';	
-  typeFilterContainer.style.flexDirection = 'column';
-  item.typeFilters.forEach((typeFilter) => {
-    const typeFilterElement = document.createElement('span');
-    typeFilterElement.textContent = typeFilter;
-    typeFilterContainer.appendChild(typeFilterElement);
+
+  const link = document.createElement('a');
+  link.href = item.link;
+  link.style.color = 'blue';
+  link.style.display = 'inline';
+  link.setAttribute('target', '_blank'); // Add this line to set the target attribute
+  const linkText = document.createTextNode(item.name);
+  link.appendChild(linkText);
+  listItem.appendChild(link);
+
+  const separator = document.createElement('strong');
+  separator.appendChild(document.createTextNode(' - '));
+  listItem.appendChild(separator);
+
+  const description = document.createElement('span');
+  description.style.display = 'inline-flex';
+  description.style.flexDirection = 'column';
+  const descriptionText = document.createTextNode(item.description);
+  description.appendChild(descriptionText);
+  listItem.appendChild(description);
+
+  const gameFilterContainer = document.createElement('div');
+  gameFilterContainer.className = 'game-filter-container';
+  item.gameFilters.forEach((filter) => {
+    const button = document.createElement('button');
+    button.className = 'filter-button game-filter-button';
+    button.dataset.filter = filter;
+    button.textContent = filter;
+    gameFilterContainer.appendChild(button);
+  });
+  listItem.appendChild(gameFilterContainer);
+
+  const typeFilterContainer = document.createElement('div');
+  typeFilterContainer.className = 'type-filter-container';
+  item.typeFilters.forEach((filter) => {
+    const button = document.createElement('button');
+    button.className = 'filter-button type-filter-button';
+    button.dataset.filter = filter;
+    button.textContent = filter;
+    typeFilterContainer.appendChild(button);
   });
   listItem.appendChild(typeFilterContainer);
-  const separator2 = document.createElement('strong');	
-  separator2.appendChild(document.createTextNode(' - '));	
-  listItem.appendChild(separator2);	
-  const gameFilterContainer = document.createElement('span');
-  gameFilterContainer.style.display = 'inline-flex';	
-  gameFilterContainer.style.flexDirection = 'column';
-  item.gameFilters.forEach((gameFilter) => {
-    const gameFilterElement = document.createElement('span');
-    gameFilterElement.textContent = gameFilter;
-    gameFilterContainer.appendChild(gameFilterElement);
-  });
-  listItem.appendChild(gameFilterContainer);	
+
   return listItem;
 }
 
@@ -97,7 +111,7 @@ function updateItemsVisibility() {
   // Get the active game and type filters
   const activeGameFilters = Array.from(activeGameButtons).map(button => button.dataset.filter);
   const activeTypeFilters = Array.from(activeTypeButtons).map(button => button.dataset.filter);
-  
+
   // If no game filter is selected, select "allgame"
   if (activeGameFilters.length === 0) {
     allGameButton.classList.add("active");
@@ -108,12 +122,12 @@ function updateItemsVisibility() {
     allTypeButton.classList.add("active");
     activeTypeFilters.push("alltype");
   }
-  
+
   // Show items based on active filters
   const allItems = itemList.querySelectorAll('.item');
   allItems.forEach(item => {
-    const matchesTypeFilter = activeTypeFilters.includes('alltype') || item.typeFilters.some((typeFilter) => activeTypeFilters.includes(typeFilter));
-    const matchesGameFilter = activeGameFilters.includes('allgame') || item.gameFilters.some((gameFilter) => activeGameFilters.includes(gameFilter));
+    const matchesTypeFilter = activeTypeFilters.includes('alltype') || item.typeFilters.some(filter => activeTypeFilters.includes(filter));
+    const matchesGameFilter = activeGameFilters.includes('allgame') || item.gameFilters.some(filter => activeGameFilters.includes(filter));
 
     if (matchesTypeFilter && matchesGameFilter) {
       item.classList.add('show');
