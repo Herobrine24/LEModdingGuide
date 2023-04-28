@@ -30,7 +30,7 @@
       "name": "Audio",
       "filter": "audio"
     },
-	{
+    {
       "name": "Characters",
       "filter": "Characters"
     },
@@ -38,15 +38,15 @@
       "name": "Gameplay",
       "filter": "gameplay"
     },
-	{
+    {
       "name": "Miscellaneous",
       "filter": "misc"
     },
     {
       "name": "Quality of Life",
       "filter": "qol"
-    }
-	{
+    },
+    {
       "name": "Story",
       "filter": "story"
     },
@@ -54,11 +54,11 @@
       "name": "Interface",
       "filter": "interface"
     },
-	{
+    {
       "name": "Visual",
       "filter": "visual"
     },
-	{
+    {
       "name": "Weapons",
       "filter": "weapons"
     },
