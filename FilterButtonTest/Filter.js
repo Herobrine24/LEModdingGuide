@@ -124,13 +124,15 @@ function updateItemsVisibility() {
     console.log('Game filter:', item.dataset.gameFilter);
 
     if (activeTypeFilters.length > 0 && item.dataset.typeFilter) {
-      matchesTypeFilter = activeTypeFilters.some(filter => item.dataset.typeFilter.includes(filter));
+      const itemFilters = item.dataset.typeFilter.split(' ');
+      matchesTypeFilter = activeTypeFilters.every(filter => itemFilters.includes(filter));
     } else if (activeTypeFilters.length === 0 && !allTypeButton.classList.contains('active')) {
       matchesTypeFilter = false;
     }
 
     if (activeGameFilters.length > 0 && item.dataset.gameFilter) {
-      matchesGameFilter = activeGameFilters.some(filter => item.dataset.gameFilter.includes(filter));
+      const itemFilters = item.dataset.gameFilter.split(' ');
+      matchesGameFilter = activeGameFilters.every(filter => itemFilters.includes(filter));
     } else if (activeGameFilters.length === 0 && !allGameButton.classList.contains('active')) {
       matchesGameFilter = false;
     }
