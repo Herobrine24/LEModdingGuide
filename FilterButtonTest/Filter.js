@@ -112,8 +112,8 @@ activeTypeFilters.push("alltype");
 // Show items based on active filters
 const allItems = itemList.querySelectorAll('.item');
 allItems.forEach(item => {
-const matchesTypeFilter = activeTypeFilters.includes('alltype') || item.typeFilter === item.typeFilter && activeTypeFilters.includes(item.typeFilter);
-const matchesGameFilter = activeGameFilters.includes('allgame') || item.gameFilter === item.gameFilter && activeGameFilters.includes(item.gameFilter);
+const matchesTypeFilter = activeTypeFilters.includes('alltype') || activeTypeFilters.includes(item.typeFilter);
+const matchesGameFilter = activeGameFilters.includes('allgame') || activeGameFilters.includes(item.gameFilter);
 
 if (matchesTypeFilter && matchesGameFilter) {
   item.classList.add('show');
