@@ -8,23 +8,23 @@ const itemList = document.querySelector('.item-list');
 itemList.appendChild(noResultsMessage);
 
 function createListItem(item) {
+  console.log('Creating list item for', item);
+
   const listItem = document.createElement('li');
   listItem.classList.add('item');
   listItem.classList.add('show');
 
   if (item.typeFilters) {
-    item.typeFilters.forEach(filter => {
+    item.typeFilter = item.typeFilters.map(filter => filter.toLowerCase());
+    item.typeFilter.forEach(filter => {
       listItem.classList.add(`${filter}-item`);
-      item.typeFilter = item.typeFilters.map(filter => filter.toLowerCase());
-      console.log('Set typeFilter to', filter, 'for', item.name);
     });
   }
 
   if (item.gameFilters) {
-    item.gameFilters.forEach(filter => {
+    item.gameFilter = item.gameFilters.map(filter => filter.toLowerCase());
+    item.gameFilter.forEach(filter => {
       listItem.classList.add(`${filter}-item`);
-      item.gameFilter = item.gameFilters.map(filter => filter.toLowerCase());
-      console.log('Set gameFilter to', filter, 'for', item.name);
     });
   }
 
@@ -94,6 +94,7 @@ itemList.appendChild(listItem);
 });
 
 function updateItemsVisibility() {
+  console.log('Updating item visibility');
   const activeGameButtons = document.querySelectorAll('.game-filter-button.active');
   const activeTypeButtons = document.querySelectorAll('.type-filter-button.active');
 
