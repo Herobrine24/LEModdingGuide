@@ -18,6 +18,7 @@ function createListItem(item) {
     item.typeFilter = item.typeFilters.map(filter => filter.toLowerCase());
     item.typeFilter.forEach(filter => {
       listItem.classList.add(`${filter}-item`);
+      listItem.dataset.typeFilter = item.typeFilter.join(' ');
     });
   }
 
@@ -25,6 +26,7 @@ function createListItem(item) {
     item.gameFilter = item.gameFilters.map(filter => filter.toLowerCase());
     item.gameFilter.forEach(filter => {
       listItem.classList.add(`${filter}-item`);
+      listItem.dataset.gameFilter = item.gameFilter.join(' ');
     });
   }
 
