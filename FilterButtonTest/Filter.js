@@ -118,8 +118,13 @@ function updateItemsVisibility() {
   // Show items based on active filters
   const allItems = itemList.querySelectorAll('.item');
   allItems.forEach(item => {
-    const matchesTypeFilter = activeTypeFilters.includes('alltype') || (item.typeFilter && activeTypeFilters.includes(item.typeFilter));
-    const matchesGameFilter = activeGameFilters.includes('allgame') || (item.gameFilter && activeGameFilters.includes(item.gameFilter));
+  const matchesTypeFilter = activeTypeFilters.includes('alltype') || 
+    (Array.isArray(item.typeFilter) && item.typeFilter.some(filter => activeTypeFilters.includes(filter))) ||
+    (typeof item.typeFilter === 'string' && activeTypeFilters.includes(item.typeFilter));
+
+  const matchesGameFilter = activeGameFilters.includes('allgame') ||
+    (Array.isArray(item.gameFilter) && item.gameFilter.some(filter => activeGameFilters.includes(filter))) ||
+    (typeof item.gameFilter === 'string' && activeGameFilters.includes(item.gameFilter));
 
     console.log('Item:', item, 'Matches type filter?', matchesTypeFilter, 'Matches game filter?', matchesGameFilter);
 
