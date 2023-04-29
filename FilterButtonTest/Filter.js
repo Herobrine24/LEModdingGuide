@@ -143,6 +143,7 @@ function updateItemsVisibility() {
       item.classList.remove('show');
     }
   });
+}
 
 // Initial update of item visibility
 updateItemsVisibility();
@@ -172,4 +173,3 @@ if (button.dataset.filter === "allgame" || button.dataset.filter === "alltype") 
 updateItemsVisibility();
 });
 });
-};
