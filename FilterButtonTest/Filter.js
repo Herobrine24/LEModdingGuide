@@ -117,7 +117,9 @@ function updateItemsVisibility() {
     let matchesTypeFilter = true;
     let matchesGameFilter = true;
 
-    console.log('Item:', item, 'Type filter:', item.typeFilter, 'Game filter:', item.gameFilter);
+    console.log('Item:', item);
+    console.log('Type filter:', item.typeFilter);
+    console.log('Game filter:', item.gameFilter);
 
     if (activeTypeFilters.length > 0 && item.typeFilter) {
       matchesTypeFilter = activeTypeFilters.some(filter => item.typeFilter.includes(filter));
