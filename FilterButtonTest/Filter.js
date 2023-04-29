@@ -118,17 +118,17 @@ function updateItemsVisibility() {
     let matchesGameFilter = true;
 
     console.log('Item:', item);
-    console.log('Type filter:', item.typeFilter);
-    console.log('Game filter:', item.gameFilter);
+    console.log('Type filter:', item.dataset.typeFilter);
+    console.log('Game filter:', item.dataset.gameFilter);
 
-    if (activeTypeFilters.length > 0 && item.typeFilter) {
-      matchesTypeFilter = activeTypeFilters.some(filter => item.typeFilter.includes(filter));
+    if (activeTypeFilters.length > 0 && item.dataset.typeFilter) {
+      matchesTypeFilter = activeTypeFilters.some(filter => item.dataset.typeFilter.includes(filter));
     } else if (activeTypeFilters.length === 0 && !allTypeButton.classList.contains('active')) {
       matchesTypeFilter = false;
     }
 
-    if (activeGameFilters.length > 0 && item.gameFilter) {
-      matchesGameFilter = activeGameFilters.some(filter => item.gameFilter.includes(filter));
+    if (activeGameFilters.length > 0 && item.dataset.gameFilter) {
+      matchesGameFilter = activeGameFilters.some(filter => item.dataset.gameFilter.includes(filter));
     } else if (activeGameFilters.length === 0 && !allGameButton.classList.contains('active')) {
       matchesGameFilter = false;
     }
@@ -143,7 +143,6 @@ function updateItemsVisibility() {
       item.classList.remove('show');
     }
   });
-}
 
 // Initial update of item visibility
 updateItemsVisibility();
