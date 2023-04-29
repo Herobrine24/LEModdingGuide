@@ -15,7 +15,7 @@ function createListItem(item) {
   if (item.typeFilters) {
     item.typeFilters.forEach(filter => {
       listItem.classList.add(`${filter}-item`);
-      listItem.typeFilter = filter;
+      item.typeFilter = item.typeFilters.map(filter => filter.toLowerCase());
       console.log('Set typeFilter to', filter, 'for', item.name);
     });
   }
@@ -23,7 +23,7 @@ function createListItem(item) {
   if (item.gameFilters) {
     item.gameFilters.forEach(filter => {
       listItem.classList.add(`${filter}-item`);
-      listItem.gameFilter = filter;
+      item.gameFilter = item.gameFilters.map(filter => filter.toLowerCase());
       console.log('Set gameFilter to', filter, 'for', item.name);
     });
   }
