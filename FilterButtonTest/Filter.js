@@ -119,19 +119,28 @@ function updateItemsVisibility() {
   // Show items based on active filters
   const allItems = itemList.querySelectorAll('.item');
   allItems.forEach(item => {
-  const matchesTypeFilter = activeTypeFilters.includes('alltype') || 
-    (Array.isArray(item.typeFilter) && item.typeFilter.some(filter => activeTypeFilters.includes(filter))) ||
-    (typeof item.typeFilter === 'string' && activeTypeFilters.includes(item.typeFilter));
+    let matchesTypeFilter = true;
+    let matchesGameFilter = true;
 
-  const matchesGameFilter = activeGameFilters.includes('allgame') ||
-    (Array.isArray(item.gameFilter) && item.gameFilter.some(filter => activeGameFilters.includes(filter))) ||
-    (typeof item.gameFilter === 'string' && activeGameFilters.includes(item.gameFilter));
+    if (activeTypeFilters.length > 0 && item.typeFilter) {
+      matchesTypeFilter = activeTypeFilters.some(filter => item.typeFilter.includes(filter));
+    } else if (activeTypeFilters.length === 0 && !allTypeButton.classList.contains('active')) {
+      matchesTypeFilter = false;
+    }
+
+    if (activeGameFilters.length > 0 && item.gameFilter) {
+      matchesGameFilter = activeGameFilters.some(filter => item.gameFilter.includes(filter));
+    } else if (activeGameFilters.length === 0 && !allGameButton.classList.contains('active')) {
+      matchesGameFilter = false;
+    }
 
     console.log('Item:', item, 'Matches type filter?', matchesTypeFilter, 'Matches game filter?', matchesGameFilter);
 
     if (matchesTypeFilter && matchesGameFilter) {
-      item.classList.add('show')
+      item.classList.add('show');
+      item.classList.remove('hide');
     } else {
+      item.classList.add('hide');
       item.classList.remove('show');
     }
   });
