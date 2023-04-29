@@ -173,3 +173,4 @@ if (button.dataset.filter === "allgame" || button.dataset.filter === "alltype") 
 updateItemsVisibility();
 });
 });
+});
