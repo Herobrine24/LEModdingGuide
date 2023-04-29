@@ -130,9 +130,9 @@ function updateItemsVisibility() {
     console.log('Item:', item, 'Matches type filter?', matchesTypeFilter, 'Matches game filter?', matchesGameFilter);
 
     if (matchesTypeFilter && matchesGameFilter) {
-      item.classList.remove('hidden');
+      item.classList.add('show')
     } else {
-      item.classList.add('hidden');
+      item.classList.remove('show');
     }
   });
 }
