@@ -97,30 +97,27 @@ function updateItemsVisibility() {
   console.log('Updating item visibility');
   const activeGameButtons = document.querySelectorAll('.game-filter-button.active');
   const activeTypeButtons = document.querySelectorAll('.type-filter-button.active');
-
-  // Get the active game and type filters
   const activeGameFilters = Array.from(activeGameButtons).map(button => button.dataset.filter);
   const activeTypeFilters = Array.from(activeTypeButtons).map(button => button.dataset.filter);
 
   console.log('Active game filters:', activeGameFilters);
   console.log('Active type filters:', activeTypeFilters);
 
-  // If no game filter is selected, select "allgame"
   if (activeGameFilters.length === 0) {
     allGameButton.classList.add("active");
     activeGameFilters.push("allgame");
   }
-  // If no type filter is selected, select "alltype"
   if (activeTypeFilters.length === 0) {
     allTypeButton.classList.add("active");
     activeTypeFilters.push("alltype");
   }
 
-  // Show items based on active filters
   const allItems = itemList.querySelectorAll('.item');
   allItems.forEach(item => {
     let matchesTypeFilter = true;
     let matchesGameFilter = true;
+
+    console.log('Item:', item, 'Type filter:', item.typeFilter, 'Game filter:', item.gameFilter);
 
     if (activeTypeFilters.length > 0 && item.typeFilter) {
       matchesTypeFilter = activeTypeFilters.some(filter => item.typeFilter.includes(filter));
@@ -134,7 +131,7 @@ function updateItemsVisibility() {
       matchesGameFilter = false;
     }
 
-    console.log('Item:', item, 'Matches type filter?', matchesTypeFilter, 'Matches game filter?', matchesGameFilter);
+    console.log('Matches type filter?', matchesTypeFilter, 'Matches game filter?', matchesGameFilter);
 
     if (matchesTypeFilter && matchesGameFilter) {
       item.classList.add('show');
