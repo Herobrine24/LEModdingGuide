@@ -18,16 +18,16 @@ function createListItem(item) {
     item.typeFilter = item.typeFilters.map(filter => filter.toLowerCase());
     item.typeFilter.forEach(filter => {
       listItem.classList.add(`${filter}-item`);
-      listItem.dataset.typeFilter = item.typeFilter.join(' ');
     });
+    listItem.dataset.typeFilter = item.typeFilter; // set the dataset property to the array
   }
 
   if (item.gameFilters) {
     item.gameFilter = item.gameFilters.map(filter => filter.toLowerCase());
     item.gameFilter.forEach(filter => {
       listItem.classList.add(`${filter}-item`);
-      listItem.dataset.gameFilter = item.gameFilter.join(' ');
     });
+    listItem.dataset.gameFilter = item.gameFilter; // set the dataset property to the array
   }
 
   const link = document.createElement('a');
@@ -105,14 +105,8 @@ function updateItemsVisibility() {
   console.log('Active game filters:', activeGameFilters);
   console.log('Active type filters:', activeTypeFilters);
 
-  if (activeGameFilters.length === 0) {
-    allGameButton.classList.add("active");
-    activeGameFilters.push("allgame");
-  }
-  if (activeTypeFilters.length === 0) {
-    allTypeButton.classList.add("active");
-    activeTypeFilters.push("alltype");
-  }
+  let matchesTypeFilter = activeTypeFilters.length === 0; // initialize to false if there are active filters
+  let matchesGameFilter = activeGameFilters.length === 0; // initialize to false if there are active filters
 
   const allItems = itemList.querySelectorAll('.item');
   allItems.forEach(item => {
