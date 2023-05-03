@@ -52,7 +52,8 @@ function createListItem(item) {
 
   return listItem;
 }
-
+console.log(`Adding click event listener to button with data-filter="${filter}"`);
+console.log(button);
 // Load data from Filter.json
 fetch('Filter.json')
   .then(response => response.json())
