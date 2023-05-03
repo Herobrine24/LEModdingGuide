@@ -5,7 +5,7 @@ noResultsMessage.textContent = 'No results found';
 const typeFilterContainer = document.querySelector('.type-filter');
 const gameFilterContainer = document.querySelector('.game-filter');
 const itemList = document.querySelector('.item-list');
-itemList.appendChild(noResultsMessage);
+itemList.parentNode.insertBefore(noResultsMessage, itemList.nextSibling); // add noResultsMessage as a sibling of itemList
 
 function createListItem(item) {
   console.log('Creating list item for', item);
