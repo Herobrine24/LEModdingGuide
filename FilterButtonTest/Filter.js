@@ -106,6 +106,7 @@ function updateItemsVisibility() {
   console.log('Active type filters:', activeTypeFilters);
 
   const allItems = itemList.querySelectorAll('.item');
+  let visibleItemCount = 0; // added variable to count visible items
   allItems.forEach(item => {
     console.log('Item:', item);
     console.log('Type filter:', item.dataset.typeFilter);
@@ -134,14 +135,45 @@ function updateItemsVisibility() {
 
     console.log('Matches type filter?', matchesTypeFilterItem, 'Matches game filter?', matchesGameFilterItem);
 
-    if (matchesTypeFilterItem && matchesGameFilterItem) {
-      item.classList.add('show');
-      item.classList.remove('hide');
+    // handle "allgame" and "alltype" filters separately
+    if (allGameButton.classList.contains('active')) {
+      if (matchesTypeFilterItem) {
+        item.classList.add('show');
+        item.classList.remove('hide');
+        visibleItemCount++; // increment visible item count
+      } else {
+        item.classList.add('hide');
+        item.classList.remove('show');
+      }
+    } else if (allTypeButton.classList.contains('active')) {
+      if (matchesGameFilterItem) {
+        item.classList.add('show');
+        item.classList.remove('hide');
+        visibleItemCount++; // increment visible item count
+      } else {
+        item.classList.add('hide');
+        item.classList.remove('show');
+      }
     } else {
-      item.classList.add('hide');
-      item.classList.remove('show');
+      if (matchesTypeFilterItem && matchesGameFilterItem) {
+        item.classList.add('show');
+        item.classList.remove('hide');
+        visibleItemCount++; // increment visible item count
+      } else {
+        item.classList.add('hide');
+        item.classList.remove('show');
+      }
     }
   });
+
+  // show or hide the noResultsMessage based on the visible item count
+  if (visibleItemCount > 0) {
+    noResultsMessage.classList.add('hide');
+    noResultsMessage.classList.remove('show');
+  } else {
+    noResultsMessage.classList.add('show');
+    noResultsMessage.classList.remove('hide');
+  }
 }
 
 // Initial update of item visibility
