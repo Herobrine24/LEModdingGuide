@@ -5,7 +5,7 @@ noResultsMessage.textContent = 'No results found';
 const typeFilterContainer = document.querySelector('.type-filter');
 const gameFilterContainer = document.querySelector('.game-filter');
 const itemList = document.querySelector('.item-list');
-itemList.parentNode.insertBefore(noResultsMessage, itemList.nextSibling); // add noResultsMessage as a sibling of itemList
+itemList.parentNode.insertBefore(noResultsMessage, itemList.nextSibling);
 
 function createListItem(item) {
   console.log('Creating list item for', item);
@@ -65,7 +65,7 @@ fetch('Filter.json')
 
     // Add click event listeners to type filter buttons
     typeFilters.forEach(filter => {
-      const button = document.querySelector(`.type-filter button[data-filter="${filter}"]`);
+      const button = document.querySelector('.type-filter button[data-filter="' + filter + '"]');
       button.addEventListener('click', () => {
         toggleButtonActive(button);
 
