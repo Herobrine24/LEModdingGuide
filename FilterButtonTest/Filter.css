@@ -25,10 +25,16 @@
   margin: 0;
 }
 
-.item {
+.item.show {
+  display: block;
+}
+
+.item.hide {
   display: none;
 }
 
-.item.show {
-  display: block;
+.no-results-message {
+  display: none;
+  font-weight: bold;
+  margin-top: 10px;
 }
