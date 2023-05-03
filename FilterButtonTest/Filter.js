@@ -105,36 +105,36 @@ function updateItemsVisibility() {
   console.log('Active game filters:', activeGameFilters);
   console.log('Active type filters:', activeTypeFilters);
 
-  let matchesTypeFilter = false; // updated initialization
-  let matchesGameFilter = false; // updated initialization
-
   const allItems = itemList.querySelectorAll('.item');
   allItems.forEach(item => {
     console.log('Item:', item);
     console.log('Type filter:', item.dataset.typeFilter);
     console.log('Game filter:', item.dataset.gameFilter);
 
+    let matchesTypeFilterItem = false;
+    let matchesGameFilterItem = false;
+
     if (activeTypeFilters.length > 0 && item.dataset.typeFilter) {
       const itemFilters = item.dataset.typeFilter.split(' ');
-      matchesTypeFilter = activeTypeFilters.every(filter => itemFilters.includes(filter));
+      matchesTypeFilterItem = activeTypeFilters.every(filter => itemFilters.includes(filter));
     } else if (activeTypeFilters.length === 0 && !allTypeButton.classList.contains('active')) {
-      matchesTypeFilter = false;
+      matchesTypeFilterItem = false;
     } else {
-      matchesTypeFilter = true;
+      matchesTypeFilterItem = true;
     }
 
     if (activeGameFilters.length > 0 && item.dataset.gameFilter) {
       const itemFilters = item.dataset.gameFilter.split(' ');
-      matchesGameFilter = activeGameFilters.every(filter => itemFilters.includes(filter));
+      matchesGameFilterItem = activeGameFilters.every(filter => itemFilters.includes(filter));
     } else if (activeGameFilters.length === 0 && !allGameButton.classList.contains('active')) {
-      matchesGameFilter = false;
+      matchesGameFilterItem = false;
     } else {
-      matchesGameFilter = true;
+      matchesGameFilterItem = true;
     }
 
-    console.log('Matches type filter?', matchesTypeFilter, 'Matches game filter?', matchesGameFilter);
+    console.log('Matches type filter?', matchesTypeFilterItem, 'Matches game filter?', matchesGameFilterItem);
 
-    if (matchesTypeFilter && matchesGameFilter) {
+    if (matchesTypeFilterItem && matchesGameFilterItem) {
       item.classList.add('show');
       item.classList.remove('hide');
     } else {
