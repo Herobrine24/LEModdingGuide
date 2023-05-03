@@ -14,16 +14,16 @@ function createListItem(item) {
   listItem.classList.add('item');
   listItem.classList.add('show');
 
-  if (item.typeFilters) {
-    item.typeFilter = item.typeFilters.map(filter => filter.toLowerCase());
+  if (item.typeFilter) { // Updated property name
+    item.typeFilter = item.typeFilter.map(filter => filter.toLowerCase()); // Updated property name
     item.typeFilter.forEach(filter => {
       listItem.classList.add(`${filter}-item`);
     });
     listItem.dataset.typeFilter = item.typeFilter; // set the dataset property to the array
   }
 
-  if (item.gameFilters) {
-    item.gameFilter = item.gameFilters.map(filter => filter.toLowerCase());
+  if (item.gameFilter) { // Updated property name
+    item.gameFilter = item.gameFilter.map(filter => filter.toLowerCase()); // Updated property name
     item.gameFilter.forEach(filter => {
       listItem.classList.add(`${filter}-item`);
     });
@@ -105,14 +105,11 @@ function updateItemsVisibility() {
   console.log('Active game filters:', activeGameFilters);
   console.log('Active type filters:', activeTypeFilters);
 
-  let matchesTypeFilter = activeTypeFilters.length === 0; // initialize to false if there are active filters
-  let matchesGameFilter = activeGameFilters.length === 0; // initialize to false if there are active filters
+  let matchesTypeFilter = false; // updated initialization
+  let matchesGameFilter = false; // updated initialization
 
   const allItems = itemList.querySelectorAll('.item');
   allItems.forEach(item => {
-    let matchesTypeFilter = true;
-    let matchesGameFilter = true;
-
     console.log('Item:', item);
     console.log('Type filter:', item.dataset.typeFilter);
     console.log('Game filter:', item.dataset.gameFilter);
@@ -122,6 +119,8 @@ function updateItemsVisibility() {
       matchesTypeFilter = activeTypeFilters.every(filter => itemFilters.includes(filter));
     } else if (activeTypeFilters.length === 0 && !allTypeButton.classList.contains('active')) {
       matchesTypeFilter = false;
+    } else {
+      matchesTypeFilter = true;
     }
 
     if (activeGameFilters.length > 0 && item.dataset.gameFilter) {
@@ -129,6 +128,8 @@ function updateItemsVisibility() {
       matchesGameFilter = activeGameFilters.every(filter => itemFilters.includes(filter));
     } else if (activeGameFilters.length === 0 && !allGameButton.classList.contains('active')) {
       matchesGameFilter = false;
+    } else {
+      matchesGameFilter = true;
     }
 
     console.log('Matches type filter?', matchesTypeFilter, 'Matches game filter?', matchesGameFilter);
