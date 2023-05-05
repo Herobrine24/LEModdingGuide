@@ -193,33 +193,3 @@ updateItemsVisibility();
 });
 });
 });
-
-// Initial update of item visibility
-updateItemsVisibility();
-
-// Add click event listener to each filter button
-filterButtons.forEach((button) => {
-button.addEventListener("click", () => {
-// Toggle active class for clicked filter button
-button.classList.toggle("active");
-
-// If "All" button is clicked, deactivate other buttons in the same group
-if (button.dataset.filter === "allgame" || button.dataset.filter === "alltype") {
-const buttonFilterGroup = button.classList.contains('type-filter-button') ? '.type-filter-button' : '.game-filter-button';
-const filterButtonsInGroup = document.querySelectorAll(buttonFilterGroup);
-filterButtonsInGroup.forEach((btn) => {
-if (btn !== button) {
-btn.classList.remove("active");
-}
-});
-} else {
-// If any other button is clicked, deactivate the corresponding "All" button
-const allFilter = button.classList.contains('type-filter-button') ? 'alltype' : 'allgame';
-document.querySelector(`[data-filter="${allFilter}"]`).classList.remove("active");
-}
-
-// Update items visibility
-updateItemsVisibility();
-});
-});
-});
