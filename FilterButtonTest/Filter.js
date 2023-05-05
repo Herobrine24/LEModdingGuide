@@ -1,7 +1,13 @@
-const typeFilterContainer = document.querySelector('.type-filter');
-const gameFilterContainer = document.querySelector('.game-filter');
 const itemList = document.querySelector('.item-list');
-itemList.parentNode.insertBefore(noResultsMessage, itemList.nextSibling); // add noResultsMessage as a sibling of itemList
+const noResultsMessage = document.createElement('div');
+noResultsMessage.className = 'no-results-message';
+noResultsMessage.textContent = 'No results found';
+itemList.parentNode.insertBefore(noResultsMessage, itemList.nextSibling);
+
+// Verify that the noResultsMessage element is the next sibling of the itemList element
+if (itemList.nextSibling !== noResultsMessage) {
+  console.error('noResultsMessage element is not properly positioned as a sibling of the itemList element');
+}
 
 function createListItem(item) {
 console.log('Creating list item for', item);
@@ -150,10 +156,7 @@ function updateItemsVisibility() {
     }
   });
 
-  // show or hide and create the noResultsMessage based on the visible item count
-  const noResultsMessage = document.createElement('div');
-  noResultsMessage.className = 'no-results-message';
-  noResultsMessage.textContent = 'No results found';
+  // show or hide the noResultsMessage based on the visible item count
   if (visibleItemCount > 0) {
     noResultsMessage.classList.add('hide');
     noResultsMessage.classList.remove('show');
