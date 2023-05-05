@@ -1,7 +1,3 @@
-// Create no results message element
-const noResultsMessage = document.createElement('div');
-noResultsMessage.className = 'no-results-message';
-noResultsMessage.textContent = 'No results found';
 const typeFilterContainer = document.querySelector('.type-filter');
 const gameFilterContainer = document.querySelector('.game-filter');
 const itemList = document.querySelector('.item-list');
@@ -154,7 +150,7 @@ function updateItemsVisibility() {
     }
   });
 
-  // show or hide the noResultsMessage based on the visible item count
+  // show or hide and create the noResultsMessage based on the visible item count
   const noResultsMessage = document.createElement('div');
   noResultsMessage.className = 'no-results-message';
   noResultsMessage.textContent = 'No results found';
