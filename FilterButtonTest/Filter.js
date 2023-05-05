@@ -131,34 +131,14 @@ if (activeGameFilters.includes('allgame')) {
 
 console.log('Matches type filter?', matchesTypeFilterItem, 'Matches game filter?', matchesGameFilterItem);
 
-// handle "allgame" and "alltype" filters separately
-if (allGameButton.classList.contains('active')) {
-  if (matchesTypeFilterItem) {
-    item.classList.add('show');
-    item.classList.remove('hide');
-    visibleItemCount++; // increment visible item count
-  } else {
-    item.classList.add('hide');
-    item.classList.remove('show');
-  }
-} else if (allTypeButton.classList.contains('active')) {
-  if (matchesGameFilterItem) {
-    item.classList.add('show');
-    item.classList.remove('hide');
-    visibleItemCount++; // increment visible item count
-  } else {
-    item.classList.add('hide');
-    item.classList.remove('show');
-  }
+// show or hide list items based on matching filters
+if (matchesTypeFilterItem && matchesGameFilterItem) {
+  item.classList.add('show');
+  item.classList.remove('hide');
+  visibleItemCount++; // increment visible item count
 } else {
-  if (matchesTypeFilterItem && matchesGameFilterItem) {
-    item.classList.add('show');
-    item.classList.remove('hide');
-    visibleItemCount++; // increment visible item count
-  } else {
-    item.classList.add('hide');
-    item.classList.remove('show');
-  }
+  item.classList.add('hide');
+  item.classList.remove('show');
 }
 });
 
