@@ -24,29 +24,27 @@
   padding: 0 10px;	
 }	
 .item-list.list-view {	
+  display: block;	
   list-style: none;	
+  padding: 0;	
+  margin: 0;	
 }	
-.item-grid {	
+.item-list.grid-view {	
   flex-basis: calc(50% - 15px);	
   margin-bottom: 20px;	
   box-sizing: border-box;	
 }	
 @media screen and (min-width: 768px) {	
-  .item-grid {	
+  .item-list.grid-view {	
     flex-basis: calc(33.33% - 20px);	
     margin: 0 10px 20px;	
   }	
 }	
 @media screen and (min-width: 1024px) {	
-  .item-grid {	
+  .item-list.grid-view {	
     flex-basis: calc(25% - 20px);	
     margin: 0 10px 20px;	
   }	
-}	
-.item-list.list-view {	
-  display: block;	
-  padding: 0;	
-  margin: 0;	
 }	
 .item-list.list-view .item-grid {	
   display: block;	
