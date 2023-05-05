@@ -32,9 +32,3 @@
 .item.hide {
   display: none;
 }
-
-.no-results-message {
-  display: none;
-  font-weight: bold;
-  margin-top: 10px;
-}
