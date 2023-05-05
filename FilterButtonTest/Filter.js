@@ -1,8 +1,11 @@
-const itemList = document.querySelector('.item-list');
+// Create no results message element
 const noResultsMessage = document.createElement('div');
 noResultsMessage.className = 'no-results-message';
 noResultsMessage.textContent = 'No results found';
-itemList.parentNode.insertBefore(noResultsMessage, itemList.nextSibling);
+const typeFilterContainer = document.querySelector('.type-filter');
+const gameFilterContainer = document.querySelector('.game-filter');
+const itemList = document.querySelector('.item-list');
+itemList.parentNode.insertBefore(noResultsMessage, itemList.nextSibling); // add noResultsMessage as a sibling of itemList
 
 // Verify that the noResultsMessage element is the next sibling of the itemList element
 if (itemList.nextSibling !== noResultsMessage) {
