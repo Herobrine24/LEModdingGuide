@@ -115,22 +115,18 @@ console.log('Game filter:', item.dataset.gameFilter);
 let matchesTypeFilterItem = false;
 let matchesGameFilterItem = false;
 
-if (activeTypeFilters.length > 0 && item.dataset.typeFilter) {
-  const itemFilters = item.dataset.typeFilter.split(' ');
-  matchesTypeFilterItem = activeTypeFilters.every(filter => itemFilters.includes(filter));
-} else if (activeTypeFilters.length === 0 && !allTypeButton.classList.contains('active')) {
-  matchesTypeFilterItem = false;
-} else {
+if (activeTypeFilters.includes('alltype')) {
   matchesTypeFilterItem = true;
+} else if (item.dataset.typeFilter) {
+  const itemFilters = item.dataset.typeFilter.split(' ');
+  matchesTypeFilterItem = activeTypeFilters.some(filter => itemFilters.includes(filter));
 }
 
-if (activeGameFilters.length > 0 && item.dataset.gameFilter) {
-  const itemFilters = item.dataset.gameFilter.split(' ');
-  matchesGameFilterItem = activeGameFilters.every(filter => itemFilters.includes(filter));
-} else if (activeGameFilters.length === 0 && !allGameButton.classList.contains('active')) {
-  matchesGameFilterItem = false;
-} else {
+if (activeGameFilters.includes('allgame')) {
   matchesGameFilterItem = true;
+} else if (item.dataset.gameFilter) {
+  const itemFilters = item.dataset.gameFilter.split(' ');
+  matchesGameFilterItem = activeGameFilters.some(filter => itemFilters.includes(filter));
 }
 
 console.log('Matches type filter?', matchesTypeFilterItem, 'Matches game filter?', matchesGameFilterItem);
