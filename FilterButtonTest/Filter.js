@@ -6,6 +6,32 @@ const typeFilterContainer = document.querySelector('.type-filter');
 const gameFilterContainer = document.querySelector('.game-filter');
 const itemList = document.querySelector('.item-list');
 itemList.parentNode.insertBefore(noResultsMessage, itemList.nextSibling); // add noResultsMessage as a sibling of itemList
+const listViewButton = document.querySelector('.list-view-button');
+const gridViewButton = document.querySelector('.grid-view-button');
+
+// Set default view to list
+itemList.classList.add('list-view');
+
+// Add click event listener to list view button
+listViewButton.addEventListener('click', () => {
+  if (!itemList.classList.contains('list-view')) {
+    itemList.classList.add('list-view');
+    itemList.classList.remove('grid-view');
+    listViewButton.classList.add('active');
+    gridViewButton.classList.remove('active');
+  }
+});
+
+// Add click event listener to grid view button
+gridViewButton.addEventListener('click', () => {
+  if (!itemList.classList.contains('grid-view')) {
+    itemList.classList.add('grid-view');
+    itemList.classList.remove('list-view');
+    gridViewButton.classList.add('active');
+    listViewButton.classList.remove('active');
+  }
+});
+
 
 // Verify that the noResultsMessage element is the next sibling of the itemList element
 if (itemList.nextSibling !== noResultsMessage) {
