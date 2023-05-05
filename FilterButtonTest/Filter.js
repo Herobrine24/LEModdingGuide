@@ -197,7 +197,7 @@ btn.classList.remove("active");
 } else {
 // If any other button is clicked, deactivate the corresponding "All" button
 const allFilter = button.classList.contains('type-filter-button') ? 'alltype' : 'allgame';
-document.querySelector([data-filter="${allFilter}"]).classList.remove("active");
+document.querySelector(`[data-filter="${allFilter}"]`).classList.remove("active");
 }
 
 // Update items visibility
