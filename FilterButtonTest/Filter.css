@@ -32,3 +32,11 @@
 .item.hide {
   display: none;
 }
+
+.no-results-message.show {
+  display: block;
+}
+
+.no-results-message.hide {
+  display: none;
+}
