@@ -17,7 +17,7 @@ listItem.classList.add('show');
 if (item.typeFilter) { // Updated property name
 item.typeFilter = item.typeFilter.map(filter => filter.toLowerCase()); // Updated property name
 item.typeFilter.forEach(filter => {
-listItem.classList.add(${filter}-item);
+listItem.classList.add(`${filter}-item`);
 });
 listItem.dataset.typeFilter = item.typeFilter; // set the dataset property to the array
 }
@@ -25,7 +25,7 @@ listItem.dataset.typeFilter = item.typeFilter; // set the dataset property to th
 if (item.gameFilter) { // Updated property name
 item.gameFilter = item.gameFilter.map(filter => filter.toLowerCase()); // Updated property name
 item.gameFilter.forEach(filter => {
-listItem.classList.add(${filter}-item);
+listItem.classList.add(`${filter}-item`);
 });
 listItem.dataset.gameFilter = item.gameFilter; // set the dataset property to the array
 }
