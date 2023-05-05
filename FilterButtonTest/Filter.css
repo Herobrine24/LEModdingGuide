@@ -49,15 +49,15 @@
   margin: 0;	
 }	
 .item-list.list-view .item-grid {	
-  display: none;	
-}	
-.item-list.list-view .item {	
   display: block;	
   margin-bottom: 20px;	
   padding: 10px;	
   background-color: #f2f2f2;	
   border: 1px solid #ccc;	
   box-sizing: border-box;	
+}	
+.item-list.list-view .item {	
+  display: block;	
 }	
 .view-toggle {	
   display: flex;	
