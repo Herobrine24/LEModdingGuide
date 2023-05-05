@@ -155,6 +155,9 @@ function updateItemsVisibility() {
   });
 
   // show or hide the noResultsMessage based on the visible item count
+  const noResultsMessage = document.createElement('div');
+  noResultsMessage.className = 'no-results-message';
+  noResultsMessage.textContent = 'No results found';
   if (visibleItemCount > 0) {
     noResultsMessage.classList.add('hide');
     noResultsMessage.classList.remove('show');
