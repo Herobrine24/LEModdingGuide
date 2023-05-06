@@ -1,7 +1,8 @@
 .filter {
-  display: flex;
-  justify-content: center;
+  display: grid;
   margin-bottom: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-gap: 10px;
 }
 
 .filter-button {
@@ -65,6 +66,8 @@
   display: flex;
   justify-content: flex-end;
   margin-bottom: 20px;
+  width: 40%;
+  float: right;
 }
 
 .view-toggle button {
